@@ -33,6 +33,7 @@ import com.symphony.oss.models.chat.canon.facade.MessageId;
 import com.symphony.oss.models.chat.canon.facade.ThreadId;
 import com.symphony.oss.models.fundamental.canon.facade.PodAndUserId;
 import com.symphony.oss.models.fundamental.canon.facade.PodId;
+import com.symphony.oss.models.sbe.id.SbeIdFactory;
 
 public class TestLegacyIdFactory
 {
@@ -47,7 +48,7 @@ public class TestLegacyIdFactory
 
   private static final PodId POD_ID = PodId.newBuilder().build(EXTERNAL_POD_ID);
   
-  private final LegacyIdFactory factory_ = new LegacyIdFactory(INTERNAL_POD_ID, EXTERNAL_POD_ID);
+  private final SbeIdFactory factory_ = new SbeIdFactory(INTERNAL_POD_ID, EXTERNAL_POD_ID);
   
   
   @Test

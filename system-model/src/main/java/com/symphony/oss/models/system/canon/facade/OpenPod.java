@@ -20,6 +20,7 @@ import com.symphony.oss.models.fundamental.canon.facade.IOpenSecurityContext;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenSigningKey;
 import com.symphony.oss.models.fundamental.canon.facade.OpenSecurityContext;
 import com.symphony.oss.models.fundamental.canon.facade.SecurityContextMember;
+import com.symphony.oss.models.fundamental.secret.FundamentalSecretManager;
 import com.symphony.oss.models.fundamental.store.IFundamentalDatabaseWritable;
 import com.symphony.oss.models.fundmental.canon.ISequence;
 import com.symphony.oss.models.fundmental.canon.ISequenceHashes;
@@ -28,10 +29,9 @@ import com.symphony.oss.models.fundmental.canon.SecurityContextPermission;
 import com.symphony.oss.models.fundmental.canon.Sequence;
 import com.symphony.oss.models.fundmental.canon.SequenceHashes;
 import com.symphony.oss.models.fundmental.canon.SequenceType;
+import com.symphony.oss.models.system.CredentialManager;
 import com.symphony.oss.models.system.canon.IPodIdObject;
 import com.symphony.oss.models.system.canon.PodIdObject;
-import com.symphony.s2.model.fundamental.secret.FundamentalSecretManager;
-import com.symphony.s2.model.system.CredentialManager;
 
 /**
  * An open pod, with open operating principal attached.

@@ -15,13 +15,13 @@ import com.symphony.oss.models.fundamental.canon.facade.FundamentalObject;
 import com.symphony.oss.models.fundamental.canon.facade.IFundamentalObject;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenSecurityContext;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenSigningKey;
+import com.symphony.oss.models.fundamental.secret.FundamentalSecretManager;
 import com.symphony.oss.models.fundamental.store.IFundamentalDatabaseWritable;
 import com.symphony.oss.models.fundmental.canon.ISequence;
 import com.symphony.oss.models.fundmental.canon.SecurityContextPermission;
 import com.symphony.oss.models.fundmental.canon.Sequence;
 import com.symphony.oss.models.fundmental.canon.SequenceType;
-import com.symphony.s2.model.fundamental.secret.FundamentalSecretManager;
-import com.symphony.s2.model.system.CredentialManager;
+import com.symphony.oss.models.system.CredentialManager;
 
 /**
  * An open environment.

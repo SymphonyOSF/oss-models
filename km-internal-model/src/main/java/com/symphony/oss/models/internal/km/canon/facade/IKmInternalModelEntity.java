@@ -33,8 +33,8 @@ package com.symphony.oss.models.internal.km.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
-import com.symphony.s2.model.fundamental.crypto.cipher.CipherSuite;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.CipherSuiteId;
 
 public interface IKmInternalModelEntity extends IEntity

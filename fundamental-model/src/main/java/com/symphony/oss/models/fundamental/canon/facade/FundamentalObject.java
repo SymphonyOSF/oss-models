@@ -31,6 +31,7 @@ import org.symphonyoss.s2.common.hash.HashProvider;
 import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 
+import com.symphony.oss.models.fundamental.crypto.cipher.SignatureVerificationException;
 import com.symphony.oss.models.fundmental.canon.DeletedObject;
 import com.symphony.oss.models.fundmental.canon.DeletionType;
 import com.symphony.oss.models.fundmental.canon.FundamentalObjectEntity;
@@ -39,7 +40,6 @@ import com.symphony.oss.models.fundmental.canon.IDeletedObject;
 import com.symphony.oss.models.fundmental.canon.IFundamentalObjectEntity;
 import com.symphony.oss.models.fundmental.canon.ISequenceHashes;
 import com.symphony.oss.models.fundmental.canon.PodFundamentalId;
-import com.symphony.s2.model.fundamental.crypto.cipher.SignatureVerificationException;
 
 /**
  * Facade for Object ObjectSchema(FundamentalObject)

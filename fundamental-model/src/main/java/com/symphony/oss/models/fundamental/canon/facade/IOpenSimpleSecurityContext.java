@@ -12,7 +12,7 @@ import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 
 import com.symphony.oss.models.fundamental.canon.facade.ISimpleSecurityContext;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.EncryptedData;
 
 /**

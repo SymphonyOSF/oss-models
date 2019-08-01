@@ -22,7 +22,7 @@ import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.store.IFugueObject;
 
 import com.symphony.oss.models.fundamental.canon.facade.ISigningKey;
-import com.symphony.s2.model.fundamental.crypto.cipher.SignatureVerificationException;
+import com.symphony.oss.models.fundamental.crypto.cipher.SignatureVerificationException;
 import com.symphony.oss.models.fundmental.canon.IFundamentalObjectEntity;
 
 /**

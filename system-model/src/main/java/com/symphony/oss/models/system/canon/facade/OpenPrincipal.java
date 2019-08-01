@@ -29,6 +29,8 @@ import com.symphony.oss.models.fundamental.canon.facade.PrincipalCredential;
 import com.symphony.oss.models.fundamental.canon.facade.SecurityContextMember;
 import com.symphony.oss.models.fundamental.canon.facade.UserId;
 import com.symphony.oss.models.fundamental.canon.facade.UserIdObject;
+import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.ISequence;
 import com.symphony.oss.models.fundmental.canon.ISequenceHashes;
 import com.symphony.oss.models.fundmental.canon.MembershipStatus;
@@ -37,8 +39,6 @@ import com.symphony.oss.models.fundmental.canon.SecurityContextPermission;
 import com.symphony.oss.models.fundmental.canon.SequenceHashes;
 import com.symphony.oss.models.system.canon.IPrincipalEntity;
 import com.symphony.oss.models.system.canon.PrincipalType;
-import com.symphony.s2.model.fundamental.crypto.cipher.CipherSuite;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
 
 /**
  * An Open Principal, with an IPrincipalCredential attached.

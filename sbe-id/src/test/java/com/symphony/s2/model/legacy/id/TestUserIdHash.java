@@ -38,6 +38,7 @@ import com.symphony.oss.models.fundamental.canon.facade.IUserIdObject;
 import com.symphony.oss.models.fundamental.canon.facade.PodAndUserId;
 import com.symphony.oss.models.fundamental.canon.facade.UserId;
 import com.symphony.oss.models.fundamental.canon.facade.UserIdObject;
+import com.symphony.oss.models.sbe.id.SbeIdFactory;
 
 /**
  * Unit test showing how you could calculate a user hash without using the provided Java libraries
@@ -53,7 +54,7 @@ public class TestUserIdHash
   private static final int LOCAL_USER_ID = 22;
   private static final long EXTERNAL_USER_ID = 11476152614934L;
   
-  private final LegacyIdFactory factory_ = new LegacyIdFactory(INTERNAL_POD_ID, EXTERNAL_POD_ID);
+  private final SbeIdFactory factory_ = new SbeIdFactory(INTERNAL_POD_ID, EXTERNAL_POD_ID);
   
   
   /**

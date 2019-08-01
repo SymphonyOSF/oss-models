@@ -18,6 +18,8 @@ import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.core.trace.NoOpTraceContext;
 
+import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundamental.store.IFundamentalDatabaseWritable;
 import com.symphony.oss.models.fundmental.canon.Base64SecretKey;
 import com.symphony.oss.models.fundmental.canon.EncryptedData;
@@ -26,8 +28,6 @@ import com.symphony.oss.models.fundmental.canon.ISequence;
 import com.symphony.oss.models.fundmental.canon.PemPrivateKey;
 import com.symphony.oss.models.fundmental.canon.Sequence;
 import com.symphony.oss.models.fundmental.canon.SequenceType;
-import com.symphony.s2.model.fundamental.crypto.cipher.CipherSuite;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
 
 /**
  * An open SecurityContext which has private and secret keys available.

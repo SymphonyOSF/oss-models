@@ -30,7 +30,7 @@ import com.symphony.oss.models.fundamental.canon.facade.IOpenSimpleSecurityConte
 import com.symphony.oss.models.fundamental.canon.facade.IVersionedObject;
 import com.symphony.oss.models.fundamental.canon.facade.RotationId;
 import com.symphony.oss.models.fundamental.canon.facade.WrappedKey;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.CipherSuiteId;
 import com.symphony.oss.models.fundmental.canon.ISimpleSecurityContextEntity;
 

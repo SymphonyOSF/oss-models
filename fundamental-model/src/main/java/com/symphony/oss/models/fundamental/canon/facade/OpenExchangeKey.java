@@ -18,7 +18,7 @@ import com.symphony.oss.models.fundamental.canon.facade.IOpenExchangeKey;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenSigningKey;
 import com.symphony.oss.models.fundamental.canon.facade.OpenExchangeKey;
 import com.symphony.oss.models.fundamental.canon.facade.WrappedKey;
-import com.symphony.s2.model.fundamental.crypto.cipher.ISymmetricCipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ISymmetricCipherSuite;
 import com.symphony.oss.models.fundmental.canon.PemPrivateKey;
 
 /**

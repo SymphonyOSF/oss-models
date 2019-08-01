@@ -40,8 +40,8 @@ import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
+import com.symphony.oss.models.fundamental.crypto.cipher.IPublicKeyCipherSuite;
 import com.symphony.oss.models.internal.km.canon.UserKeysEntity;
-import com.symphony.s2.model.fundamental.crypto.cipher.IPublicKeyCipherSuite;
 
 /**
  * Facade for Object ObjectSchema(UserKeys)

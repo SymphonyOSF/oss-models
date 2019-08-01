@@ -34,22 +34,12 @@ import java.security.PrivateKey;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
+import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
-import org.symphonyoss.s2.canon.runtime.IEntity;
-import org.symphonyoss.s2.canon.runtime.IModelRegistry;
-
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-import org.symphonyoss.s2.common.hash.Hash;
-
-import com.symphony.s2.model.fundamental.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
 import com.symphony.oss.models.system.canon.AuthenticationCredentialEntity;
-import com.symphony.oss.models.system.canon.IAuthenticationCredentialEntity;
-import com.symphony.oss.models.system.canon.SystemModel;
-import com.symphony.oss.models.system.canon.facade.IAuthenticationCredential;
 
 /**
  * Facade for Object ObjectSchema(AuthenticationCredential)
@@ -58,7 +48,6 @@ import com.symphony.oss.models.system.canon.facade.IAuthenticationCredential;
  * Generated from ObjectSchema(AuthenticationCredential) at #/components/schemas/AuthenticationCredential
  */
 @Immutable
-@SuppressWarnings("unused")
 public class AuthenticationCredential extends AuthenticationCredentialEntity implements IAuthenticationCredential
 {
   private PrivateKey privateKey_;

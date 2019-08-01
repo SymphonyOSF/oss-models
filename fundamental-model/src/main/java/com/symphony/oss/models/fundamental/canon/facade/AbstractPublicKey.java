@@ -23,8 +23,8 @@ import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 
 import com.symphony.oss.models.fundamental.canon.facade.IAbstractPublicKey;
-import com.symphony.s2.model.fundamental.crypto.cipher.CipherSuite;
-import com.symphony.s2.model.fundamental.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.AbstractPublicKeyEntity;
 
 /**
