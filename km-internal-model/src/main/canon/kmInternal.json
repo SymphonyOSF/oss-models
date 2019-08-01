@@ -1,9 +1,10 @@
 {
 	"canon": "0.0.1",
 	"info": {
-		"title": "Symphony 2.0 Key Manager Internal API",
+		"title": "Symphony Key Manager Internal API - Not supported for customer use.",
 		"license": {
-			"name": "Apache 2.0"
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
 		}
 	},
 	"id": "com.symphony.s2.model.internal.km",

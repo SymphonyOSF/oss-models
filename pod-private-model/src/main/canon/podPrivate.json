@@ -1,9 +1,10 @@
 {
 	"canon": "0.0.1",
 	"info": {
-		"title": "Symphony 2.0 Object Model Pod Private Methods",
+		"title": "Pod Private Model - Methods for use only by members of the pod.",
 		"license": {
-			"name": "Apache 2.0"
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
 		}
 	},
 	"id": "com.symphony.s2.model.podfundamental",
