@@ -82,15 +82,7 @@
       <artifactId>fundamental-model</artifactId>
       <version>${project.version}</version>
     </dependency>
-
-<!--     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>test-utils</artifactId>
-      <version>${project.version}</version>
-      <scope>test</scope>
-    </dependency> -->
-
-
+    
     <dependency>
       <groupId>org.symphonyoss.s2.fugue</groupId>
       <artifactId>fugue-core</artifactId>
