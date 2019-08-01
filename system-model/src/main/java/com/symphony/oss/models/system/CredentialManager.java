@@ -16,6 +16,8 @@
 
 package com.symphony.oss.models.system;
 
+
+@SuppressWarnings("javadoc")
 public class CredentialManager
 {
   public static final String OPERATING_PRINCIPAL_NAME = "ops";

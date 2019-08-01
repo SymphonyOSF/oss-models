@@ -107,8 +107,6 @@ public class ObjectStatusMessage extends ObjectStatusMessageEntity implements IO
         SocialMessageProtos.ObjectStatusMessage statusProto = SocialMessageProtos.ObjectStatusMessage.parseFrom(
             Base64.getDecoder().decode(protobufNode.toString()));
         
-//        mutableJsonObject.clear();
-        
         mutableJsonObject.addIfNotNull("version", "OBJECTSTATUS");
         mutableJsonObject.addIfNotNull("messageId", statusProto.getMessageId());
         mutableJsonObject.addIfNotNull("threadId", statusProto.getThreadId());

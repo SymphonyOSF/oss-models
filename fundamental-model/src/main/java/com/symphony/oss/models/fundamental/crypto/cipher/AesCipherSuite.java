@@ -18,13 +18,8 @@
 
 package com.symphony.oss.models.fundamental.crypto.cipher;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.StringReader;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
-import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
@@ -40,16 +35,12 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
-import org.bouncycastle.openssl.PEMKeyPair;
-import org.bouncycastle.openssl.PEMParser;
-import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
-import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.symphonyoss.s2.common.fault.CodingFault;
 import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 
-import com.symphony.oss.models.fundmental.canon.EncryptedData;
 import com.symphony.oss.models.fundamental.canon.facade.WrappedKey;
 import com.symphony.oss.models.fundmental.canon.Base64SecretKey;
+import com.symphony.oss.models.fundmental.canon.EncryptedData;
 
 /* package */ class AesCipherSuite implements ISymmetricCipherSuiteImpl
 {

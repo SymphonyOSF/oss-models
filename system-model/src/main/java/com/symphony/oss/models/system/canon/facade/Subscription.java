@@ -49,7 +49,6 @@ import com.symphony.oss.models.system.canon.SubscriptionMetadata;
  * Generated from ObjectSchema(Subscription) at #/components/schemas/Subscription
  */
 @Immutable
-@SuppressWarnings("unused")
 public class Subscription extends SubscriptionEntity implements ISubscription
 {
   public static IFundamentalId getSubscriptionMetadataId(Hash subscriptionBaseHash)

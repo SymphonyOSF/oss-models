@@ -113,9 +113,6 @@ public class PodSigningInfo extends PodSigningInfoEntity implements IPodSigningI
 
   private void initSigningKey()
   {
-//    ISigningKey signingKey = new SigningKey.Builder()
-//      .build();
-    
     ImmutableJsonObject json = ModelRegistry.parseOneJsonObject(getSigningKey().getReader());
     
     FundamentalObject fundamentalObject = new FundamentalObject(json, modelRegistry_);

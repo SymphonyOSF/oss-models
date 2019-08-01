@@ -41,26 +41,6 @@ import com.symphony.oss.models.fundmental.canon.IApplicationObjectEntity;
 public interface IApplicationObject
   extends IApplicationObjectEntity
 {
-//  /**
-//   * Encrypt without signing.
-//   * Should only be used on environment root objects.
-//   * 
-//   * @param securityContext The security context with which to encrypt.
-//   * 
-//   * @return The encrypted blob of this object.
-//   */
-//  IFundamentalObject encrypt(IOpenSecurityContext securityContext, @Nullable TenantId tenantId);
-//
-//  /**
-//   * Encrypt and sign the object with the given context and key.
-//   * 
-//   * @param securityContext The security context with which to encrypt.
-//   * @param principalKey    The key with which to sign.
-//   * 
-//   * @return The encrypted and signed blob of this object.
-//   */
-//  IFundamentalObject encryptAndSign(IOpenSecurityContext securityContext, IOpenSigningKey principalKey, @Nullable TenantId tenantId);
-
   Hash getAbsoluteHash();
 
   Hash getPrevHash();

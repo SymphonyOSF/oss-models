@@ -38,6 +38,10 @@ import com.symphony.oss.models.internal.pod.canon.IAccountInfoEntity;
 public interface IAccountInfo
   extends IAccountInfoEntity
 {
+  /**
+   * 
+   * @return The userId for the account.
+   */
   PodAndUserId getUserId();
 }
 /*----------------------------------------------------------------------------------------------------

@@ -105,9 +105,6 @@ public class FundamentalObject extends FundamentalObjectEntity implements IFunda
    */
   public static abstract class AbstractFundamentalObjectBuilder<B extends AbstractFundamentalObjectBuilder<B,T>, T extends IFundamentalObjectEntity> extends AbstractFundamentalObjectEntityBuilder<B,T>
   {
-//    private IOpenSigningKey openSigningKey_;
-//    private FundamentalPayload.AbstractFundamentalPayloadBuilder<?,?>  payloadBuilder_;
-
     protected Instant   createdDate_;
     protected Instant   purgeDate_;
     
@@ -155,28 +152,6 @@ public class FundamentalObject extends FundamentalObjectEntity implements IFunda
       if(createdDate_ == null)
         createdDate_ = Instant.now();
       
-//      EncodedSignature signature = getSignature();
-//      
-//      if(getPayload() == null)
-//      {
-//        
-//      }
-//      else
-//      {
-//        if(payloadBuilder_ == null)
-//          throw new IllegalStateException("Either payload or payload builder must be provided.");
-//      }
-//      if(getSignature() == null)
-//      {
-//        if(openSigningKey_ == null)
-//        {
-//          throw new IllegalStateException("Either signature or signing key must be provided.");
-//        }
-//        else if(getSigningKeyHash() == null)
-//        {
-//          
-//        }
-//      }
       super.validate();
     }
  }
@@ -354,36 +329,6 @@ public class FundamentalObject extends FundamentalObjectEntity implements IFunda
       
       return self();
     }
-
-//    /**
-//     * Add the hashes of the given ID objects to the list of sequences to which the built object should be added.
-//     * 
-//     * @param sequenceHashes A list of sequences to which the built object should be added.
-//     * 
-//     * @return This (fluent method)
-//     */
-//    public B withSequenceHashes(IFundamentalId ...sequenceHashes)
-//    {
-//      for(IFundamentalId sequenceHash : sequenceHashes)
-//        sequenceHashes_.add(sequenceHash.getAbsoluteHash());
-//      
-//      return self();
-//    }
-//
-//    /**
-//     * Add the given hashes to the list of sequences to which the built object should be added.
-//     * 
-//     * @param sequenceHashes A list of sequences to which the built object should be added.
-//     * 
-//     * @return This (fluent method)
-//     */
-//    public B withSequenceHashes(List<Hash> sequenceHashes)
-//    {
-//      for(Hash sequenceHash : sequenceHashes)
-//        sequenceHashes_.add(sequenceHash);
-//      
-//      return self();
-//    }
   }
   
 
@@ -1026,202 +971,6 @@ public class FundamentalObject extends FundamentalObjectEntity implements IFunda
     
     return container;
   }
-  
-//  /**
-//   * Create a signed fundamental object from the given payload builder.
-//   * 
-//   * @param builder A builder containing the required payload.
-//   * @param signingKey An open signing key with which the object will be signed.
-//   * @param baseHash If non-null then set the given value as the base hash of the created object.
-//   * @param prevHash If non-null then set the given value as the prev hash of the created object.
-//   * @param sequenceHashes  An optional list of sequence hashes for sequences to which the object should be added
-//   * 
-//   * @return The signed fundamental object.
-//   * 
-//   * @deprecated Use VersionedObjectBuilder
-//   * 
-//   * <code>
-//    
-//    new FundamentalObject.VersionedObjectBuilder()
-//        .withSigningKey(signingKey)
-//        .withPayloadBuilder(builder)
-//        .withBaseHash(baseHash)
-//        .withPrevHash(prevHash)
-//        .withSequenceHashes(sequenceHashes)
-//        .build();
-//    
-//   * </code>
-//   */
-//  @Deprecated
-//  public static <T extends IVersionedObject> IFundamentalObject createSigned(VersionedObject.AbstractVersionedObjectBuilder<?,T> builder, IOpenSigningKey signingKey,
-//      @Nullable Hash baseHash, @Nullable Hash prevHash, @Nullable List<Hash> sequenceHashes)
-//  {
-//    return createSigned(builder, signingKey, baseHash, prevHash, sequenceHashes, Instant.now());
-//  }
-//  
-//  /**
-//   * Create a signed fundamental object from the given payload builder.
-//   * 
-//   * @param builder A builder containing the required payload.
-//   * @param signingKey An open signing key with which the object will be signed.
-//   * @param baseHash If non-null then set the given value as the base hash of the created object.
-//   * @param prevHash If non-null then set the given value as the prev hash of the created object.
-//   * @param sequenceHashes  An optional list of sequence hashes for sequences to which the object should be added
-//   * @param createdDate The created date for the object. 
-//   * 
-//   * @return The signed fundamental object.
-//   * 
-//   * @deprecated Use VersionedObjectBuilder
-//   * 
-//   * <code>
-//    
-//    new FundamentalObject.VersionedObjectBuilder()
-//        .withCreatedDate(createdDate)
-//        .withSigningKey(signingKey)
-//        .withPayloadBuilder(builder)
-//        .withBaseHash(baseHash)
-//        .withPrevHash(prevHash)
-//        .withSequenceHashes(sequenceHashes)
-//        .build();
-//    
-//   * </code>
-//   */
-//  @Deprecated
-//  public static <T extends IVersionedObject> IFundamentalObject createSigned(VersionedObject.AbstractVersionedObjectBuilder<?,T> builder, IOpenSigningKey signingKey,
-//      @Nullable Hash baseHash, @Nullable Hash prevHash, @Nullable List<Hash> sequenceHashes, 
-//      Instant createdDate)
-//  {
-//    builder
-//        .withCreatedDate(createdDate)
-//        .withSigningKeyHash(signingKey.getAbsoluteHash())
-//        ;
-//    
-//    if(baseHash != null)
-//      builder.withBaseHash(baseHash);
-//    
-//    if(prevHash != null)
-//      builder.withPrevHash(prevHash);
-//    
-//    if(sequenceHashes != null && !sequenceHashes.isEmpty())
-//      builder.withSequenceHashes(sequenceHashes);
-//    
-//    T payload = builder.build();
-//    
-//    IFundamentalObject container = BUILDER.newInstance()
-//      .withPayload(payload)
-//      .withSignature(signingKey.sign(payload))
-//      .build();
-//    
-//    payload.setPayloadContainer(container);
-//    
-//    return container;
-//  }
-//  
-//  /**
-//   * Create a signed and encrypted application object from the given payload.
-//   * 
-//   * @param applicationPayload The required payload.
-//   * @param securityContext The security context with which to encrypt.
-//   * @param podId An optional pod ID. If set then the security context belongs to a pod operating principal.
-//   * @param baseHash If non-null then set the given value as the base hash of the created object.
-//   * @param prevHash If non-null then set the given value as the prev hash of the created object.
-//   * @param signingKey An open signing key with which the object will be signed.
-//   * @param sequenceHashes  An optional list of sequence hashes for sequences to which the object should be added
-//   * 
-//   * @return The signed and encrypted blob of this object.
-//   * 
-//   * @deprecated Use
-//   * 
-//   * <code>
-//   
-//     new FundamentalObject.ApplicationObjectBuilder()
-//        .withPayload(applicationPayload)
-//        .withPodId(podId)
-//        .withBaseHash(baseHash)
-//        .withPrevHash(prevHash)
-//        .withSecurityContext(securityContext)
-//        .withSigningKey(openSigningKey)
-//        .withSequenceHashes(sequenceHashes)
-//        .build();
-//        
-//   * </code>
-//   */
-//  @Deprecated
-//  public static IFundamentalObject createSignedEncrypted(IOpenSimpleSecurityContext securityContext, IApplicationObject applicationPayload, PodId podId,
-//      @Nullable Hash baseHash, @Nullable Hash prevHash, IOpenSigningKey signingKey, @Nullable List<Hash> sequenceHashes)
-//  {
-//    return createSignedEncrypted(securityContext, applicationPayload, podId, baseHash, prevHash, signingKey, sequenceHashes, Instant.now());
-//  }
-//  
-//  /**
-//   * Create a signed and encrypted application object from the given payload.
-//   * 
-//   * This method should only be used for forwarding legacy objects from a pod.
-//   * 
-//   * @param applicationPayload The required payload.
-//   * @param securityContext The security context with which to encrypt.
-//   * @param podId An optional pod ID. If set then the security context belongs to a pod operating principal.
-//   * @param baseHash If non-null then set the given value as the base hash of the created object.
-//   * @param prevHash If non-null then set the given value as the prev hash of the created object.
-//   * @param signingKey An open signing key with which the object will be signed.
-//   * @param sequenceHashes  An optional list of sequence hashes for sequences to which the object should be added
-//   * @param createdDate The created date for the object.
-//   * 
-//   * @return The signed and encrypted blob of this object.
-//   * 
-//   * @deprecated Use
-//   * 
-//   * <code>
-//   
-//     new FundamentalObject.ApplicationObjectBuilder()
-//        .withCreatedDate(createdDate)
-//        .withSigningKey(openSigningKey)
-//        .withPayload(applicationPayload)
-//        .withPodId(podId)
-//        .withBaseHash(baseHash)
-//        .withPrevHash(prevHash)
-//        .withSecurityContext(securityContext)
-//        .withSigningKey(signingKey)
-//        .withSequenceHashes(sequenceHashes)
-//        .build();
-//        
-//   * </code>
-//   */
-//  @Deprecated
-//  public static IFundamentalObject createSignedEncrypted(IOpenSimpleSecurityContext securityContext, IApplicationObject applicationPayload, PodId podId,
-//      @Nullable Hash baseHash, @Nullable Hash prevHash, IOpenSigningKey signingKey, @Nullable List<Hash> sequenceHashes,
-//      Instant createdDate)
-//  {
-//    Blob.Builder builder = new Blob.Builder()
-//        .withCreatedDate(createdDate)
-//        .withSigningKeyHash(signingKey.getAbsoluteHash())
-//        .withPodId(podId)
-//        .withSecurityContextHash(securityContext.getAbsoluteHash())
-//        .withEncryptedPayload(securityContext.encrypt(applicationPayload))
-//        ;
-//    
-//    if(baseHash != null)
-//      builder.withBaseHash(baseHash);
-//    
-//    if(prevHash != null)
-//      builder.withPrevHash(prevHash);
-//    
-//    if(sequenceHashes != null && !sequenceHashes.isEmpty())
-//      builder.withSequenceHashes(sequenceHashes);
-//    
-//    IBlob blob = builder.build();
-//    
-//    applicationPayload.setBlob(blob);
-//    
-//    IFundamentalObject container = BUILDER.newInstance()
-//      .withPayload(blob)
-//      .withSignature(signingKey.sign(blob))
-//      .build();
-//    
-//    blob.setPayloadContainer(container);
-//    
-//    return container;
-//  }
   
   @Override
   public void verifySignature(ISigningKey signingKey) throws SignatureVerificationException

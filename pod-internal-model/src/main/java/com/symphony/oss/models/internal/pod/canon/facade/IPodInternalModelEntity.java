@@ -28,6 +28,12 @@ package com.symphony.oss.models.internal.pod.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for Pod Internal model entities.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public interface IPodInternalModelEntity extends IEntity
 {
 }

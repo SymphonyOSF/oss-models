@@ -27,18 +27,11 @@ package com.symphony.oss.models.chat.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
+import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
-import org.symphonyoss.s2.canon.runtime.IEntity;
-import org.symphonyoss.s2.canon.runtime.IModelRegistry;
-
-
 import com.symphony.oss.models.chat.canon.BotCredentialEntity;
-import com.symphony.oss.models.chat.canon.IBotCredentialEntity;
-import com.symphony.oss.models.chat.canon.ChatModel;
 
 /**
  * Facade for Object ObjectSchema(BotCredential)
@@ -47,7 +40,6 @@ import com.symphony.oss.models.chat.canon.ChatModel;
  * Generated from ObjectSchema(BotCredential) at #/components/schemas/BotCredential
  */
 @Immutable
-@SuppressWarnings("unused")
 public class BotCredential extends BotCredentialEntity implements IBotCredential
 {
   /**

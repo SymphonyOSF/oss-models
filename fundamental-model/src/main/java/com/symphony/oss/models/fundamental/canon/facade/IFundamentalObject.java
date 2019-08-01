@@ -51,6 +51,7 @@ public interface IFundamentalObject
    * 
    * @return the absolute hash for this object.
    */
+  @Override
   Hash getAbsoluteHash();
   
   /**
@@ -58,6 +59,7 @@ public interface IFundamentalObject
    * 
    * @return The range key for this object.
    */
+  @Override
   String  getRangeKey();
 
   void trace(ITraceContext trace, String operationId);
@@ -69,6 +71,7 @@ public interface IFundamentalObject
    * type of the enclosed application payload.
    * @return a short textual description of this object.
    */
+  @Override
   String getDescription();
 
   /**

@@ -41,7 +41,10 @@ import com.symphony.oss.models.system.canon.IAuthenticationCredentialEntity;
 public interface IAuthenticationCredential
   extends IAuthenticationCredentialEntity
 {
-
+  /**
+   * 
+   * @return The private key for this credential.
+   */
   PrivateKey getPrivateKey();
 }
 /*----------------------------------------------------------------------------------------------------

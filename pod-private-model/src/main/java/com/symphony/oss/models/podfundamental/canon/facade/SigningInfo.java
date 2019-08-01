@@ -38,7 +38,6 @@ import com.symphony.oss.models.podfundamental.canon.SigningInfoEntity;
  * Generated from ObjectSchema(SigningInfo) at #/components/schemas/SigningInfo
  */
 @Immutable
-@SuppressWarnings("unused")
 public class SigningInfo extends SigningInfoEntity implements ISigningInfo
 {
   /**

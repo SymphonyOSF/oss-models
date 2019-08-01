@@ -15,11 +15,11 @@
  *
  *----------------------------------------------------------------------------------------------------
  * Proforma generated from
- *		Template groupId		 org.symphonyoss.s2.canon
+ *    Template groupId     org.symphonyoss.s2.canon
  *           artifactId canon-template-java
- *		Template name		   proforma/java/Model/I_ModelEntity.java.ftl
- *		Template version	   1.0
- *  At                  2019-02-15 10:28:32 GMT
+ *    Template name      proforma/java/Model/I_ModelEntity.java.ftl
+ *    Template version     1.0
+ *  At                  2019-08-01 10:02:21 GMT-07:00
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -28,6 +28,9 @@ package com.symphony.oss.models.calendar.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for Calendar model entities.
+ */
 public interface ICalendarModelEntity extends IEntity
 {
 }

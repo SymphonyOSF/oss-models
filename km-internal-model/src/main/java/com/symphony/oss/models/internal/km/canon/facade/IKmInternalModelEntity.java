@@ -32,10 +32,21 @@ import com.symphony.oss.models.fundamental.crypto.cipher.CipherSuite;
 import com.symphony.oss.models.fundamental.crypto.cipher.ICipherSuite;
 import com.symphony.oss.models.fundmental.canon.CipherSuiteId;
 
+/**
+ * Base interface for all KM Internal model entities.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public interface IKmInternalModelEntity extends IEntity
 {
+  /** The ID of the CipherSuite used by SBE */
   static final CipherSuiteId       SbeCipherSuiteId = CipherSuiteId.RSA2048_AES256;
   
+  /**
+   * 
+   * @return The CipherSuite to be used with this object. This is currently fixed.
+   */
   default ICipherSuite getCipherSuite()
   {
     return CipherSuite.get(SbeCipherSuiteId);

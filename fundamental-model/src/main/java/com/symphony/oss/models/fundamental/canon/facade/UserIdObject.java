@@ -41,7 +41,6 @@ import com.symphony.oss.models.fundmental.canon.UserIdObjectEntity;
  * Generated from ObjectSchema(UserIdObject) at #/components/schemas/UserIdObject
  */
 @Immutable
-@SuppressWarnings("unused")
 public class UserIdObject extends UserIdObjectEntity implements IUserIdObject
 {
   /**

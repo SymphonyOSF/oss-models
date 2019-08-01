@@ -29,7 +29,7 @@ package com.symphony.oss.models.podfundamental.canon.facade;
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
 /**
- * Base interface for allegro model entities.
+ * Base interface for PodPrivate model entities.
  */
 public interface IPodPrivateModelEntity extends IEntity
 {

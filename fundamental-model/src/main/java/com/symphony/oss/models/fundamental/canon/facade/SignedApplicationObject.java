@@ -43,7 +43,6 @@ import com.symphony.oss.models.fundmental.canon.SignedApplicationObjectEntity;
  * Generated from ObjectSchema(SignedApplicationObject) at #/components/schemas/SignedApplicationObject
  */
 @Immutable
-@SuppressWarnings("unused")
 public class SignedApplicationObject extends SignedApplicationObjectEntity implements ISignedApplicationObject
 {
   /**

@@ -27,18 +27,47 @@ package com.symphony.oss.models.fundamental.canon.facade;
    
 import java.time.Instant;
 
+/**
+ * A builder for Instants.
+ * 
+ * This is just so Canon generated code can use Instant in the same way as a generated typedef.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public class InstantBuilder
 {
+  /**
+   * Parse an Instant from the given string value.
+   * 
+   * @param value An instant in the ISO format.
+   * 
+   * @return An Instant value.
+   */
   public static Instant build(String value)
   {
     return Instant.parse(value);
   }
   
+  /**
+   * Return the string (ISO) encoding of the given Instant value.
+   * 
+   * @param instance An Instant value.
+   * 
+   * @return The string (ISO) encoding of the given Instant value.
+   */
   public static String toString(Instant instance)
   {
     return instance.toString();
   }
 
+  /**
+   * Build an Instant from the given millisecond value.
+   * 
+   * @param epochMilli A Java millisecond timestamp.
+   * 
+   * @return An Instant representing the same moment as the given timestamp.
+   */
   public static Instant build(long epochMilli)
   {
     return Instant.ofEpochMilli(epochMilli);

@@ -28,6 +28,12 @@ package com.symphony.oss.models.fundamental.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for Fundamental model types.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public interface IFundamentalModelEntity extends IEntity
 {
 }

@@ -22,19 +22,16 @@ import static org.junit.Assert.assertEquals;
 
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 
 import com.symphony.oss.models.chat.canon.facade.MessageId;
-import com.symphony.oss.models.chat.canon.facade.ThreadId;
 import com.symphony.oss.models.fundamental.canon.facade.PodAndUserId;
 import com.symphony.oss.models.fundamental.canon.facade.PodId;
 import com.symphony.oss.models.sbe.id.SbeIdFactory;
 
-public class TestLegacyIdFactory
+@SuppressWarnings("javadoc")
+public class TestSbeIdFactory
 {
-  private static final String     TENANT_ID   = "MyTenant";
   private static final MessageId  MESSAGE_ID  = MessageId.newBuilder().build(Base64.decodeBase64("xjbP0HZYa8xSyPqH19BFxX///p49T8mWbQ=="));
-  private static final ThreadId   THREAD_ID   = ThreadId.newBuilder().build(Base64.decodeBase64("xjbP0HZYa8xSyPqH19BFxX///p49T8mWbQ=="));
   private static final Object     EXPECTED    = "uHKQC7zD7XX1A2zmBEk5YTHleLZmVd8TsCUW1DVqEkkBAQ==";
 
   private static final int INTERNAL_POD_ID = 1;

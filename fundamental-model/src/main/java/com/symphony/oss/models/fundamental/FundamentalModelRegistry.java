@@ -29,7 +29,6 @@ import org.symphonyoss.s2.canon.runtime.IEntityFactory;
 import org.symphonyoss.s2.canon.runtime.ModelRegistry;
 import org.symphonyoss.s2.common.exception.NoSuchObjectException;
 import org.symphonyoss.s2.common.fault.CodingFault;
-import org.symphonyoss.s2.common.fault.TransactionFault;
 
 import com.symphony.oss.models.fundamental.canon.facade.IBlob;
 import com.symphony.oss.models.fundamental.canon.facade.IFundamentalObject;
@@ -37,6 +36,12 @@ import com.symphony.oss.models.fundamental.canon.facade.IFundamentalPayload;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenPrincipalCredential;
 import com.symphony.oss.models.fundamental.canon.facade.IOpenSimpleSecurityContext;
 
+/**
+ * Inpolementation of ModelRegistry which opens FundamentalObjects if possible.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public class FundamentalModelRegistry extends ModelRegistry
 {
   private static final Logger log_ = LoggerFactory.getLogger(FundamentalModelRegistry.class);
@@ -49,6 +54,21 @@ public class FundamentalModelRegistry extends ModelRegistry
     return this;
   }
 
+  /**
+   * Return a new entity instance parsed from the given input and decrypted if possible using the given credential.
+   * 
+   * @param reader A Reader containing the serialized form of an entity.
+   * @param credential A credential with which to decrypt the payload.
+   * 
+   * @return The deserialized entity.
+   * 
+   * @throws IOException If the payload cannot be read from the given Reader. 
+   * 
+   * @throws NullPointerException if the value is null.
+   * @throws IllegalArgumentException if the value is not of the expected type or is otherwise invalid.
+   * This may be the case if the schema defines limits on the magnitude of the value, or if a facade
+   * has been written for the type.
+   */
   public IEntity parseOne(Reader reader, @Nullable IOpenPrincipalCredential credential) throws IOException
   {
     IEntity existingInstance = parseOne(reader);
@@ -63,18 +83,20 @@ public class FundamentalModelRegistry extends ModelRegistry
     return existingInstance;
   }
   
+  /**
+   * Return the opened payload of the given object.
+   * 
+   * @param existingInstance  A FundamentalObject to be opened.
+   * @param credential A credential with which to decrypt the payload.
+   * 
+   * @return The opened payload of the given object.
+   */
   public IEntity open(IFundamentalObject existingInstance, @Nullable IOpenPrincipalCredential credential)
   {
     if(existingInstance.getPayload() == null)
       return existingInstance;
     
     IEntity payload = existingInstance.getPayload();
-
-// why did I do this?    
-//        newInstance(existingInstance.getPayload().getJsonObject());
-//    
-//    if(payload instanceof IFundamentalPayload)
-//      ((IFundamentalPayload) payload).setPayloadContainer((IFundamentalObject)existingInstance);
     
     if(credential != null && payload instanceof IBlob)
     {
@@ -92,6 +114,14 @@ public class FundamentalModelRegistry extends ModelRegistry
     return payload;
   }
   
+  /**
+   * Return the opened payload of the given object.
+   * 
+   * @param existingInstance  A FundamentalObject to be opened.
+   * @param securityContext An open security context with which to decrypt the payload.
+   * 
+   * @return The opened payload of the given object.
+   */
   public IEntity open(IFundamentalObject existingInstance, IOpenSimpleSecurityContext securityContext)
   {
     if(existingInstance.getPayload() == null)
@@ -102,7 +132,7 @@ public class FundamentalModelRegistry extends ModelRegistry
       IEntity payload = newInstance(existingInstance.getPayload().getJsonObject());
       
       if(payload instanceof IFundamentalPayload)
-        ((IFundamentalPayload) payload).setPayloadContainer((IFundamentalObject)existingInstance);
+        ((IFundamentalPayload) payload).setPayloadContainer(existingInstance);
       
       if(payload instanceof IBlob)
       {
@@ -117,6 +147,14 @@ public class FundamentalModelRegistry extends ModelRegistry
     }
   }
 
+  /**
+   * Return the opened payload of the given object.
+   * 
+   * @param existing  A FundamentalObject to be opened.
+   * @param credential A credential with which to decrypt the payload.
+   * 
+   * @return The opened payload of the given object.
+   */
   public IEntity parseOne(String existing, @Nullable IOpenPrincipalCredential credential)
   {
     try(
@@ -130,25 +168,4 @@ public class FundamentalModelRegistry extends ModelRegistry
       throw new CodingFault("This can't happen because the IO is all in-memory", e);
     }
   }
-  
-//  @SuppressWarnings("unchecked")
-//  public <E extends IEntity> E parseOne(String existing, @Nullable IOpenPrincipalCredential credential, Class<E> type)
-//  {
-//    IEntity existingInstance = parseOne(existing, credential);
-//      
-//    if(type.isInstance(existingInstance))
-//      return (E) existingInstance;
-//
-//    throw new TransactionFault("Retrieved object is of type " + existingInstance.getClass() + " not " + type);
-//  }
-  
-//  public void verifySignature(IApplicationObject applicationObject)
-//  {
-//    IBlob blob = applicationObject.getBlob();
-//    IFundamentalObject fundamentalObject = blob.getPayloadContainer();
-//    
-//    EncodedSignature s = fundamentalObject.getSignature();
-//    
-//    blob.getSigningKeyHash()
-//  }
 }

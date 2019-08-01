@@ -1,8 +1,8 @@
 {
 	"status": "OK",
 	"userName": 11407433176972,
-	"prettyName": "Bruce Skingle",
-	"emailAddress": "bruce.skingle@symphony.com",
+	"prettyName": "Bruce Test",
+	"emailAddress": "bruce.test@symphony.com",
 	"imageUrl": "https://s3.amazonaws.com/user-pics-demo/small/symphony_small.png",
 	"imageUrlSmall": "https://s3.amazonaws.com/user-pics-demo/creepy/symphony_creepy.png",
 	"images": {
@@ -23,7 +23,7 @@
 			"memberCount": 1,
 			"requested": false,
 			"userId": 11407433176972,
-			"userPrettyName": "Bruce Skingle",
+			"userPrettyName": "Bruce Test",
 			"crossPodUser": false,
 			"userJoinDate": 1529514001693,
 			"userIsOwner": true,
@@ -54,7 +54,7 @@
 			"allowExternal": false,
 			"moderated": false,
 			"nameKey": "bruceroom",
-			"creatorPrettyName": "Bruce Skingle",
+			"creatorPrettyName": "Bruce Test",
 			"removalDateAfterLastMessage": 1532106001578,
 			"shareHistoryEnabled": true,
 			"largeStream": false,
@@ -146,7 +146,7 @@
 			],
 			"hiddenForUserIds": null,
 			"userPrettyNames": [
-				"Bruce Skingle",
+				"Bruce Test",
 				"Andrew Test"
 			],
 			"userViewConfig": {
@@ -182,7 +182,7 @@
 			],
 			"hiddenForUserIds": null,
 			"userPrettyNames": [
-				"Bruce Skingle",
+				"Bruce Test",
 				"Bruce Bot"
 			],
 			"userViewConfig": {

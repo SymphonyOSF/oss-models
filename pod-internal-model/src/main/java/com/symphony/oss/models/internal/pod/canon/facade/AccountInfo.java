@@ -33,7 +33,6 @@ import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
 import com.symphony.oss.models.fundamental.canon.facade.PodAndUserId;
 import com.symphony.oss.models.internal.pod.canon.AccountInfoEntity;
-import com.symphony.oss.models.internal.pod.canon.AccountInfoEntity.AbstractAccountInfoBuilder;
 
 /**
  * Facade for Object ObjectSchema(AccountInfo)

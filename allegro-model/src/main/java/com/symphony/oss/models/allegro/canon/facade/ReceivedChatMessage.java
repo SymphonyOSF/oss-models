@@ -25,17 +25,12 @@
 
 package com.symphony.oss.models.allegro.canon.facade;
 
-import java.io.IOException;
-
 import javax.annotation.concurrent.Immutable;
 
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.symphony.messageml.MessageMLContext;
 import org.symphonyoss.symphony.messageml.elements.MessageML;
-import org.symphonyoss.symphony.messageml.exceptions.InvalidInputException;
-import org.symphonyoss.symphony.messageml.exceptions.ProcessingException;
 
 import com.symphony.oss.models.allegro.canon.IReceivedChatMessageEntity;
 import com.symphony.oss.models.allegro.canon.ReceivedChatMessageEntity;

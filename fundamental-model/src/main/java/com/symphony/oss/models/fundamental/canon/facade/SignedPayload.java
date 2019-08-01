@@ -43,7 +43,6 @@ import com.symphony.oss.models.fundmental.canon.SignedPayloadEntity;
  * Generated from ObjectSchema(SignedPayload) at #/components/schemas/SignedPayload
  */
 @Immutable
-@SuppressWarnings("unused")
 public class SignedPayload extends SignedPayloadEntity implements ISignedPayload
 {
   /**

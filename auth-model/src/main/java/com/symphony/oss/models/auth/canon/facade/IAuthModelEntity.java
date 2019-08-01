@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Model/I_ModelEntity.java.ftl
  *		Template version	   1.0
- *  At                  2019-02-05 15:00:58 GMT
+ *  At                  2019-08-01 10:02:20 GMT-07:00
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -28,6 +28,9 @@ package com.symphony.oss.models.auth.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for Auth model entities.
+ */
 public interface IAuthModelEntity extends IEntity
 {
 }

@@ -33,7 +33,7 @@
 		"featureRtcVideo": true,
 		"canShowHistory": false,
 		"emailService": null,
-		"baseUrl": "https://ac6-dev.symphony.com",
+		"baseUrl": "https://example-pod.symphony.com",
 		"roleScopeManagementAvailable": false,
 		"currentRotationId": 0,
 		"sessionExpirationHours": 336,
@@ -46,7 +46,7 @@
 		"featureRtcScreenSharing": true,
 		"featureRtcSwitchMeetingViewModeAvailable": true,
 		"featureRtcDoubleEncryption": false,
-		"keyManagerUrl": "https://ac6-dev.symphony.com/relay",
+		"keyManagerUrl": "https://example-pod.symphony.com/relay",
 		"sessionAuditTrailAvailable": true,
 		"comppSearchIMsMIMsAvailable": true,
 		"maxConcurrentAttachmentDownloads": 50

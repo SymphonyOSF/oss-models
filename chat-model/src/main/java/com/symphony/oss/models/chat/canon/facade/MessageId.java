@@ -38,7 +38,6 @@ import com.symphony.oss.models.chat.canon.MessageIdTypeDef;
  * Generated from TypeDef(MessageId,type=String) at #/components/schemas/MessageId
  */
 @Immutable
-@SuppressWarnings("unused")
 public class MessageId extends MessageIdTypeDef
 {
   private static Builder theBuilder = new Builder();

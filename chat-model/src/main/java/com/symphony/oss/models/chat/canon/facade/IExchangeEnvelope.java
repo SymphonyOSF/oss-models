@@ -25,8 +25,6 @@
 
 package com.symphony.oss.models.chat.canon.facade;
 
-import java.util.Map;
-
 import javax.annotation.concurrent.Immutable;
 
 import com.symphony.oss.models.chat.canon.IExchangeEnvelopeEntity;
@@ -41,8 +39,6 @@ import com.symphony.oss.models.chat.canon.IExchangeEnvelopeEntity;
 public interface IExchangeEnvelope
   extends IExchangeEnvelopeEntity
 {
-
-//  Map<String, Object> getProperties();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl

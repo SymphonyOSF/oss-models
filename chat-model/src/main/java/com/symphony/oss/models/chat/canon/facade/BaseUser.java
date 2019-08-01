@@ -32,13 +32,12 @@ import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 import org.symphonyoss.s2.common.hash.Hash;
 
+import com.symphony.oss.models.chat.canon.BaseUserEntity;
 import com.symphony.oss.models.fundamental.canon.facade.IFundamentalId;
 import com.symphony.oss.models.fundamental.canon.facade.PodId;
-import com.symphony.oss.models.system.canon.facade.Principal;
-import com.symphony.oss.models.chat.canon.BaseUserEntity;
-import com.symphony.oss.models.fundmental.canon.ContentIdObject;
 import com.symphony.oss.models.fundmental.canon.ContentIdType;
 import com.symphony.oss.models.fundmental.canon.PodContentIdObject;
+import com.symphony.oss.models.system.canon.facade.Principal;
 
 /**
  * Facade for Object ObjectSchema(BaseUser)

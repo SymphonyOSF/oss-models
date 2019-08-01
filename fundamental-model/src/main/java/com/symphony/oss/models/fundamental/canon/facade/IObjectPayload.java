@@ -27,10 +27,6 @@ package com.symphony.oss.models.fundamental.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.hash.Hash;
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
-import com.symphony.oss.models.fundamental.canon.facade.IFundamentalPayload;
 import com.symphony.oss.models.fundmental.canon.IObjectPayloadEntity;
 
 /**

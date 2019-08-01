@@ -28,6 +28,12 @@ package com.symphony.oss.models.system.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for all System model entities.
+ * 
+ * @author Bruce Skingle
+ *
+ */
 public interface ISystemModelEntity extends IEntity
 {
 }

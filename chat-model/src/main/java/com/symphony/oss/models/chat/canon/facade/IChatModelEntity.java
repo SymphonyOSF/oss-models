@@ -28,6 +28,9 @@ package com.symphony.oss.models.chat.canon.facade;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 
+/**
+ * Base interface for Chat model entities.
+ */
 public interface IChatModelEntity extends IEntity
 {
 }

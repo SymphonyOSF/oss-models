@@ -27,20 +27,13 @@ package com.symphony.oss.models.fundamental.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
+import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 import org.symphonyoss.s2.common.hash.Hash;
-import org.symphonyoss.s2.canon.runtime.IEntity;
-import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
-import com.symphony.oss.models.fundamental.canon.facade.DistinguishedValue;
-import com.symphony.oss.models.fundamental.canon.facade.IDistinguishedValue;
 import com.symphony.oss.models.fundmental.canon.DistinguishedValueEntity;
 import com.symphony.oss.models.fundmental.canon.DistinguishedValueType;
-import com.symphony.oss.models.fundmental.canon.IDistinguishedValueEntity;
-import com.symphony.oss.models.fundmental.canon.FundamentalModel;
 
 /**
  * Facade for Object ObjectSchema(DistinguishedValue)
@@ -49,7 +42,6 @@ import com.symphony.oss.models.fundmental.canon.FundamentalModel;
  * Generated from ObjectSchema(DistinguishedValue) at #/components/schemas/DistinguishedValue
  */
 @Immutable
-@SuppressWarnings("unused")
 public class DistinguishedValue extends DistinguishedValueEntity implements IDistinguishedValue
 {
   /** The hash representing a request regarding the caller's datafeed sequence */

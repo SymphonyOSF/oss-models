@@ -103,13 +103,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.symphonyoss.s2.fugue</groupId>
-      <artifactId>inmemory-fugue</artifactId>
-      <version>${fugue.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
     </dependency>
