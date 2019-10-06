@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2019-10-01 10:41:54 BST
+ *  At                  2019-10-05 11:33:11 EDT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,19 +27,19 @@ package com.symphony.oss.models.system.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.fugue.pubsub.IQueueMessageAck;
+import org.symphonyoss.s2.fugue.pubsub.IQueueMessageExtend;
 
-import com.symphony.oss.models.system.canon.IFeedMessageAckEntity;
+import com.symphony.oss.models.system.canon.IFeedMessageExtendEntity;
 
 /**
- * Facade for Object ObjectSchema(FeedMessageAck)
+ * Facade for Object ObjectSchema(FeedMessageExtend)
  *
- * Request to acknowledge a message from a feed.
- * Generated from ObjectSchema(FeedMessageAck) at #/components/schemas/FeedMessageAck
+ * Request to extend the visibility timeout (nak) a message from a feed.
+ * Generated from ObjectSchema(FeedMessageExtend) at #/components/schemas/FeedMessageExtend
  */
 @Immutable
-public interface IFeedMessageAck
-  extends IFeedMessageAckEntity, IQueueMessageAck
+public interface IFeedMessageExtend
+  extends IFeedMessageExtendEntity, IQueueMessageExtend
 {
 }
 /*----------------------------------------------------------------------------------------------------

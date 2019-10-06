@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-10-01 10:41:54 BST
+ *  At                  2019-10-05 11:33:11 EDT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -36,26 +36,26 @@ import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
 
-import com.symphony.oss.models.system.canon.FeedMessageAckEntity;
-import com.symphony.oss.models.system.canon.IFeedMessageAckEntity;
+import com.symphony.oss.models.system.canon.FeedMessageExtendEntity;
+import com.symphony.oss.models.system.canon.IFeedMessageExtendEntity;
 import com.symphony.oss.models.system.canon.SystemModel;
 
 /**
- * Facade for Object ObjectSchema(FeedMessageAck)
+ * Facade for Object ObjectSchema(FeedMessageExtend)
  *
- * Request to acknowledge a message from a feed.
- * Generated from ObjectSchema(FeedMessageAck) at #/components/schemas/FeedMessageAck
+ * Request to extend the visibility timeout (nak) a message from a feed.
+ * Generated from ObjectSchema(FeedMessageExtend) at #/components/schemas/FeedMessageExtend
  */
 @Immutable
 @SuppressWarnings("unused")
-public class FeedMessageAck extends FeedMessageAckEntity implements IFeedMessageAck
+public class FeedMessageExtend extends FeedMessageExtendEntity implements IFeedMessageExtend
 {
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public FeedMessageAck(AbstractFeedMessageAckBuilder<?,?> builder)
+  public FeedMessageExtend(AbstractFeedMessageExtendBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -66,7 +66,7 @@ public class FeedMessageAck extends FeedMessageAckEntity implements IFeedMessage
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public FeedMessageAck(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public FeedMessageExtend(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -77,7 +77,7 @@ public class FeedMessageAck extends FeedMessageAckEntity implements IFeedMessage
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public FeedMessageAck(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public FeedMessageExtend(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -87,7 +87,7 @@ public class FeedMessageAck extends FeedMessageAckEntity implements IFeedMessage
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public FeedMessageAck(IFeedMessageAck other)
+  public FeedMessageExtend(IFeedMessageExtend other)
   {
     super(other);
   }

@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-10-01 10:41:54 BST
+ *  At                  2019-10-05 11:33:11 EDT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -36,26 +36,26 @@ import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
 
-import com.symphony.oss.models.system.canon.FeedMessageNakEntity;
-import com.symphony.oss.models.system.canon.IFeedMessageNakEntity;
+import com.symphony.oss.models.system.canon.FeedMessageDeleteEntity;
+import com.symphony.oss.models.system.canon.IFeedMessageDeleteEntity;
 import com.symphony.oss.models.system.canon.SystemModel;
 
 /**
- * Facade for Object ObjectSchema(FeedMessageNak)
+ * Facade for Object ObjectSchema(FeedMessageDelete)
  *
- * Request to nak a message from a feed.
- * Generated from ObjectSchema(FeedMessageNak) at #/components/schemas/FeedMessageNak
+ * Request to delete (acknowledge) a message from a feed.
+ * Generated from ObjectSchema(FeedMessageDelete) at #/components/schemas/FeedMessageDelete
  */
 @Immutable
 @SuppressWarnings("unused")
-public class FeedMessageNak extends FeedMessageNakEntity implements IFeedMessageNak
+public class FeedMessageDelete extends FeedMessageDeleteEntity implements IFeedMessageDelete
 {
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public FeedMessageNak(AbstractFeedMessageNakBuilder<?,?> builder)
+  public FeedMessageDelete(AbstractFeedMessageDeleteBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -66,7 +66,7 @@ public class FeedMessageNak extends FeedMessageNakEntity implements IFeedMessage
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public FeedMessageNak(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public FeedMessageDelete(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -77,7 +77,7 @@ public class FeedMessageNak extends FeedMessageNakEntity implements IFeedMessage
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public FeedMessageNak(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public FeedMessageDelete(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -87,7 +87,7 @@ public class FeedMessageNak extends FeedMessageNakEntity implements IFeedMessage
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public FeedMessageNak(IFeedMessageNak other)
+  public FeedMessageDelete(IFeedMessageDelete other)
   {
     super(other);
   }

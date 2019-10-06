@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2019-10-01 10:41:54 BST
+ *  At                  2019-10-05 11:33:11 EDT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,19 +27,19 @@ package com.symphony.oss.models.system.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.fugue.pubsub.IQueueMessageNak;
+import org.symphonyoss.s2.fugue.pubsub.IQueueMessageDelete;
 
-import com.symphony.oss.models.system.canon.IFeedMessageNakEntity;
+import com.symphony.oss.models.system.canon.IFeedMessageDeleteEntity;
 
 /**
- * Facade for Object ObjectSchema(FeedMessageNak)
+ * Facade for Object ObjectSchema(FeedMessageDelete)
  *
- * Request to nak a message from a feed.
- * Generated from ObjectSchema(FeedMessageNak) at #/components/schemas/FeedMessageNak
+ * Request to delete (acknowledge) a message from a feed.
+ * Generated from ObjectSchema(FeedMessageDelete) at #/components/schemas/FeedMessageDelete
  */
 @Immutable
-public interface IFeedMessageNak
-  extends IFeedMessageNakEntity, IQueueMessageNak
+public interface IFeedMessageDelete
+  extends IFeedMessageDeleteEntity, IQueueMessageDelete
 {
 }
 /*----------------------------------------------------------------------------------------------------

@@ -227,25 +227,25 @@
           }
         }
       },
-      "FeedMessageAck": {
+      "FeedMessageDelete": {
         "type": "object",
         "facade": true,
-        "description": "Request to acknowledge a message from a feed.",
+        "description": "Request to delete (acknowledge) a message from a feed.",
         "properties": {
           "receiptHandle": {
             "type": "string"
           }
         }
       },
-      "FeedMessageNak": {
+      "FeedMessageExtend": {
         "type": "object",
         "facade": true,
-         "description": "Request to nak a message from a feed.",
+         "description": "Request to extend the visibility timeout (nak) a message from a feed.",
         "properties": {
           "receiptHandle": {
             "type": "string"
           },
-          "nakDelay": {
+          "visibilityTimeout": {
             "type": "integer",
             "format": "int32"
           }
@@ -256,6 +256,9 @@
         "facade": true,
         "description": "A message from a feed.",
         "properties": {
+          "messageId": {
+            "type": "string"
+          },
           "receiptHandle": {
             "type": "string"
           },
@@ -272,18 +275,22 @@
             "type": "integer",
             "format": "int32"
           },
-          "ack": {
+          "waitTimeSeconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "delete": {
             "type": "array",
             "x-canon-cardinality": "SET",
             "items": {
-              "$ref": "#/components/schemas/FeedMessageAck"
+              "$ref": "#/components/schemas/FeedMessageDelete"
             }
           },
-          "nak": {
+          "extend": {
             "type": "array",
             "x-canon-cardinality": "SET",
             "items": {
-              "$ref": "#/components/schemas/FeedMessageNak"
+              "$ref": "#/components/schemas/FeedMessageExtend"
             }
           }
         }
