@@ -1,0 +1,66 @@
+{
+	"canon": "0.0.1",
+	"info": {
+		"title": "Symphony 2.0 Object Model Core Types",
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"id": "com.symphony.s2.model.core",
+	"version": "1.0",
+	"basePath": "/object/core/v1",
+	"model": {
+		"javaGenPackage": "com.symphony.oss.models.fundmental.canon",
+		"javaFacadePackage": "com.symphony.oss.models.core.canon.facade"
+	},
+	"methods": {
+  },
+	"components": {
+		"schemas": {
+			"Envelope": {
+				"type": "object",
+				"facade": true,
+				"builderFacade": false,
+				"description": "This is not a persisted object it exists only on a pub sub topic.",
+
+				"properties": {
+          "podId": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PodId"
+          },
+          "createdDate": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+          },
+          "purgeDate": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+          },
+          "payloadType": {
+            "type": "string"
+          },
+					"distributionList": {
+						"type": "array",
+						"x-canon-cardinality": "SET",
+						"items": {
+							"$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PodAndUserId"
+						}
+					},
+          "expirationDate": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+          },
+          "broadcast": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/BroadcastType"
+          },
+          "conflationId": {
+              "type": "string"
+          },
+          "notificationDate": {
+            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+          },
+					"payload": {
+						"$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/ApplicationObject"
+					}
+				}
+			}
+		}
+	}
+}
