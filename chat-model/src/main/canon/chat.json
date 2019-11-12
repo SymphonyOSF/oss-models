@@ -687,6 +687,9 @@
         "type": "object",
         "facade": true,
         "properties": {
+          "authenticationKeys": {
+            "$ref": "#/components/schemas/AuthenticationKey"
+          },
           "active": {
             "type": "boolean"
           },
@@ -2544,10 +2547,10 @@
             "type": "object",
             "properties": {
               "currentKey": {
-                "type": "string"
+                "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PemPublicKey"
               },
               "previousKey": {
-                "type": "string"
+                "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PemPublicKey"
               },
               "previousKeyExpirationDate": {
                 "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/TimeStamp"
