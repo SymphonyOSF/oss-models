@@ -139,14 +139,14 @@
       <artifactId>protobuf-java</artifactId>
     </dependency> -->
 
-    <dependency>
+    <!-- <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcpkix-jdk15on</artifactId>
     </dependency>
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk15on</artifactId>
-    </dependency>
+    </dependency> -->
 
     <dependency>
       <groupId>commons-codec</groupId>
