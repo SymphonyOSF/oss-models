@@ -18,6 +18,14 @@
   },
 	"components": {
 		"schemas": {
+      "Instant": {
+        "description": "A nanosecond resolution timestamp, compatible with the Java8 definition of Instant.",
+        "type": "string",
+        "x-canon-attributes": {
+          "javaExternalPackage": "java.time",
+          "javaExternalType": "Instant"
+        }
+      },
 			"Envelope": {
 				"type": "object",
 				"facade": true,
