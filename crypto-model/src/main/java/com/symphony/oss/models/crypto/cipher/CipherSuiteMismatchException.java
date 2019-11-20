@@ -16,38 +16,39 @@
  * limitations under the License.
  */
 
-package com.symphony.oss.models.fundamental.crypto.cipher;
+package com.symphony.oss.models.crypto.cipher;
 
 /**
- * A general CipherSuite exception.
+ * A CipherSuite compatibility exception.
+ * Caused by using the wrong type of key with an operation for example.
  * 
  * @author Bruce Skingle
  *
  */
-public class CipherSuiteException extends Exception
+public class CipherSuiteMismatchException extends CipherSuiteException
 {
   private static final long serialVersionUID = 1L;
 
-  public CipherSuiteException()
+  public CipherSuiteMismatchException()
   {
   }
 
-  public CipherSuiteException(String message)
+  public CipherSuiteMismatchException(String message)
   {
     super(message);
   }
 
-  public CipherSuiteException(Throwable cause)
+  public CipherSuiteMismatchException(Throwable cause)
   {
     super(cause);
   }
 
-  public CipherSuiteException(String message, Throwable cause)
+  public CipherSuiteMismatchException(String message, Throwable cause)
   {
     super(message, cause);
   }
 
-  public CipherSuiteException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
+  public CipherSuiteMismatchException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
   {
     super(message, cause, enableSuppression, writableStackTrace);
   }

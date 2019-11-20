@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.symphony.oss.models.fundamental.crypto.cipher;
+package com.symphony.oss.models.crypto.cipher;
 
 import java.io.Reader;
 import java.security.InvalidKeyException;
@@ -36,6 +36,9 @@ import com.symphony.oss.models.crypto.canon.PemCertificate;
 import com.symphony.oss.models.crypto.canon.PemPrivateKey;
 import com.symphony.oss.models.crypto.canon.PemPublicKey;
 import com.symphony.oss.models.crypto.canon.facade.WrappedKey;
+import com.symphony.oss.models.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.crypto.cipher.SignatureVerificationException;
 
 /**
  * A dummy CipherSuite which generates constant values for unit testing.

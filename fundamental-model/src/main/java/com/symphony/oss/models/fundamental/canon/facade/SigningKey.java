@@ -34,7 +34,7 @@ import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.crypto.canon.EncodedSignature;
-import com.symphony.oss.models.fundamental.crypto.cipher.SignatureVerificationException;
+import com.symphony.oss.models.crypto.cipher.SignatureVerificationException;
 import com.symphony.oss.models.fundmental.canon.CertificateId;
 import com.symphony.oss.models.fundmental.canon.SigningKeyEntity;
 import com.symphony.oss.models.fundmental.canon.SigningKeyIdObject;

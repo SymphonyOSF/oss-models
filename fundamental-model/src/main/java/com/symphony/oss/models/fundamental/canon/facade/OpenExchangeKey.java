@@ -22,7 +22,7 @@ import javax.crypto.SecretKey;
 
 import com.symphony.oss.models.crypto.canon.PemPrivateKey;
 import com.symphony.oss.models.crypto.canon.facade.WrappedKey;
-import com.symphony.oss.models.fundamental.crypto.cipher.ISymmetricCipherSuite;
+import com.symphony.oss.models.crypto.cipher.ISymmetricCipherSuite;
 
 /**
  * An open exchange key.

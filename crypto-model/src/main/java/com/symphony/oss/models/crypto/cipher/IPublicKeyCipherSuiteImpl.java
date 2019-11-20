@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.symphony.oss.models.fundamental.crypto.cipher;
+package com.symphony.oss.models.crypto.cipher;
 
 import java.security.PrivateKey;
 
@@ -23,23 +23,22 @@ import javax.crypto.SecretKey;
 import com.symphony.oss.models.crypto.canon.facade.WrappedKey;
 
 /**
- * Implementation of a symmetric key cipher, these methods are not inherited by ICipherSuite.
+ * Implementation of a public key cipher, these methods are not inherited by ICipherSuite.
  * 
  * @author Bruce Skingle
  *
  */
-public interface ISymmetricCipherSuiteImpl extends ISymmetricCipherSuite
+public interface IPublicKeyCipherSuiteImpl extends IPublicKeyCipherSuite
 {
   /**
-   * Unwrap the given encrypted PrivateKey
+   * Unwrap the given encrypted SecretKey
    * 
    * @param wrappedKey        Encrypted key to be unwrapped.
-   * @param userKey         Wrapping key.
-   * @param cipherSuite       Wrapping cipherSuite
+   * @param userPrivateKey      Wrapping key.
+   * @param symmetricCipherSuite    Wrapping cipherSuite
    * @return  The SecretKey.
    * 
-   * @throws NullPointerException if any of the arguments are null.
-   * @throws IllegalArgumentException if the key is invalid and encryption fails.
+   * @throws IllegalArgumentException
    */
-  PrivateKey unwrap(WrappedKey wrappedKey, SecretKey userKey, IPublicKeyCipherSuite cipherSuite);
+  SecretKey unwrap(WrappedKey wrappedKey, PrivateKey userPrivateKey, ISymmetricCipherSuite symmetricCipherSuite);
 }

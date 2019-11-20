@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.symphony.oss.models.fundamental.crypto.cipher;
+package com.symphony.oss.models.crypto.cipher;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,6 +31,9 @@ import com.symphony.oss.models.crypto.canon.Base64SecretKey;
 import com.symphony.oss.models.crypto.canon.CipherSuiteId;
 import com.symphony.oss.models.crypto.canon.EncryptedData;
 import com.symphony.oss.models.crypto.canon.facade.WrappedKey;
+import com.symphony.oss.models.crypto.cipher.CipherSuite;
+import com.symphony.oss.models.crypto.cipher.ICipherSuite;
+import com.symphony.oss.models.crypto.cipher.UnknownCipherSuiteException;
 
 public class TestCipherSuite
 {

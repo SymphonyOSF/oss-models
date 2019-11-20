@@ -40,7 +40,7 @@ import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 
 import com.symphony.oss.models.core.canon.facade.PodId;
-import com.symphony.oss.models.fundamental.crypto.cipher.SignatureVerificationException;
+import com.symphony.oss.models.crypto.cipher.SignatureVerificationException;
 import com.symphony.oss.models.fundmental.canon.DeletedObject;
 import com.symphony.oss.models.fundmental.canon.DeletionType;
 import com.symphony.oss.models.fundmental.canon.FundamentalObjectEntity;

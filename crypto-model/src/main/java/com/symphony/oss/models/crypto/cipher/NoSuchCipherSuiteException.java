@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.symphony.oss.models.fundamental.crypto.cipher;
+package com.symphony.oss.models.crypto.cipher;
 
 public class NoSuchCipherSuiteException extends Exception
 {
