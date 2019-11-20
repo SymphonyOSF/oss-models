@@ -29,7 +29,8 @@ import java.util.Map;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.models.fundmental.canon.IEnvelopeEntity;
+import com.symphony.oss.models.core.canon.IEnvelopeEntity;
+
 
 /**
  * Facade for Object ObjectSchema(Envelope)

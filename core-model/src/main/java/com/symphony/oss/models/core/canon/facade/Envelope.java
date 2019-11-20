@@ -39,11 +39,9 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.symphony.oss.models.fundamental.canon.facade.InstantBuilder;
-
-import com.symphony.oss.models.fundmental.canon.EnvelopeEntity;
-import com.symphony.oss.models.fundmental.canon.IEnvelopeEntity;
-import com.symphony.oss.models.fundmental.canon.CoreModel;
+import com.symphony.oss.models.core.canon.EnvelopeEntity;
+import com.symphony.oss.models.core.canon.IEnvelopeEntity;
+import com.symphony.oss.models.core.canon.CoreModel;
 
 /**
  * Facade for Object ObjectSchema(Envelope)

@@ -11,19 +11,52 @@
 	"version": "1.0",
 	"basePath": "/object/core/v1",
 	"model": {
-		"javaGenPackage": "com.symphony.oss.models.fundmental.canon",
+		"javaGenPackage": "com.symphony.oss.models.core.canon",
 		"javaFacadePackage": "com.symphony.oss.models.core.canon.facade"
 	},
 	"methods": {
   },
 	"components": {
 		"schemas": {
+      "TimeStamp": {
+        "description": "A millisecond resolution timestamp, compatible java.util.Date.",
+        "type": "integer",
+        "format": "int64",
+        "facade": true
+      },
+      "PodId": {
+        "type": "integer",
+        "format": "int32",
+        "facade": true
+      },
+      "UserId": {
+        "type": "integer",
+        "format": "int64",
+        "facade": true
+      },
+      "PodAndUserId": {
+        "type": "integer",
+        "format": "int64",
+        "facade": true
+      },
+      "BroadcastType": {
+        "type": "string",
+        "enum": [
+          "ALL"
+        ]
+      },
       "Instant": {
         "description": "A nanosecond resolution timestamp, compatible with the Java8 definition of Instant.",
         "type": "string",
         "x-canon-attributes": {
           "javaExternalPackage": "java.time",
           "javaExternalType": "Instant"
+        }
+      },
+      "ApplicationPayload": {
+        "type": "object",
+        "description": "An application payload.",
+        "properties": {
         }
       },
 			"Envelope": {
@@ -34,13 +67,13 @@
 
 				"properties": {
           "podId": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PodId"
+            "$ref": "#/components/schemas/PodId"
           },
           "createdDate": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+            "$ref": "#/components/schemas/Instant"
           },
           "purgeDate": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+            "$ref": "#/components/schemas/Instant"
           },
           "payloadType": {
             "type": "string"
@@ -49,23 +82,23 @@
 						"type": "array",
 						"x-canon-cardinality": "SET",
 						"items": {
-							"$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/PodAndUserId"
+							"$ref": "#/components/schemas/PodAndUserId"
 						}
 					},
           "expirationDate": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+            "$ref": "#/components/schemas/Instant"
           },
           "broadcast": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/BroadcastType"
+            "$ref": "#/components/schemas/BroadcastType"
           },
           "conflationId": {
               "type": "string"
           },
           "notificationDate": {
-            "$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/Instant"
+            "$ref": "#/components/schemas/Instant"
           },
 					"payload": {
-						"$ref": "../../../../fundamental-model/src/main/canon/fundamental.json#/components/schemas/ApplicationObject"
+						"$ref": "#/components/schemas/ApplicationPayload"
 					}
 				}
 			}

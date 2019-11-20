@@ -90,6 +90,7 @@
         <module>pod-private-model</module>
         <module>system-model</module>
         <module>core-model</module>
+        <module>crypto-model</module>
   </modules>
 
   <repositories>
