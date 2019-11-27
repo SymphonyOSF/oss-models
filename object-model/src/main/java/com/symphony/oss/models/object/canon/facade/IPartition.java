@@ -40,11 +40,11 @@ import com.symphony.oss.models.object.canon.IPartitionEntity;
 public interface IPartition
   extends IApplicationPayload, IPartitionEntity, IAbstractKvItem
 {
-  /**
-   * 
-   * @return the partition key for objects in this partition.
-   */
-  PartitionKey getObjectKey();
+//  /**
+//   * 
+//   * @return the partition key for objects in this partition.
+//   */
+//  PartitionKey getObjectKey();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl

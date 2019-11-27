@@ -30,6 +30,8 @@ import java.time.Instant;
 import javax.annotation.concurrent.Immutable;
 
 import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
+import org.symphonyoss.s2.fugue.kv.IKvPartitionKey;
+import org.symphonyoss.s2.fugue.kv.KvPartitionKey;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
@@ -54,8 +56,8 @@ import com.symphony.oss.models.object.canon.ObjectModel;
 @SuppressWarnings("unused")
 public class PartitionThread extends PartitionThreadEntity implements IPartitionThread
 {
-  private final PartitionKey partitionKey_ = PartitionKey.newBuilder().build("PT#" + getPartitionId().getHash());
-  private final SortKey      sortKey_      = SortKey.newBuilder().build(getThreadId().toBase64String());
+  private final IKvPartitionKey partitionKey_ = new KvPartitionKey(IKvItem.PARTITION_THREAD_PREFIX + getPartitionId().getHash());
+  private final SortKey         sortKey_      = SortKey.newBuilder().build(getThreadId().toBase64UrlSafeString());
   
   /**
    * Constructor from builder.
@@ -100,13 +102,13 @@ public class PartitionThread extends PartitionThreadEntity implements IPartition
   }
 
   @Override
-  public PartitionKey getPartitionKey()
+  public IKvPartitionKey getKvPartitionKey()
   {
     return partitionKey_;
   }
 
   @Override
-  public SortKey getSortKey()
+  public SortKey getKvSortKey()
   {
     return sortKey_;
   }

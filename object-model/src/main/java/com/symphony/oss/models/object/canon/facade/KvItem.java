@@ -32,6 +32,10 @@ import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 import org.symphonyoss.s2.common.hash.Hash;
 import org.symphonyoss.s2.common.hash.HashProvider;
+import org.symphonyoss.s2.fugue.kv.IKvPartitionKey;
+import org.symphonyoss.s2.fugue.kv.IKvSortKey;
+import org.symphonyoss.s2.fugue.kv.KvPartitionKey;
+import org.symphonyoss.s2.fugue.kv.KvSortKey;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 
 import com.symphony.oss.models.object.canon.KvItemEntity;
@@ -45,8 +49,10 @@ import com.symphony.oss.models.object.canon.KvItemEntity;
 @Immutable
 public class KvItem extends KvItemEntity implements IKvItem
 {
-  private final Hash    hash_;
-  private final SortKey uniqieSortKey_;
+  
+  private final Hash            absoluteHash_;
+  private final IKvPartitionKey kvPartitionKey_;
+  private final IKvSortKey      kvSortKey_;
 
   /**
    * Constructor from builder.
@@ -56,8 +62,9 @@ public class KvItem extends KvItemEntity implements IKvItem
   public KvItem(AbstractKvItemBuilder<?,?> builder)
   {
     super(builder);
-    hash_ = generateHash();
-    uniqieSortKey_ = generateSortKey();
+    absoluteHash_ = generateHash();
+    kvPartitionKey_ = generatePartitionKey();
+    kvSortKey_ = generateSortKey();
   }
 
   /**
@@ -69,8 +76,9 @@ public class KvItem extends KvItemEntity implements IKvItem
   public KvItem(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
-    hash_ = generateHash();
-    uniqieSortKey_ = generateSortKey();
+    absoluteHash_ = generateHash();
+    kvPartitionKey_ = generatePartitionKey();
+    kvSortKey_ = generateSortKey();
   }
   
   /**
@@ -82,8 +90,9 @@ public class KvItem extends KvItemEntity implements IKvItem
   public KvItem(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
-    hash_ = generateHash();
-    uniqieSortKey_ = generateSortKey();
+    absoluteHash_ = generateHash();
+    kvPartitionKey_ = generatePartitionKey();
+    kvSortKey_ = generateSortKey();
   }
    
   /**
@@ -95,8 +104,9 @@ public class KvItem extends KvItemEntity implements IKvItem
   {
     super(other);
     
-    hash_ = other.getHash();
-    uniqieSortKey_ = other.getSortKey();
+    absoluteHash_ = other.getAbsoluteHash();
+    kvPartitionKey_ = other.getKvPartitionKey();
+    kvSortKey_ = other.getKvSortKey();
   }
   
   protected Hash generateHash()
@@ -107,15 +117,26 @@ public class KvItem extends KvItemEntity implements IKvItem
     return HashProvider.getHashOf(getHashType().asInteger(), serialize());
   }
   
-  private SortKey generateSortKey()
+  private IKvPartitionKey generatePartitionKey()
   {
-    return SortKey.newBuilder().build(super.getSortKey() + getHash().toStringBase64());
+    return new KvPartitionKey(OBJECT_PREFIX + getPartitionKey().toStringBase64());
+  }
+  
+  private IKvSortKey generateSortKey()
+  {
+    return new KvSortKey(getSortKey().asString() + SEPARATOR + getAbsoluteHash().toStringBase64());
   }
 
   @Override
-  public SortKey getSortKey()
+  public IKvPartitionKey getKvPartitionKey()
   {
-    return uniqieSortKey_;
+    return kvPartitionKey_;
+  }
+
+  @Override
+  public IKvSortKey getKvSortKey()
+  {
+    return kvSortKey_;
   }
 
   @Override
@@ -137,9 +158,9 @@ public class KvItem extends KvItemEntity implements IKvItem
   }
 
   @Override
-  public Hash getHash()
+  public Hash getAbsoluteHash()
   {
-    return hash_;
+    return absoluteHash_;
   }
 }
 /*----------------------------------------------------------------------------------------------------

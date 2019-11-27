@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-25 09:18:48 GMT
+ *  At                  2019-11-27 14:57:51 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -35,27 +35,31 @@ import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
+import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
+import org.symphonyoss.s2.common.hash.Hash;
+import java.time.Instant;
+import com.symphony.oss.models.core.canon.facade.InstantBuilder;
 
-import com.symphony.oss.models.object.canon.UserIdObjectEntity;
-import com.symphony.oss.models.object.canon.IUserIdObjectEntity;
+import com.symphony.oss.models.object.canon.ObjectPayloadEntity;
+import com.symphony.oss.models.object.canon.IObjectPayloadEntity;
 import com.symphony.oss.models.object.canon.ObjectModel;
 
 /**
- * Facade for Object ObjectSchema(UserIdObject)
+ * Facade for Object ObjectSchema(ObjectPayload)
  *
- * An ID object belonging to a user.
- * Generated from ObjectSchema(UserIdObject) at #/components/schemas/UserIdObject
+ * Base type for objects in the object store.
+ * Generated from ObjectSchema(ObjectPayload) at #/components/schemas/ObjectPayload
  */
 @Immutable
 @SuppressWarnings("unused")
-public class UserIdObject extends UserIdObjectEntity implements IUserIdObject
+public class ObjectPayload extends ObjectPayloadEntity implements IObjectPayload
 {
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public UserIdObject(AbstractUserIdObjectBuilder<?,?> builder)
+  public ObjectPayload(AbstractObjectPayloadBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -66,7 +70,7 @@ public class UserIdObject extends UserIdObjectEntity implements IUserIdObject
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public UserIdObject(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public ObjectPayload(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -77,7 +81,7 @@ public class UserIdObject extends UserIdObjectEntity implements IUserIdObject
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public UserIdObject(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public ObjectPayload(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -87,7 +91,7 @@ public class UserIdObject extends UserIdObjectEntity implements IUserIdObject
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public UserIdObject(IUserIdObject other)
+  public ObjectPayload(IObjectPayload other)
   {
     super(other);
   }

@@ -14,14 +14,70 @@
 		"javaFacadePackage": "com.symphony.oss.models.object.canon.facade"
 	},
   "methods": {
-    "/objects/partition/{partitionKey}/sort/{sortKey}": {
+    "/objects/{objectHash}": {
+      "parameters": {
+        "objectHash": {
+          "in": "path",
+          "required": true,
+          "description": "The id of the object.",
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          }
+        },
+        "traceContextHash": {
+          "in": "query",
+          "required": false,
+          "description": "The id of the trace context of which this operation is a part",
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          }
+        }
+      },
+      "get": {
+        "summary": "Read an object",
+        "operationId": "getObject",
+        "tags": [
+          "objects"
+        ],
+        "parameters": {
+          "currentVersion": {
+            "in": "query",
+            "required": false,
+            "description": "If true then the hash is a baseHash and we return the current version, otherwise the hash is an absoluteHash and we return that absolute version.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "response": {
+          "required": false,
+          "schema": {
+            "$ref": "#/components/schemas/ObjectPayload"
+          }
+        }
+      },
+      "put": {
+        "summary": "Create an object",
+        "operationId": "createObjects",
+        "tags": [
+          "objects"
+        ],
+        "payload": {
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/ObjectPayload"
+          }
+        }
+      }
+    },
+    "/partitions/{partitionKey}/{sortKey}": {
       "parameters": {
         "partitionKey": {
           "in": "path",
           "description": "Partition Key Value",
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/PartitionKey"
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
           }
         },
         "sortKey": {
@@ -40,7 +96,7 @@
           "required": true,
           "multiple": false,
           "schema": {
-            "$ref": "#/components/schemas/KvItem"
+            "$ref": "#/components/schemas/ObjectPayload"
           }
         }
       }
@@ -73,7 +129,7 @@
   },
 	"components": {
 		"schemas": {
-      "PartitionKey": {
+      "#PartitionKey": {
         "description": "A partition key.",
         "type": "string",
         "facade": true
@@ -104,7 +160,6 @@
         "description": "An ID object belonging to a user.",
         "type": "object",
         "extends": "#/components/schemas/IdObject",
-        "facade": true,
         "required": [
           "userId"
         ],
@@ -118,7 +173,6 @@
         "description": "An ID object for a named object belonging to a user.",
         "type": "object",
         "extends": "#/components/schemas/UserIdObject",
-        "facade": true,
         "required": [
           "name"
         ],
@@ -128,41 +182,35 @@
           }
         }
       },
-      "ContentIdObject": {
-        "description": "A UserIdObject object referring to some content type.",
-        "type": "object",
-        "extends": "#/components/schemas/UserIdObject",
-        "facade": true,
-        "required": [
-          "contentType"
-        ],
-        "properties": {
-          "contentType": {
-            "type": "string"
-          }
-        }
-      },
-      "KvItem": {
+      "ObjectPayload": {
         "type": "object",
         "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
         "facade": true,
         "builderFacade": false,
         "description": "Base type for objects in the object store.",
         "required": [
-          "partitionKey",
+          "partitionHash",
           "sortKey",
-          "owner",
           "hashType"
         ],
         "properties": {
-          "partitionKey": {
-            "$ref": "#/components/schemas/PartitionKey"
+          "partitionHash": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
           },
           "sortKey": {
             "$ref": "#/components/schemas/SortKey"
           },
-          "owner": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PodAndUserId"
+          "hashType": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/HashType"
+          },
+          "baseHash": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          },
+          "prevHash": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          },
+          "prevSortKey": {
+            "$ref": "#/components/schemas/SortKey"
           },
           "purgeDate": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
@@ -181,9 +229,6 @@
           },
           "rotationId": {
               "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/RotationId"
-          },
-          "hashType": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/HashType"
           }
         }
       },

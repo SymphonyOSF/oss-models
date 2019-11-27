@@ -44,9 +44,9 @@ public interface IKvItem
 {
   /**
    * 
-   * @return The hash of this object.
+   * @return The absolute hash of this object.
    */
-  Hash getHash();
+  Hash getAbsoluteHash();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl
