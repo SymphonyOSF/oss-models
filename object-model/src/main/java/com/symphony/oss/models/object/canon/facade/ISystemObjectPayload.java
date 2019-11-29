@@ -15,11 +15,11 @@
  *
  *----------------------------------------------------------------------------------------------------
  * Proforma generated from
- *    Template groupId     org.symphonyoss.s2.canon
+ *		Template groupId		 org.symphonyoss.s2.canon
  *           artifactId canon-template-java
- *    Template name      proforma/java/Object/I_.java.ftl
- *    Template version     1.0
- *  At                  2019-11-25 13:41:26 GMT
+ *		Template name		   proforma/java/Object/I_.java.ftl
+ *		Template version	   1.0
+ *  At                  2019-11-28 11:12:37 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -30,25 +30,29 @@ import javax.annotation.concurrent.Immutable;
 import org.symphonyoss.s2.common.hash.Hash;
 
 import com.symphony.oss.models.core.canon.IApplicationPayload;
-import com.symphony.oss.models.object.canon.IKvItemEntity;
+import com.symphony.oss.models.object.canon.ISystemObjectPayloadEntity;
 
 /**
- * Facade for Object ObjectSchema(KvItem)
+ * Facade for Object ObjectSchema(SystemObjectPayload)
  *
- * Base type for objects in the object store.
- * Generated from ObjectSchema(KvItem) at #/components/schemas/KvItem
+ * Base type for system objects in the object store.
+ * Generated from ObjectSchema(SystemObjectPayload) at #/components/schemas/SystemObjectPayload
  */
 @Immutable
-public interface IKvItem
-  extends IApplicationPayload, IKvItemEntity, org.symphonyoss.s2.fugue.kv.IKvItem
+public interface ISystemObjectPayload extends IApplicationPayload, ISystemObjectPayloadEntity
 {
   /**
    * 
    * @return The absolute hash of this object.
    */
   Hash getAbsoluteHash();
+
+  /**
+   * In some cases we store multiple copies of the primary storage record for an object with different
+   * partition and sort keys. In these cases it is only necessary to save the main instance to
+   * secondary storage.
+   * 
+   * @return True if this object should be saved to secondary storage.
+   */
+  boolean isSaveToSecondaryStorage();
 }
-/*----------------------------------------------------------------------------------------------------
- * End of template proforma/java/Object/I_.java.ftl
- * End of code generation
- *------------------------------------------------------------------------------------------------- */

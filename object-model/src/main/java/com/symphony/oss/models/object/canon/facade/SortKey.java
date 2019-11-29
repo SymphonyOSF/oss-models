@@ -64,7 +64,7 @@ public class SortKey extends SortKeyTypeDef implements org.symphonyoss.s2.fugue.
    */
   public static class Builder extends SortKeyTypeDef.Builder
   {
-    private static final String PROHIBITED_CHARS = "#/&$+,:;=";
+    private static final String PROHIBITED_CHARS = "#/&$+,;=";
 
     private Builder()
     {

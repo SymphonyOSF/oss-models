@@ -70,9 +70,56 @@
         }
       }
     },
-    "/partitions/{partitionKey}/{sortKey}": {
+    "/objects/{objectHash}/versions": {
       "parameters": {
-        "partitionKey": {
+        "objectHash": {
+          "in": "path",
+          "required": true,
+          "description": "The id of the object to retrieve",
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          }
+        },
+        "limit": {
+          "in": "query",
+          "description": "How many items to return at one time (max 100)",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "after": {
+          "in": "query",
+          "description": "after cursor from a previous query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "scanForwards": {
+          "in": "query",
+          "description": "if true then scan in chronological order, else reverse",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      },
+      "get": {
+        "summary": "List the versions of an object",
+        "operationId": "readVersions",
+        "response": {
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/PageOfObjectPayload"
+          }
+        }
+      }
+    },
+    "/partitions/{partitionHash}/{sortKey}": {
+      "parameters": {
+        "partitionHash": {
           "in": "path",
           "description": "Partition Key Value",
           "required": true,
@@ -122,6 +169,53 @@
           "multiple": false,
           "schema": {
             "$ref": "#/components/schemas/Partition"
+          }
+        }
+      }
+    },
+    "/partitions/{partitionHash}/page": {
+      "parameters": {
+        "partitionHash": {
+          "in": "path",
+          "description": "Partition Key Value",
+          "required": true,
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          }
+        },
+        "limit": {
+          "in": "query",
+          "description": "How many items to return at one time (max 100)",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "after": {
+          "in": "query",
+          "description": "after cursor from a previous query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "scanForwards": {
+          "in": "query",
+          "description": "if true then scan in chronological order, else reverse",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      },
+      "get": {
+        "summary": "List the contents of a Sequence",
+        "operationId": "readSequence",
+        "response": {
+          "required": false,
+          "schema": {
+            "$ref": "#/components/schemas/PageOfObjectPayload"
           }
         }
       }
@@ -182,16 +276,30 @@
           }
         }
       },
-      "ObjectPayload": {
+      "SystemObjectPayload": {
         "type": "object",
         "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
         "facade": true,
-        "builderFacade": false,
-        "description": "Base type for objects in the object store.",
+        "builderFacade": true,
+        "description": "Base type for system objects in the object store.",
+        "required": [
+          "hashType"
+        ],
+        "properties": {
+          "hashType": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/HashType"
+          }
+        }
+      },
+      "ObjectPayload": {
+        "type": "object",
+        "extends": "#/components/schemas/SystemObjectPayload",
+        "facade": true,
+        "builderFacade": true,
+        "description": "Base type for application objects in the object store.",
         "required": [
           "partitionHash",
-          "sortKey",
-          "hashType"
+          "sortKey"
         ],
         "properties": {
           "partitionHash": {
@@ -200,8 +308,11 @@
           "sortKey": {
             "$ref": "#/components/schemas/SortKey"
           },
-          "hashType": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/HashType"
+          "createdDate": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
+          },
+          "owner": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PodAndUserId"
           },
           "baseHash": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
@@ -232,9 +343,30 @@
           }
         }
       },
+      "PageOfObjectPayload":  {
+        "type": "object",
+        "facade": false,
+        "builderFacade": false,
+        "required": [
+          "pagination",
+          "data"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "x-canon-cardinality": "LIST",
+            "items": {
+              "$ref": "#/components/schemas/ObjectPayload"
+            }
+          }
+        }
+      },
       "Partition": {
         "type": "object",
-        "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
+        "extends": "#/components/schemas/SystemObjectPayload",
         "facade": true,
         "builderFacade": false,
         "description": "A partition in the object store.",
@@ -247,7 +379,7 @@
       },
       "PartitionThread": {
         "type": "object",
-        "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
+        "extends": "#/components/schemas/SystemObjectPayload",
         "facade": true,
         "builderFacade": false,
         "description": "A partition in the object store.",

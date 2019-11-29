@@ -56,9 +56,6 @@ import com.symphony.oss.models.object.canon.ObjectModel;
 @SuppressWarnings("unused")
 public class PartitionThread extends PartitionThreadEntity implements IPartitionThread
 {
-  private final IKvPartitionKey partitionKey_ = new KvPartitionKey(IKvItem.PARTITION_THREAD_PREFIX + getPartitionId().getHash());
-  private final SortKey         sortKey_      = SortKey.newBuilder().build(getThreadId().toBase64UrlSafeString());
-  
   /**
    * Constructor from builder.
    * 
@@ -99,48 +96,6 @@ public class PartitionThread extends PartitionThreadEntity implements IPartition
   public PartitionThread(IPartitionThread other)
   {
     super(other);
-  }
-
-  @Override
-  public IKvPartitionKey getKvPartitionKey()
-  {
-    return partitionKey_;
-  }
-
-  @Override
-  public SortKey getKvSortKey()
-  {
-    return sortKey_;
-  }
-
-  @Override
-  public PodAndUserId getOwner()
-  {
-    return getPartitionId().getUserId();
-  }
-
-  @Override
-  public Instant getPurgeDate()
-  {
-    return null;
-  }
-
-  @Override
-  public String getJson()
-  {
-    return super.toString();
-  }
-
-  @Override
-  public String getType()
-  {
-    return super.getCanonType();
-  }
-
-  @Override
-  public IFuguePodId getPodId()
-  {
-    return getPartitionId().getUserId().getPodId();
   }
 }
 /*----------------------------------------------------------------------------------------------------

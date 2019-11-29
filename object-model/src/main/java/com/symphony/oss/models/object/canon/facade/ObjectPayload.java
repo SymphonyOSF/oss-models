@@ -19,39 +19,31 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-27 14:57:51 GMT
+ *  At                  2019-11-29 11:39:41 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
 package com.symphony.oss.models.object.canon.facade;
 
+import java.time.Instant;
+
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
+import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-
-import org.symphonyoss.s2.canon.runtime.IEntity;
-import org.symphonyoss.s2.canon.runtime.IModelRegistry;
-
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 import org.symphonyoss.s2.common.hash.Hash;
-import java.time.Instant;
-import com.symphony.oss.models.core.canon.facade.InstantBuilder;
 
-import com.symphony.oss.models.object.canon.ObjectPayloadEntity;
 import com.symphony.oss.models.object.canon.IObjectPayloadEntity;
-import com.symphony.oss.models.object.canon.ObjectModel;
+import com.symphony.oss.models.object.canon.ObjectPayloadEntity;
 
 /**
  * Facade for Object ObjectSchema(ObjectPayload)
  *
- * Base type for objects in the object store.
+ * Base type for application objects in the object store.
  * Generated from ObjectSchema(ObjectPayload) at #/components/schemas/ObjectPayload
  */
 @Immutable
-@SuppressWarnings("unused")
 public class ObjectPayload extends ObjectPayloadEntity implements IObjectPayload
 {
   /**
@@ -96,6 +88,51 @@ public class ObjectPayload extends ObjectPayloadEntity implements IObjectPayload
     super(other);
   }
   
+  @Override
+  public Hash getBaseHash()
+  {
+    if(super.getBaseHash() == null)
+      return getAbsoluteHash();
+    
+    return super.getBaseHash();
+  }
+  
+  /**
+   * 
+   * @return True iff this is a base object (the initial version of an object for a given baseHash)
+   */
+  public boolean isBaseObject()
+  {
+    return super.getBaseHash() == null;
+  }
+
+  /**
+   * Abstract builder for ObjectPayload. If there are sub-classes of this type then their builders sub-class this builder.
+   *
+   * @param <B> The concrete type of the builder, used for fluent methods.
+   * @param <T> The concrete type of the built object.
+   */
+  public static abstract class AbstractObjectPayloadBuilder<B extends AbstractObjectPayloadBuilder<B,T>, T extends IObjectPayloadEntity> extends AbstractObjectPayloadEntityBuilder<B,T>
+  {
+    protected AbstractObjectPayloadBuilder(Class<B> type)
+    {
+      super(type);
+    }
+    
+    protected AbstractObjectPayloadBuilder(Class<B> type, IObjectPayloadEntity initial)
+    {
+      super(type, initial);
+    }
+
+    @Override
+    public Instant getCreatedDate()
+    {
+      if(super.getCreatedDate() == null)
+         return Instant.now();
+      
+      return super.getCreatedDate();
+    }
+  }
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/_.java.ftl
