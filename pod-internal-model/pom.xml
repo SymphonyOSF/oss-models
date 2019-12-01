@@ -28,11 +28,11 @@
   <artifactId>pod-internal-model</artifactId>
 
   <dependencies>
-    <dependency>
+    <!-- <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>fundamental-model</artifactId>
       <version>${project.version}</version>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>chat-model</artifactId>

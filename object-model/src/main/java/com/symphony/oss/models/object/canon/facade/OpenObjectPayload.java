@@ -29,7 +29,7 @@ import com.symphony.oss.models.core.canon.IApplicationPayload;
  * @author Bruce Skingle
  *
  */
-public class OpenObjectPayload extends ObjectPayload implements IOpenObjectPayload
+public class OpenObjectPayload extends StoredApplicationObject implements IOpenObjectPayload
 {
   private final IApplicationPayload payload_;
   

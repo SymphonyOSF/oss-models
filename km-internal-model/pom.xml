@@ -30,7 +30,7 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>fundamental-model</artifactId>
+      <artifactId>crypto-model</artifactId>
       <version>${project.version}</version>
     </dependency>
 

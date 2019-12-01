@@ -37,7 +37,7 @@ import com.symphony.oss.models.object.canon.IPartitionThreadEntity;
  */
 @Immutable
 public interface IPartitionThread
-  extends ISystemObjectPayload, IPartitionThreadEntity
+  extends ISystemObject, IPartitionThreadEntity
 {
 }
 /*----------------------------------------------------------------------------------------------------

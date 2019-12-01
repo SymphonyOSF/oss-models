@@ -52,7 +52,7 @@
         "response": {
           "required": false,
           "schema": {
-            "$ref": "#/components/schemas/ObjectPayload"
+            "$ref": "#/components/schemas/StoredApplicationObject"
           }
         }
       },
@@ -65,7 +65,7 @@
         "payload": {
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/ObjectPayload"
+            "$ref": "#/components/schemas/StoredApplicationObject"
           }
         }
       }
@@ -112,7 +112,7 @@
         "response": {
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/PageOfObjectPayload"
+            "$ref": "#/components/schemas/PageOfStoredApplicationObject"
           }
         }
       }
@@ -143,7 +143,7 @@
           "required": true,
           "multiple": false,
           "schema": {
-            "$ref": "#/components/schemas/ObjectPayload"
+            "$ref": "#/components/schemas/StoredApplicationObject"
           }
         }
       }
@@ -215,7 +215,7 @@
         "response": {
           "required": false,
           "schema": {
-            "$ref": "#/components/schemas/PageOfObjectPayload"
+            "$ref": "#/components/schemas/PageOfStoredApplicationObject"
           }
         }
       }
@@ -276,7 +276,21 @@
           }
         }
       },
-      "SystemObjectPayload": {
+      "ApplicationObject": {
+        "type": "object",
+        "facade": true,
+        "builderFacade": true,
+        "description": "Base type for header or encrypted payloads in the object store.",
+        "properties": {
+          "header": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload"
+          },
+          "payload": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload"
+          }
+        }
+      },
+      "SystemObject": {
         "type": "object",
         "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
         "facade": true,
@@ -291,9 +305,9 @@
           }
         }
       },
-      "ObjectPayload": {
+      "StoredApplicationObject": {
         "type": "object",
-        "extends": "#/components/schemas/SystemObjectPayload",
+        "extends": "#/components/schemas/SystemObject",
         "facade": true,
         "builderFacade": true,
         "description": "Base type for application objects in the object store.",
@@ -343,7 +357,7 @@
           }
         }
       },
-      "PageOfObjectPayload":  {
+      "PageOfStoredApplicationObject":  {
         "type": "object",
         "facade": false,
         "builderFacade": false,
@@ -359,14 +373,14 @@
             "type": "array",
             "x-canon-cardinality": "LIST",
             "items": {
-              "$ref": "#/components/schemas/ObjectPayload"
+              "$ref": "#/components/schemas/StoredApplicationObject"
             }
           }
         }
       },
       "Partition": {
         "type": "object",
-        "extends": "#/components/schemas/SystemObjectPayload",
+        "extends": "#/components/schemas/SystemObject",
         "facade": true,
         "builderFacade": false,
         "description": "A partition in the object store.",
@@ -379,7 +393,7 @@
       },
       "PartitionThread": {
         "type": "object",
-        "extends": "#/components/schemas/SystemObjectPayload",
+        "extends": "#/components/schemas/SystemObject",
         "facade": true,
         "builderFacade": false,
         "description": "A partition in the object store.",
