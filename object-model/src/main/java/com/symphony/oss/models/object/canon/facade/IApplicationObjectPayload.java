@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-29 17:08:16 GMT
+ *  At                  2019-12-02 20:02:19 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,17 +27,17 @@ package com.symphony.oss.models.object.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.models.object.canon.IApplicationObjectEntity;
+import com.symphony.oss.models.object.canon.IApplicationObjectPayloadEntity;
 
 /**
- * Facade for Object ObjectSchema(ApplicationObject)
+ * Facade for Object ObjectSchema(ApplicationObjectPayload)
  *
  * Base type for header or encrypted payloads in the object store.
- * Generated from ObjectSchema(ApplicationObject) at #/components/schemas/ApplicationObject
+ * Generated from ObjectSchema(ApplicationObjectPayload) at #/components/schemas/ApplicationObjectPayload
  */
 @Immutable
-public interface IApplicationObject
-  extends IApplicationObjectEntity
+public interface IApplicationObjectPayload
+  extends IAbstractApplicationObjectPayload, IApplicationObjectPayloadEntity
 {
 }
 /*----------------------------------------------------------------------------------------------------

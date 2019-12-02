@@ -19,80 +19,98 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-29 17:08:16 GMT
+ *  At                  2019-12-02 20:02:19 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
 package com.symphony.oss.models.object.canon.facade;
 
-import javax.annotation.concurrent.Immutable;
-
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
+import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
-import com.symphony.oss.models.object.canon.ApplicationObjectEntity;
-import com.symphony.oss.models.object.canon.IApplicationObjectEntity;
+import com.symphony.oss.models.object.canon.AbstractApplicationObjectPayloadEntity;
+import com.symphony.oss.models.object.canon.IAbstractApplicationObjectPayloadEntity;
 
 /**
- * Facade for Object ObjectSchema(ApplicationObject)
+ * Facade for Object ObjectSchema(AbstractApplicationObjectPayload)
  *
  * Base type for header or encrypted payloads in the object store.
- * Generated from ObjectSchema(ApplicationObject) at #/components/schemas/ApplicationObject
+ * Generated from ObjectSchema(AbstractApplicationObjectPayload) at #/components/schemas/AbstractApplicationObjectPayload
  */
-@Immutable
-public class ApplicationObject extends ApplicationObjectEntity implements IApplicationObject
+public class AbstractApplicationObjectPayload extends AbstractApplicationObjectPayloadEntity implements IAbstractApplicationObjectPayload
 {
-  private final IStoredApplicationObject storedApplicationObject_;
+  private IStoredApplicationObject storedApplicationObject_;
   
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public ApplicationObject(AbstractApplicationObjectBuilder<?,?> builder)
+  public AbstractApplicationObjectPayload(AbstractAbstractApplicationObjectPayloadBuilder<?,?> builder)
   {
     super(builder);
-    storedApplicationObject_ = builder.storedApplicationObject_;
   }
   
   /**
-   * Return a new entity instance created from the given JSON serialization.
+   * Constructor from serialised form.
    * 
-   * @param jsonObject The JSON serialized form of the required entity.
+   * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public ApplicationObject(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public AbstractApplicationObjectPayload(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
-    
-    storedApplicationObject_ = null;
   }
-
+  
   /**
+   * Constructor from mutable JSON object.
    * 
-   * @return The encrypted form of this object.
+   * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
+   * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
+  public AbstractApplicationObjectPayload(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  {
+    super(mutableJsonObject, modelRegistry);
+  }
+   
+  /**
+   * Copy constructor.
+   * 
+   * @param other Another instance from which all attributes are to be copied.
+   */
+  public AbstractApplicationObjectPayload(IAbstractApplicationObjectPayload other)
+  {
+    super(other);
+  }
+  
+  @Override
   public IStoredApplicationObject getStoredApplicationObject()
   {
     return storedApplicationObject_;
   }
 
+  public void setStoredApplicationObject(IStoredApplicationObject storedApplicationObject)
+  {
+    storedApplicationObject_ = storedApplicationObject;
+  }
+
   /**
-   * Abstract builder for ApplicationObject. If there are sub-classes of this type then their builders sub-class this builder.
+   * Abstract builder for AbstractApplicationObjectPayload. If there are sub-classes of this type then their builders sub-class this builder.
    *
    * @param <B> The concrete type of the builder, used for fluent methods.
    * @param <T> The concrete type of the built object.
    */
-  public static abstract class AbstractApplicationObjectBuilder<B extends AbstractApplicationObjectBuilder<B,T>, T extends IApplicationObjectEntity> extends AbstractApplicationObjectEntityBuilder<B,T>
+  public static abstract class AbstractAbstractApplicationObjectPayloadBuilder<B extends AbstractAbstractApplicationObjectPayloadBuilder<B,T>, T extends IAbstractApplicationObjectPayloadEntity> extends AbstractAbstractApplicationObjectPayloadEntityBuilder<B,T>
   {
     private IStoredApplicationObject storedApplicationObject_;
     
-    protected AbstractApplicationObjectBuilder(Class<B> type)
+    protected AbstractAbstractApplicationObjectPayloadBuilder(Class<B> type)
     {
       super(type);
     }
     
-    protected AbstractApplicationObjectBuilder(Class<B> type, IApplicationObjectEntity initial)
+    protected AbstractAbstractApplicationObjectPayloadBuilder(Class<B> type, IAbstractApplicationObjectPayloadEntity initial)
     {
       super(type, initial);
     }

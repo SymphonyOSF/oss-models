@@ -276,18 +276,31 @@
           }
         }
       },
-      "ApplicationObject": {
+      "AbstractApplicationObjectPayload": {
         "type": "object",
         "facade": true,
+        "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
         "builderFacade": true,
         "description": "Base type for header or encrypted payloads in the object store.",
         "properties": {
-          "header": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload"
-          },
-          "payload": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload"
-          }
+        }
+      },
+      "ApplicationObjectHeader": {
+        "type": "object",
+        "facade": true,
+        "extends": "#/components/schemas/AbstractApplicationObjectPayload",
+        "builderFacade": true,
+        "description": "Base type for header or encrypted payloads in the object store.",
+        "properties": {
+        }
+      },
+      "ApplicationObjectPayload": {
+        "type": "object",
+        "facade": true,
+        "extends": "#/components/schemas/AbstractApplicationObjectPayload",
+        "builderFacade": true,
+        "description": "Base type for header or encrypted payloads in the object store.",
+        "properties": {
         }
       },
       "SystemObject": {
@@ -341,7 +354,7 @@
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
           },
           "header": {
-            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload"
+            "$ref": "#/components/schemas/ApplicationObjectHeader"
           },
           "encryptedPayload": {
             "$ref": "https://models.oss.symphony.com/crypto.json#/components/schemas/EncryptedData"
@@ -426,7 +439,7 @@
       },
       "AffectedUsers": {
         "type": "object",
-        "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
+        "extends": "#/components/schemas/ApplicationObjectHeader",
         "facade": false,
         "builderFacade": false,
         "description": "Header type for objects in the  object store.",
