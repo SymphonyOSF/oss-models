@@ -130,7 +130,7 @@ public class SystemObject extends SystemObjectEntity implements ISystemObject
     }
 
     @Override
-    protected void validate()
+    public void validate()
     {
       if(getHashType() == null)
         withHashType(HashType.newBuilder().build(Hash.getDefaultHashTypeId()));
