@@ -25,20 +25,22 @@
 
 package com.symphony.oss.models.object.canon.facade;
 
+import java.io.IOException;
+
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
-import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
-import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-
-import org.symphonyoss.s2.canon.runtime.IEntity;
+import org.symphonyoss.s2.canon.runtime.CanonRuntime;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
+import org.symphonyoss.s2.common.dom.json.IJsonDomNode;
+import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
+import org.symphonyoss.s2.common.dom.json.JsonString;
+import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
+import org.symphonyoss.s2.common.dom.json.jackson.JacksonAdaptor;
 
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.symphony.oss.models.object.canon.ApplicationObjectPayloadEntity;
 import com.symphony.oss.models.object.canon.IApplicationObjectPayloadEntity;
-import com.symphony.oss.models.object.canon.ObjectModel;
 
 /**
  * Facade for Object ObjectSchema(ApplicationObjectPayload)
@@ -47,9 +49,9 @@ import com.symphony.oss.models.object.canon.ObjectModel;
  * Generated from ObjectSchema(ApplicationObjectPayload) at #/components/schemas/ApplicationObjectPayload
  */
 @Immutable
-@SuppressWarnings("unused")
 public class ApplicationObjectPayload extends ApplicationObjectPayloadEntity implements IApplicationObjectPayload
 {
+  private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
   /**
    * Constructor from builder.
    * 
@@ -90,6 +92,58 @@ public class ApplicationObjectPayload extends ApplicationObjectPayloadEntity imp
   public ApplicationObjectPayload(IApplicationObjectPayload other)
   {
     super(other);
+  }
+  
+  /**
+   * Constructor from serialized form.
+   * 
+   * @param json The serialized form.
+   */
+  public ApplicationObjectPayload(String json)
+  {
+    this(parse(json));
+  }
+
+  /**
+   * Constructor from serialized form.
+   * 
+   * @param jsonObject A Jackson parse tree of the serialized form.
+   */
+  public ApplicationObjectPayload(ObjectNode jsonObject)
+  {
+    // The modelRegistry parameter is required because of the shape of Canon generated code, but is not used in this case so we pass null.
+    super(adapt(jsonObject), null);
+  }
+  
+  private static ImmutableJsonObject adapt(ObjectNode jsonObject)
+  {
+    MutableJsonObject mutableJsonObject = JacksonAdaptor.adaptObject(jsonObject);
+    
+    IJsonDomNode typeId = mutableJsonObject.get(CanonRuntime.JSON_TYPE);
+    
+    if(typeId == null)
+    {
+      mutableJsonObject.addIfNotNull(CanonRuntime.JSON_TYPE, TYPE_ID);
+      mutableJsonObject.addIfNotNull(CanonRuntime.JSON_VERSION, TYPE_VERSION);
+    }
+    else if(!(typeId instanceof JsonString))
+    {
+      throw new IllegalArgumentException("If _type is present it must be a string value");
+    }
+    
+    return mutableJsonObject.immutify();
+  }
+  
+  private static ObjectNode parse(String json)
+  { 
+    try
+    {
+      return (ObjectNode)OBJECT_MAPPER.readTree(json);
+    }
+    catch(IOException | ClassCastException e)
+    {
+      throw new IllegalArgumentException("A valid JSON object is required.");
+    }
   }
   
   /**

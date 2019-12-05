@@ -65,7 +65,7 @@
         "payload": {
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/StoredApplicationObject"
+            "$ref": "#/components/schemas/AbstractStoredApplicationObject"
           }
         }
       }
@@ -112,7 +112,7 @@
         "response": {
           "required": true,
           "schema": {
-            "$ref": "#/components/schemas/PageOfStoredApplicationObject"
+            "$ref": "#/components/schemas/PageOfAbstractStoredApplicationObject"
           }
         }
       }
@@ -210,7 +210,7 @@
         }
       },
       "get": {
-        "summary": "List the contents of a Sequence",
+        "summary": "List the contents of a partition",
         "operationId": "readSequence",
         "response": {
           "required": false,
@@ -318,12 +318,12 @@
           }
         }
       },
-      "StoredApplicationObject": {
+      "AbstractStoredApplicationObject": {
         "type": "object",
         "extends": "#/components/schemas/SystemObject",
-        "facade": true,
-        "builderFacade": true,
-        "description": "Base type for application objects in the object store.",
+        "facade": false,
+        "builderFacade": false,
+        "description": "Base type for stored application objects in the object store.",
         "required": [
           "partitionHash",
           "sortKey"
@@ -352,7 +352,19 @@
           },
           "purgeDate": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
-          },
+          }
+        }
+      },
+      "StoredApplicationObject": {
+        "type": "object",
+        "extends": "#/components/schemas/AbstractStoredApplicationObject",
+        "facade": true,
+        "builderFacade": true,
+        "description": "A stored application object in the object store.",
+        "required": [
+          "encryptedPayload"
+        ],
+        "properties": {
           "header": {
             "$ref": "#/components/schemas/ApplicationObjectHeader"
           },
@@ -367,6 +379,28 @@
           },
           "rotationId": {
               "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/RotationId"
+          }
+        }
+      },
+      "DeletionType": {
+        "type": "string",
+        "enum": [
+          "LOGICAL",
+          "PHYSICAL"
+        ]
+      },
+      "DeletedApplicationObject": {
+        "type": "object",
+        "extends": "#/components/schemas/AbstractStoredApplicationObject",
+        "facade": true,
+        "builderFacade": true,
+        "description": "A tombstone marker for an object which was deleted.",
+        "required": [
+          "deletionType"
+        ],
+        "properties": {
+          "deletionType": {
+            "$ref": "#/components/schemas/DeletionType"
           }
         }
       },
@@ -387,6 +421,27 @@
             "x-canon-cardinality": "LIST",
             "items": {
               "$ref": "#/components/schemas/StoredApplicationObject"
+            }
+          }
+        }
+      },
+      "PageOfAbstractStoredApplicationObject":  {
+        "type": "object",
+        "facade": false,
+        "builderFacade": false,
+        "required": [
+          "pagination",
+          "data"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "x-canon-cardinality": "LIST",
+            "items": {
+              "$ref": "#/components/schemas/AbstractStoredApplicationObject"
             }
           }
         }

@@ -63,12 +63,6 @@ public class KvStore implements IKvStore
   {
     kvTable_.store(kvItems, trace);
   }
-
-  @Override
-  public void store(IKvItem kvItem, ITraceContext trace)
-  {
-    kvTable_.store(kvItem, trace);
-  }
   
   private <T extends IKvItem> T normalize(String json, Class<T> type)
   {

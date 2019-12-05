@@ -19,39 +19,36 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-29 11:39:41 GMT
+ *  At                  2019-12-04 07:16:22 GMT-08:00
  *----------------------------------------------------------------------------------------------------
  */
 
 package com.symphony.oss.models.object.canon.facade;
-
-import java.time.Instant;
 
 import javax.annotation.concurrent.Immutable;
 
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.s2.common.hash.Hash;
 
-import com.symphony.oss.models.object.canon.IStoredApplicationObjectEntity;
-import com.symphony.oss.models.object.canon.StoredApplicationObjectEntity;
+import com.symphony.oss.models.object.canon.DeletedApplicationObjectEntity;
+import com.symphony.oss.models.object.canon.IDeletedApplicationObjectEntity;
 
 /**
- * Facade for Object ObjectSchema(StoredApplicationObject)
+ * Facade for Object ObjectSchema(DeletedApplicationObject)
  *
- * Base type for application objects in the object store.
- * Generated from ObjectSchema(StoredApplicationObject) at #/components/schemas/StoredApplicationObject
+ * A tombstone marker for an object which was deleted.
+ * Generated from ObjectSchema(DeletedApplicationObject) at #/components/schemas/DeletedApplicationObject
  */
 @Immutable
-public class StoredApplicationObject extends StoredApplicationObjectEntity implements IStoredApplicationObject
+public class DeletedApplicationObject extends DeletedApplicationObjectEntity implements IDeletedApplicationObject
 {
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public StoredApplicationObject(AbstractStoredApplicationObjectBuilder<?,?> builder)
+  public DeletedApplicationObject(AbstractDeletedApplicationObjectBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -62,7 +59,7 @@ public class StoredApplicationObject extends StoredApplicationObjectEntity imple
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public StoredApplicationObject(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public DeletedApplicationObject(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -73,7 +70,7 @@ public class StoredApplicationObject extends StoredApplicationObjectEntity imple
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public StoredApplicationObject(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public DeletedApplicationObject(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -83,54 +80,27 @@ public class StoredApplicationObject extends StoredApplicationObjectEntity imple
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public StoredApplicationObject(IStoredApplicationObject other)
+  public DeletedApplicationObject(IDeletedApplicationObject other)
   {
     super(other);
   }
-
-  @Override
-  public Hash getBaseHash()
-  {
-    if(super.getBaseHash() == null)
-      return getAbsoluteHash();
-    
-    return super.getBaseHash();
-  }
   
   /**
-   * 
-   * @return True iff this is a base object (the initial version of an object for a given baseHash)
-   */
-  public boolean isBaseObject()
-  {
-    return super.getBaseHash() == null;
-  }
-
-  /**
-   * Abstract builder for StoredApplicationObject. If there are sub-classes of this type then their builders sub-class this builder.
+   * Abstract builder for DeletedApplicationObject. If there are sub-classes of this type then their builders sub-class this builder.
    *
    * @param <B> The concrete type of the builder, used for fluent methods.
    * @param <T> The concrete type of the built object.
    */
-  public static abstract class AbstractStoredApplicationObjectBuilder<B extends AbstractStoredApplicationObjectBuilder<B,T>, T extends IStoredApplicationObjectEntity> extends AbstractStoredApplicationObjectEntityBuilder<B,T>
+  public static abstract class AbstractDeletedApplicationObjectBuilder<B extends AbstractDeletedApplicationObjectBuilder<B,T>, T extends IDeletedApplicationObjectEntity> extends AbstractDeletedApplicationObjectEntityBuilder<B,T>
   {
-    protected AbstractStoredApplicationObjectBuilder(Class<B> type)
+    protected AbstractDeletedApplicationObjectBuilder(Class<B> type)
     {
       super(type);
     }
     
-    protected AbstractStoredApplicationObjectBuilder(Class<B> type, IStoredApplicationObjectEntity initial)
+    protected AbstractDeletedApplicationObjectBuilder(Class<B> type, IDeletedApplicationObjectEntity initial)
     {
       super(type, initial);
-    }
-
-    @Override
-    public Instant getCreatedDate()
-    {
-      if(super.getCreatedDate() == null)
-         return Instant.now();
-      
-      return super.getCreatedDate();
     }
   }
 }

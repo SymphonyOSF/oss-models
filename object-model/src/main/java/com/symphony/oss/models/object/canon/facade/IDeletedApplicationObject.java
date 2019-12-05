@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2019-11-29 11:39:41 GMT
+ *  At                  2019-12-04 07:16:22 GMT-08:00
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -28,17 +28,17 @@ package com.symphony.oss.models.object.canon.facade;
 import javax.annotation.concurrent.Immutable;
 
 import com.symphony.oss.models.object.canon.IAbstractStoredApplicationObject;
-import com.symphony.oss.models.object.canon.IStoredApplicationObjectEntity;
+import com.symphony.oss.models.object.canon.IDeletedApplicationObjectEntity;
 
 /**
- * Facade for Object ObjectSchema(ObjectPayload)
+ * Facade for Object ObjectSchema(DeletedApplicationObject)
  *
- * Base type for application objects in the object store.
- * Generated from ObjectSchema(ObjectPayload) at #/components/schemas/ObjectPayload
+ * A tombstone marker for an object which was deleted.
+ * Generated from ObjectSchema(DeletedApplicationObject) at #/components/schemas/DeletedApplicationObject
  */
 @Immutable
-public interface IStoredApplicationObject
-  extends IAbstractStoredApplicationObject, IStoredApplicationObjectEntity
+public interface IDeletedApplicationObject
+  extends IAbstractStoredApplicationObject, IDeletedApplicationObjectEntity
 {
 }
 /*----------------------------------------------------------------------------------------------------

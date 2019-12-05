@@ -46,14 +46,6 @@ public interface IKvStore
    * @param trace   Trace context.
    */
   void store(Collection<IKvItem> kvItems, ITraceContext trace);
-  
-  /**
-   * Store the given item.
-   * 
-   * @param kvItem  Item to be stored.
-   * @param trace   Trace context.
-   */
-  void store(IKvItem kvItem, ITraceContext trace);
 
   /**
    * Fetch an item given a partition key and sort key.
