@@ -74,8 +74,6 @@
     <canon.template.groupid>org.symphonyoss.s2.canon</canon.template.groupid>
     <canon.template.java>canon-template-java</canon.template.java>
     <canon.template.version>${canon.version}</canon.template.version>
-    
-    <symphony.persistence.version>2.0.1</symphony.persistence.version>
   </properties>
   
   <modules>
