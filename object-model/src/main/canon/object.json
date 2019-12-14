@@ -198,7 +198,7 @@
         }
       }
     },
-    "/feeds/{name}/messages": {
+    "/feeds/{name}/objects": {
       "parameters": {
         "name": {
           "in": "path",
@@ -223,7 +223,7 @@
           "required": false,
           "multiple": true,
           "schema": {
-            "$ref": "#/components/schemas/FeedMessage"
+            "$ref": "#/components/schemas/FeedObject"
           }
         }
       }
@@ -601,8 +601,9 @@
           }
         }
       },
-      "FeedMessageDelete": {
+      "FeedObjectDelete": {
         "type": "object",
+        "facade": true,
         "description": "Request to delete (acknowledge) a message from a feed.",
         "properties": {
           "receiptHandle": {
@@ -610,8 +611,9 @@
           }
         }
       },
-      "FeedMessageExtend": {
+      "FeedObjectExtend": {
         "type": "object",
+        "facade": true,
          "description": "Request to extend the visibility timeout (nak) a message from a feed.",
         "properties": {
           "receiptHandle": {
@@ -623,8 +625,9 @@
           }
         }
       },
-      "FeedMessage": {
+      "FeedObject": {
         "type": "object",
+        "facade": true,
         "description": "A message from a feed.",
         "properties": {
           "messageId": {
@@ -642,7 +645,7 @@
         "type": "object",
         "description": "Request to fetch and/or acknowledge messages from a feed.",
         "properties": {
-          "maxMessages": {
+          "maxItems": {
             "type": "integer",
             "format": "int32"
           },
@@ -654,14 +657,14 @@
             "type": "array",
             "x-canon-cardinality": "SET",
             "items": {
-              "$ref": "#/components/schemas/FeedMessageDelete"
+              "$ref": "#/components/schemas/FeedObjectDelete"
             }
           },
           "extend": {
             "type": "array",
             "x-canon-cardinality": "SET",
             "items": {
-              "$ref": "#/components/schemas/FeedMessageExtend"
+              "$ref": "#/components/schemas/FeedObjectExtend"
             }
           }
         }
