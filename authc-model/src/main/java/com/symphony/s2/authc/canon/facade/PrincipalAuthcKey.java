@@ -36,7 +36,6 @@ import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.canon.runtime.exception.NotAuthenticatedException;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.s2.common.exception.NoSuchObjectException;
 import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.kv.IKvPartitionKey;
 import org.symphonyoss.s2.fugue.kv.IKvSortKey;
@@ -44,6 +43,7 @@ import org.symphonyoss.s2.fugue.kv.KvPartitionKey;
 import org.symphonyoss.s2.fugue.kv.KvPartitionKeyProvider;
 import org.symphonyoss.s2.fugue.kv.KvPartitionSortKeyProvider;
 import org.symphonyoss.s2.fugue.kv.KvSortKey;
+import org.symphonyoss.s2.fugue.store.NoSuchObjectException;
 
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.core.canon.facade.PodId;

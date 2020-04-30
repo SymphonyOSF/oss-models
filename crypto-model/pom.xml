@@ -33,9 +33,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.symphonyoss.s2.common</groupId>
-      <artifactId>S2-common-core</artifactId>
-       <version>${s2.common.version}</version>
+      <groupId>com.symphony.oss.commons</groupId>
+      <artifactId>commons-core</artifactId>
+       <version>${oss.commons.version}</version>
     </dependency>
 
     <dependency>

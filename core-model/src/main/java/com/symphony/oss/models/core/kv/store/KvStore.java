@@ -31,7 +31,6 @@ import java.util.function.Consumer;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
-import org.symphonyoss.s2.common.exception.NoSuchObjectException;
 import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.kv.IKvItem;
 import org.symphonyoss.s2.fugue.kv.IKvPagination;
@@ -39,6 +38,7 @@ import org.symphonyoss.s2.fugue.kv.IKvPartitionKeyProvider;
 import org.symphonyoss.s2.fugue.kv.IKvPartitionSortKeyProvider;
 import org.symphonyoss.s2.fugue.kv.KvCondition;
 import org.symphonyoss.s2.fugue.kv.table.IKvTable;
+import org.symphonyoss.s2.fugue.store.NoSuchObjectException;
 
 /**
  * Implementation of IKvStore.

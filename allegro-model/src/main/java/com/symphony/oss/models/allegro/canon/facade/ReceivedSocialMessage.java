@@ -27,7 +27,6 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 import org.symphonyoss.symphony.messageml.elements.CashTag;
 import org.symphonyoss.symphony.messageml.elements.Element;
 import org.symphonyoss.symphony.messageml.elements.HashTag;
@@ -45,14 +44,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
 import com.symphony.oss.models.allegro.canon.ReceivedSocialMessageEntity;
 import com.symphony.oss.models.chat.canon.facade.ISocialMessage;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.allegro.canon.IReceivedSocialMessageEntity;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.models.allegro.canon.AllegroModel;
 
 /**

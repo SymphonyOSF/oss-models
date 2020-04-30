@@ -31,7 +31,6 @@ import java.util.Map;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 import org.symphonyoss.s2.fugue.kv.IKvPartitionKey;
 import org.symphonyoss.s2.fugue.kv.IKvPartitionSortKeyProvider;
 import org.symphonyoss.s2.fugue.kv.IKvSortKey;
@@ -41,7 +40,6 @@ import org.symphonyoss.s2.fugue.kv.KvSortKey;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.s2.common.hash.Hash;
 import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
@@ -49,6 +47,8 @@ import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import com.symphony.s2.authz.canon.UserStatusEntity;
 import com.symphony.s2.authz.canon.IUserStatusEntity;
 import com.google.common.collect.ImmutableMap;
+import com.symphony.oss.commons.hash.Hash;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.s2.authz.canon.AuthzModel;
 

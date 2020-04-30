@@ -30,9 +30,9 @@ import javax.annotation.concurrent.Immutable;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.s2.common.hash.Hash;
-import org.symphonyoss.s2.common.hash.HashProvider;
 
+import com.symphony.oss.commons.hash.Hash;
+import com.symphony.oss.commons.hash.HashProvider;
 import com.symphony.oss.models.core.canon.HashType;
 import com.symphony.oss.models.core.canon.ISystemObjectEntity;
 import com.symphony.oss.models.core.canon.SystemObjectEntity;

@@ -27,15 +27,13 @@ package com.symphony.oss.models.object.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
 import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
-
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.models.object.canon.ApplicationObjectHeaderEntity;
 import com.symphony.oss.models.object.canon.IApplicationObjectHeaderEntity;
 import com.symphony.oss.models.object.canon.ObjectModel;

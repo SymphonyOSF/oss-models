@@ -27,8 +27,6 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 
@@ -36,11 +34,11 @@ import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
 import java.util.List;
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 
 import com.symphony.oss.models.allegro.canon.ReceivedMaestroMessageEntity;
 import com.symphony.oss.models.chat.canon.IMaestroMessage;
 import com.symphony.oss.models.allegro.canon.IReceivedMaestroMessageEntity;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.models.allegro.canon.AllegroModel;
 
 /**

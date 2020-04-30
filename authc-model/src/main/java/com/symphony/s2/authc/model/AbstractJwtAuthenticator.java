@@ -25,12 +25,12 @@ import org.symphonyoss.s2.canon.runtime.http.IRequestAuthenticator;
 import org.symphonyoss.s2.canon.runtime.http.IRequestContext;
 import org.symphonyoss.s2.canon.runtime.http.ServletRequestContext;
 import org.symphonyoss.s2.canon.runtime.jjwt.JwtBase;
-import org.symphonyoss.s2.common.fault.CodingFault;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.util.concurrent.UncheckedExecutionException;
+import com.symphony.oss.commons.fault.CodingFault;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.core.canon.facade.PodId;
 import com.symphony.oss.models.crypto.canon.PemCertificate;

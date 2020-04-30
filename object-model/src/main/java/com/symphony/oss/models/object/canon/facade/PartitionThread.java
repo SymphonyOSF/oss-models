@@ -29,7 +29,6 @@ import java.time.Instant;
 
 import javax.annotation.concurrent.Immutable;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
 import org.symphonyoss.s2.fugue.kv.IKvPartitionKey;
 import org.symphonyoss.s2.fugue.kv.KvPartitionKey;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
@@ -39,9 +38,8 @@ import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
 import org.symphonyoss.s2.canon.runtime.IEntity;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 
-import org.symphonyoss.s2.common.immutable.ImmutableByteArray;
-
 import com.symphony.oss.models.object.canon.PartitionThreadEntity;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.object.canon.IPartitionThreadEntity;
 import com.symphony.oss.models.object.canon.ObjectModel;

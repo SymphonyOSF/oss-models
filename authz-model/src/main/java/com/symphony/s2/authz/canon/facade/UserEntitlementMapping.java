@@ -35,7 +35,6 @@ import javax.annotation.concurrent.Immutable;
 import org.symphonyoss.s2.canon.runtime.IModelRegistry;
 import org.symphonyoss.s2.common.dom.json.ImmutableJsonObject;
 import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-import org.symphonyoss.s2.common.hash.Hash;
 import org.symphonyoss.s2.fugue.core.trace.ITraceContext;
 import org.symphonyoss.s2.fugue.core.trace.NoOpTraceContext;
 import org.symphonyoss.s2.fugue.kv.IKvPagination;
@@ -50,6 +49,7 @@ import org.symphonyoss.s2.fugue.kv.KvSortKey;
 import org.symphonyoss.s2.fugue.store.IFuguePodId;
 
 import com.google.common.collect.ImmutableMap;
+import com.symphony.oss.commons.hash.Hash;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.oss.models.core.canon.facade.PodId;
 import com.symphony.oss.models.core.kv.store.IKvStore;
