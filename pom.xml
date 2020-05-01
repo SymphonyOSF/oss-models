@@ -68,7 +68,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>  
     
     <oss.commons.version>0.0.1</oss.commons.version>
-    <canon.version>0.2.23-SNAPSHOT</canon.version>
+    <oss.canon.version>0.0.1-SNAPSHOT</oss.canon.version>
     <oss.fugue.version>0.0.1</oss.fugue.version>
     
     <canon.template.groupid>org.symphonyoss.s2.canon</canon.template.groupid>
@@ -150,9 +150,9 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.symphonyoss.s2.canon</groupId>
+          <groupId>com.symphony.oss.canon</groupId>
           <artifactId>canon-maven-plugin</artifactId>
-          <version>${canon.version}</version>
+          <version>${oss.canon.version}</version>
         </plugin>
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
         <plugin>
@@ -165,7 +165,7 @@
                 <pluginExecution>
                   <pluginExecutionFilter>
                     <groupId>
-                      org.symphonyoss.s2.canon
+                      com.symphony.oss.canon
                     </groupId>
                     <artifactId>
                       canon-maven-plugin
@@ -191,7 +191,7 @@
     </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>org.symphonyoss.s2.canon</groupId>
+        <groupId>com.symphony.oss.canon</groupId>
         <artifactId>canon-maven-plugin</artifactId>
         <executions>
           <execution>

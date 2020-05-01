@@ -27,9 +27,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.symphonyoss.s2.canon</groupId>
+      <groupId>com.symphony.oss.canon</groupId>
       <artifactId>canon-runtime-java</artifactId>
-       <version>${canon.version}</version>
+       <version>${oss.canon.version}</version>
     </dependency>
 
     <dependency>
