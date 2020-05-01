@@ -71,9 +71,9 @@
     <oss.canon.version>0.0.1</oss.canon.version>
     <oss.fugue.version>0.0.1</oss.fugue.version>
     
-    <canon.template.groupid>org.symphonyoss.s2.canon</canon.template.groupid>
+    <canon.template.groupid>com.symphony.oss.canon</canon.template.groupid>
     <canon.template.java>canon-template-java</canon.template.java>
-    <canon.template.version>${canon.version}</canon.template.version>
+    <canon.template.version>${oss.canon.version}</canon.template.version>
   </properties>
   
   <modules>
@@ -203,10 +203,6 @@
               <srcDirs>src/main/resources/canon</srcDirs>
               <proformaCopyDir>src/main</proformaCopyDir>
               <uriMapping>
-                <property>
-                 <name>https://models.oss.symphony.com/fundamental.json</name>
-                 <value>fundamental-model/src/main/resources/canon/fundamental.json</value>
-                </property>
                 <property>
                  <name>https://models.oss.symphony.com/core.json</name>
                  <value>core-model/src/main/resources/canon/core.json</value>
