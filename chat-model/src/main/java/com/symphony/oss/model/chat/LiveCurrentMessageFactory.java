@@ -6,10 +6,9 @@
 
 package com.symphony.oss.model.chat;
 
-import org.symphonyoss.s2.canon.runtime.IModelRegistry;
-import org.symphonyoss.s2.common.dom.json.IJsonDomNode;
-import org.symphonyoss.s2.common.dom.json.MutableJsonObject;
-
+import com.symphony.oss.canon.runtime.IModelRegistry;
+import com.symphony.oss.commons.dom.json.IJsonDomNode;
+import com.symphony.oss.commons.dom.json.MutableJsonObject;
 import com.symphony.oss.commons.type.provider.IStringProvider;
 import com.symphony.oss.models.chat.canon.Bookmark;
 import com.symphony.oss.models.chat.canon.DeleteEvent;

@@ -9,7 +9,7 @@ package com.symphony.s2.authz.model;
 import org.apache.http.impl.client.CloseableHttpClient;
 
 import com.symphony.oss.commons.hash.Hash;
-import com.symphony.oss.fugue.core.trace.ITraceContext;
+import com.symphony.oss.fugue.trace.ITraceContext;
 import com.symphony.oss.models.core.canon.facade.PodAndUserId;
 import com.symphony.s2.authc.model.IMultiTenantServiceRegistry;
 import com.symphony.s2.authz.canon.AuthzHttpModelClient;
