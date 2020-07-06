@@ -206,19 +206,32 @@
           "schema": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
           }
-        }
-      },
-      "get": {
-
-        "summary": "Fetch the given partition user perimissions.",
-        "operationId": "fetchPartitionUsers",
-        "response": {
-          "required": true,
-          "multiple": true,
+        },
+       "limit": {
+          "in": "query",
+          "description": "How many items to return at one time (max 100)",
+          "required": false,
           "schema": {
-
-            "$ref": "#/components/schemas/UserPermissionsRequest"
-
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "after": {
+          "in": "query",
+          "description": "after cursor from a previous query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        } 
+      },
+   "get": {
+        "summary": "List the contents of a partition",
+        "operationId": "readSequence",
+        "response": {
+          "required": false,
+          "schema": {
+            "$ref": "#/components/schemas/PageOfUserPermissions"
           }
         }
       }
@@ -620,7 +633,27 @@
           }
         }
       },
-      
+      "PageOfUserPermissions":  {
+        "type": "object",
+        "facade": false,
+        "builderFacade": false,
+        "required": [
+          "pagination",
+          "data"
+        ],
+        "properties": {
+          "pagination": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "x-canon-cardinality": "LIST",
+            "items": {
+              "$ref": "#/components/schemas/UserPermissionsRequest"
+            }
+          }
+        }
+      },    
       
       "Permission": {
         "type": "string",
