@@ -314,7 +314,7 @@
         }
       },
       "delete": {
-        "summary": "Fetch and/or acknowledge messages from a feed.",
+        "summary": "Delete a feed.",
         "operationId": "readFeed"
         }
       },
