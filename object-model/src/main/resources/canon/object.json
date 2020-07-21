@@ -315,7 +315,7 @@
       },
       "delete": {
         "summary": "Delete a feed.",
-        "operationId": "readFeed"
+        "operationId": "deleteFeed"
         }
       },
     
