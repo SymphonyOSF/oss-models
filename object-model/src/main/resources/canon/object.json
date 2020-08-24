@@ -1025,10 +1025,13 @@
           "sessionToken": {
             "type": "string"
           },
+          "directFetch": {
+            "type": "boolean"
+          },
           "expirationDate": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
           },
-           "queueNames": {
+           "queueUrls": {
             "type": "array",
             "x-canon-cardinality": "LIST",
             "items": {
