@@ -1040,7 +1040,10 @@
            } ,
            "region": {
             "type": "string"
-          }               
+          },
+           "endPoint": {
+            "type": "string"
+          }                 
       }
       }
     }
