@@ -584,7 +584,7 @@
         "EntitlementMappingInfo":{
 	        "type": "object",	
 	        "extends": "https://models.oss.symphony.com/core.json#/components/schemas/SystemObject",	
-	        "facade": true,
+	        "facade":false,
 	        "builderFacade": false,
 	        "description": "An entitlement definition.",	
 	        "required": [
