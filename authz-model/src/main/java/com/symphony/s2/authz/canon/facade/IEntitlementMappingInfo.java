@@ -19,36 +19,28 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2020-02-04 15:19:57 GMT
+ *  At                  2020-09-08 17:49:53 CEST
  *----------------------------------------------------------------------------------------------------
  */
 
 package com.symphony.s2.authz.canon.facade;
 
-import java.util.List;
-
 import javax.annotation.concurrent.Immutable;
 
 import com.symphony.oss.fugue.kv.IKvItem;
 import com.symphony.oss.models.core.canon.facade.ISystemObject;
-import com.symphony.s2.authz.canon.IEntitlementEntity;
+import com.symphony.s2.authz.canon.IEntitlementMappingInfoEntity;
 
 /**
- * Facade for Object ObjectSchema(Entitlement)
+ * Facade for Object ObjectSchema(EntitlementMappingInfo)
  *
  * An entitlement definition.
- * Generated from ObjectSchema(Entitlement) at #/components/schemas/Entitlement
+ * Generated from ObjectSchema(EntitlementMappingInfo) at #/components/schemas/EntitlementMappingInfo
  */
 @Immutable
-public interface IEntitlement
-  extends ISystemObject, IEntitlementEntity, IKvItem
+public interface IEntitlementMappingInfo
+  extends ISystemObject, IEntitlementMappingInfoEntity
 {
-  /**
-   * Fetches Entitlement and the EntitlementOwnedItem
-   * <p>
-   * @return list of KvItems
-   */
-  public List<IKvItem> getKvItems();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl
