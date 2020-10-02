@@ -68,9 +68,10 @@ public interface IKvStore
    * 
    * @param kvItem       Item to be stored.
    * @param kvConditions Conditions for the EntitlementMapping
+   * @param action       The allow action
    * @param trace        Trace context.
    */
-  void storeEntitlementMapping(IKvItem kvItem, List<KvCondition> kvConditions, ITraceContext trace);
+  void storeEntitlementMapping(IKvItem kvItem, List<KvCondition> kvConditions, String action, ITraceContext trace);
 
   /**
    * Fetch an item given a partition key and sort key.

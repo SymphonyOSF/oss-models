@@ -76,9 +76,9 @@ public class KvStore implements IKvStore
   }
   
   @Override
-  public void storeEntitlementMapping(IKvItem kvItem, List<KvCondition> kvConditions, ITraceContext trace)
+  public void storeEntitlementMapping(IKvItem kvItem, List<KvCondition> kvConditions, String action, ITraceContext trace)
   {
-    kvTable_.storeEntitlementMapping(kvItem, kvConditions, trace);  
+    kvTable_.storeEntitlementMapping(kvItem, kvConditions, action, trace);  
   }
   
   private <T extends IKvItem> T normalize(String json, Class<T> type)

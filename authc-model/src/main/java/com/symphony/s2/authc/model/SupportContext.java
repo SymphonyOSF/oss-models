@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class SupportContext implements ISupportContext
 {
-  private List<String> entitlements_ = new ArrayList<>();
-  private String       email_;
+  boolean                     entitled_;
+  private String              email_;
 
   /**
    * Constructor.
@@ -26,18 +26,18 @@ public class SupportContext implements ISupportContext
    * See the interface class comment for details.
    * 
    * @param email                 Email of PMP user
-   * @param entitlements          List of groups in the JWT
+   * @param entitled              true if entitled
    */
-  public SupportContext(String email, List<String> entitlements )
+  public SupportContext(String email, boolean entitled)
   {
     email_        = email;
-    entitlements_ = entitlements;
-  }
+    entitled_     = entitled;  
+  } 
 
   @Override
   public boolean hasEntitlements()
   {
-    return true;
+    return entitled_;
   }
 
   @Override
