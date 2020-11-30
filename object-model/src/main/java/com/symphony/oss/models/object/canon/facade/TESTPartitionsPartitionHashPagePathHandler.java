@@ -146,7 +146,8 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
             scanForwards,
             partitionHash,
             after, 
-            new PrintWriter(new Base64OutputStream(context.getOutputStream()))
+            context.getWriter()
+            
           );
         if(response == null)
         {
