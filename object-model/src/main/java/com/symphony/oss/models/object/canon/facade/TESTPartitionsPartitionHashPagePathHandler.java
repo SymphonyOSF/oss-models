@@ -135,6 +135,7 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
   
     if(context.preConditionsAreMet())
     {
+      context.setStreamResponse(true);
       try
       {
         IPageOfStoredApplicationObject response =
@@ -160,11 +161,13 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
       }
       catch(CanonException e)
       {
+        context.setStreamResponse(false);
         context.resetOutputStream();
         throw e;
       }
       catch(RuntimeException e)
       {
+        context.setStreamResponse(false);
         context.resetOutputStream();
         throw new ServerErrorException(e);
       }
