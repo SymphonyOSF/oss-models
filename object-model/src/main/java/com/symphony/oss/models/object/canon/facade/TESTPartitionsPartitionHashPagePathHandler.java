@@ -135,7 +135,7 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
   
     if(context.preConditionsAreMet())
     {
-      context.setStreamResponse(true);
+     context.streamHead();
       try
       {
         IPageOfStoredApplicationObject response =
@@ -147,27 +147,26 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
             scanForwards,
             partitionHash,
             after, 
-            context.getWriter()
+            context.startStreaming()
             
           );
+        context.streamTail();
         if(response == null)
         {
           throw new NotFoundException();      
         }
-        else
-        {
-          context.sendOKResponse();
-        }
+//        else
+//        {
+//          context.sendOKResponse();
+//        }
       }
       catch(CanonException e)
       {
-        context.setStreamResponse(false);
         context.resetOutputStream();
         throw e;
       }
       catch(RuntimeException e)
       {
-        context.setStreamResponse(false);
         context.resetOutputStream();
         throw new ServerErrorException(e);
       }
