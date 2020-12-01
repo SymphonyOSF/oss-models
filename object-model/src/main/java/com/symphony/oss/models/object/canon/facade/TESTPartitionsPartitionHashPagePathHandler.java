@@ -1,14 +1,11 @@
 package com.symphony.oss.models.object.canon.facade;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-
-import org.apache.commons.codec.binary.Base64OutputStream;
 
 import com.symphony.oss.canon.runtime.PathHandler;
 import com.symphony.oss.canon.runtime.exception.CanonException;
@@ -135,7 +132,7 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
   
     if(context.preConditionsAreMet())
     {
-     context.streamHead();
+    // context.streamHead();
       try
       {
         IPageOfStoredApplicationObject response =
@@ -148,9 +145,8 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
             partitionHash,
             after, 
             context.startStreaming()
-            
           );
-        context.streamTail();
+    //    context.streamTail();
         if(response == null)
         {
           throw new NotFoundException();      
