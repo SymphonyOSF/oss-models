@@ -144,7 +144,8 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
             scanForwards,
             partitionHash,
             after, 
-            context.startStreaming()
+            context.startStreaming(),
+            context.isLambda()
           );
     //    context.streamTail();
         if(response == null)
