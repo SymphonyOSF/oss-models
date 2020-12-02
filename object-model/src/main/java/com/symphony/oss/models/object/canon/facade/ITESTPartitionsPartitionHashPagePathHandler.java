@@ -69,8 +69,7 @@ public interface ITESTPartitionsPartitionHashPagePathHandler<T> extends IEntityH
     @Nullable Boolean                   scanForwards,
     @Nonnull  Hash                      partitionHash,
     @Nullable String                    after,
-              OutputStream               outputStream,
-              boolean                    isLambda
+              OutputStream               outputStream
               
     ) throws CanonException;
     
