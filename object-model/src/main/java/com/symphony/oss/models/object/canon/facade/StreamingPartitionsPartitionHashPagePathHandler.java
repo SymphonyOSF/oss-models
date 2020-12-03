@@ -16,6 +16,7 @@ import com.symphony.oss.canon.runtime.http.IRequestContext;
 import com.symphony.oss.canon.runtime.http.ParameterLocation;
 import com.symphony.oss.commons.hash.Hash;
 import com.symphony.oss.commons.immutable.ImmutableByteArray;
+import com.symphony.oss.models.core.canon.facade.PodId;
 import com.symphony.oss.models.object.canon.IPageOfStoredApplicationObject;
 
 /**
@@ -26,16 +27,16 @@ import com.symphony.oss.models.object.canon.IPageOfStoredApplicationObject;
  */
 @Immutable
 @SuppressWarnings("unused")
-public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends PathHandler<T> implements ITESTPartitionsPartitionHashPagePathHandler<T>
+public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends PathHandler<T> implements IStreamingPartitionsPartitionHashPagePathHandler<T>
 {
   private final String path_;
   
-  public TESTPartitionsPartitionHashPagePathHandler(@Nullable IRequestAuthenticator<T> authenticator)
+  public StreamingPartitionsPartitionHashPagePathHandler(@Nullable IRequestAuthenticator<T> authenticator)
   {
     this(authenticator, "");
   }
   
-  public TESTPartitionsPartitionHashPagePathHandler(@Nullable IRequestAuthenticator<T> authenticator, String basePath)
+  public StreamingPartitionsPartitionHashPagePathHandler(@Nullable IRequestAuthenticator<T> authenticator, String basePath)
   {
     super(authenticator, 1, new String[] {
         basePath + "/object/v1/partitions/",
@@ -128,6 +129,21 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
     {
       after = afterValue;
     }
+    
+    Integer                   xSymphonyExternalPodIdValue = context.getParameterAsInteger("X-Symphony-ExternalPodId", ParameterLocation.Header, false);
+    PodId                     xSymphonyExternalPodId = null; 
+    
+    if(xSymphonyExternalPodIdValue != null)
+    {
+      try
+      {
+        xSymphonyExternalPodId = PodId.newBuilder().build(xSymphonyExternalPodIdValue);
+      }
+      catch(NullPointerException | IllegalArgumentException e)
+      {
+        context.error("Parameter \"xSymphonyExternalPodId\" has invalid value \"%s\" (%s)", xSymphonyExternalPodIdValue, e.getMessage());
+      }
+    }
 
   
     if(context.preConditionsAreMet())
@@ -144,6 +160,7 @@ public abstract class TESTPartitionsPartitionHashPagePathHandler<T> extends Path
             scanForwards,
             partitionHash,
             after, 
+            PodId.newBuilder().build(0),
             context.startStreaming()
           );
         

@@ -36,6 +36,7 @@ import com.symphony.oss.canon.runtime.IEntityHandler;
 import com.symphony.oss.canon.runtime.exception.CanonException;
 import com.symphony.oss.commons.hash.Hash;
 import com.symphony.oss.fugue.trace.ITraceContext;
+import com.symphony.oss.models.core.canon.facade.PodId;
 import com.symphony.oss.models.object.canon.IPageOfStoredApplicationObject;
 
 /**
@@ -44,7 +45,7 @@ import com.symphony.oss.models.object.canon.IPageOfStoredApplicationObject;
  * Path					/partitions/{partitionHash}/page
  * Bind Path			partitions/
  */
-public interface ITESTPartitionsPartitionHashPagePathHandler<T> extends IEntityHandler
+public interface IStreamingPartitionsPartitionHashPagePathHandler<T> extends IEntityHandler
 {
   /**
    * get /partitions/{partitionHash}/page
@@ -68,6 +69,7 @@ public interface ITESTPartitionsPartitionHashPagePathHandler<T> extends IEntityH
     @Nullable Boolean                   scanForwards,
     @Nonnull  Hash                      partitionHash,
     @Nullable String                    after,
+              PodId xSymphonyExternalPodId,
               Writer               writer
               
     ) throws CanonException;
