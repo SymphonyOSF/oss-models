@@ -27,7 +27,6 @@
 
 package com.symphony.oss.models.object.canon.facade;
 
-import java.io.OutputStream;
 import java.io.Writer;
 
 import javax.annotation.Nonnull;
@@ -69,7 +68,7 @@ public interface ITESTPartitionsPartitionHashPagePathHandler<T> extends IEntityH
     @Nullable Boolean                   scanForwards,
     @Nonnull  Hash                      partitionHash,
     @Nullable String                    after,
-              OutputStream               outputStream
+              Writer               writer
               
     ) throws CanonException;
     
