@@ -160,7 +160,7 @@ public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends
             scanForwards,
             partitionHash,
             after, 
-            PodId.newBuilder().build(0),
+            xSymphonyExternalPodId,
             context.startStreaming()
           );
         
