@@ -343,6 +343,31 @@
           }
         }
       }
+      },      
+     "/feeds/endpoint": {
+      "parameters": {
+      },
+      "post": {
+        "summary": "Gets Temporary Credentials to access a Feed directly",
+        "operationId": "getCredentials",
+        "tags": [
+          "feeds"
+        ],
+        "payload": {
+          "required": true,
+          "multiple": true,
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
+          }
+         },
+        "response": {
+          "required": false,
+          "multiple": false,
+          "schema": {
+            "$ref": "#/components/schemas/FeedsEndpoint"
+          }
+        }
+      }
       },
     
     "/feeds/{feedHash}/objects": {
@@ -371,6 +396,79 @@
           "multiple": true,
           "schema": {
             "$ref": "#/components/schemas/FeedObject"
+          }
+        }
+      }
+    },
+    "/feeds/fetch/aws/us-east-1": {
+      "parameters": {
+        "Action": {
+          "in": "query",
+          "description": "How many items to return at one time (max 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "MaxNumberOfMessages": {
+          "in": "query",
+          "description": "after cursor from a previous query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "WaitTimeSeconds": {
+          "in": "query",
+          "description": "Prefix for sort key of returned objects",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "VisibilityTimeout": {
+          "in": "query",
+          "description": "Prefix for sort key of returned objects",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "feedHash": {
+          "in": "query",
+          "description": "if true then scan in chronological order, else reverse",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "QueueUrl": {
+          "in": "query",
+          "description": "if true then scan in chronological order, else reverse",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        "ReceiptHandle": {
+          "in": "query",
+          "description": "if true then scan in chronological order, else reverse",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      },
+      "post": {
+        "summary": "List the contents of a partition",
+        "operationId": "readSQS",
+          "response": {
+          "required": true,
+          "schema": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PlainText"
           }
         }
       }
@@ -1065,6 +1163,22 @@
           },
            "endPoint": {
             "type": "string"
+          }                 
+      }
+      },      
+     "FeedsEndpoint": {
+          "type": "object",
+          "facade": false,
+        "description": "Request to fetch and/or acknowledge messages from a feed.",
+        "properties": {
+          "directFetch": {
+            "type": "boolean"
+          },
+           "endPoint": {
+            "type": "string"
+          },
+           "expirationDate": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Instant"
           }                 
       }
       }
