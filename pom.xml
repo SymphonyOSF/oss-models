@@ -22,12 +22,12 @@
   <parent>
 		<groupId>com.symphony.oss</groupId>
 		<artifactId>oss-parent-pom</artifactId>
-		<version>0.4.5</version><!-- oss-parent-pom -->
+		<version>0.4.6</version><!-- oss-parent-pom -->
   </parent>
 
   <groupId>com.symphony.oss.models</groupId>
   <artifactId>oss-models</artifactId>
-  <version>0.7.25-SNAPSHOT</version>
+  <version>0.7.26-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <url>https://github.com/SymphonyOSF/oss-models</url>
