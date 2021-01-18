@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Symphony Communication Services, LLC.
+ * Copyright 2021 Symphony Communication Services, LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2020-06-23 13:24:02 BST
+ *  At                  2021-01-15 13:51:09 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,15 +27,15 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.models.allegro.canon.IAllegroMultiTenantConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.IAllegroObjectStoreConfigurationEntity;
 
 /**
- * Facade for Object ObjectSchema(AllegroMultiTenantConfiguration)
- * Generated from ObjectSchema(AllegroMultiTenantConfiguration) at #/components/schemas/AllegroMultiTenantConfiguration
+ * Facade for Object ObjectSchema(AllegroObjectStoreConfiguration)
+ * Generated from ObjectSchema(AllegroObjectStoreConfiguration) at #/components/schemas/AllegroObjectStoreConfiguration
  */
 @Immutable
-public interface IAllegroMultiTenantConfiguration
-  extends IAllegroBaseConfiguration, IAllegroMultiTenantConfigurationEntity
+public interface IAllegroObjectStoreConfiguration
+  extends IAllegroStorageConfiguration, IAllegroObjectStoreConfigurationEntity
 {
 }
 /*----------------------------------------------------------------------------------------------------

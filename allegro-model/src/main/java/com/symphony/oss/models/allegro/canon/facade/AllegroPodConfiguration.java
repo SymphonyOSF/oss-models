@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Symphony Communication Services, LLC.
+ * Copyright 2021 Symphony Communication Services, LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2020-06-23 13:24:02 BST
+ *  At                  2021-01-15 13:51:09 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -30,15 +30,14 @@ import javax.annotation.concurrent.Immutable;
 import com.symphony.oss.canon.runtime.IModelRegistry;
 import com.symphony.oss.commons.dom.json.ImmutableJsonObject;
 import com.symphony.oss.commons.dom.json.MutableJsonObject;
-import com.symphony.oss.models.allegro.canon.AllegroBaseConfigurationEntity;
-import com.symphony.oss.models.allegro.canon.IAllegroBaseConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.AllegroPodConfigurationEntity;
 
 /**
- * Facade for Object ObjectSchema(AllegroBaseConfiguration)
- * Generated from ObjectSchema(AllegroBaseConfiguration) at #/components/schemas/AllegroBaseConfiguration
+ * Facade for Object ObjectSchema(AllegroPodConfiguration)
+ * Generated from ObjectSchema(AllegroPodConfiguration) at #/components/schemas/AllegroPodConfiguration
  */
 @Immutable
-public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity implements IAllegroBaseConfiguration
+public class AllegroPodConfiguration extends AllegroPodConfigurationEntity implements IAllegroPodConfiguration
 {
   private ImmutableJsonObject redacted_;
   
@@ -47,7 +46,7 @@ public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity imp
    * 
    * @param builder A mutable builder containing all values.
    */
-  public AllegroBaseConfiguration(AbstractAllegroBaseConfigurationBuilder<?,?> builder)
+  public AllegroPodConfiguration(AbstractAllegroPodConfigurationBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -58,7 +57,7 @@ public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity imp
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroBaseConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public AllegroPodConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -69,7 +68,7 @@ public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity imp
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroBaseConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public AllegroPodConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -79,39 +78,9 @@ public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity imp
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public AllegroBaseConfiguration(IAllegroBaseConfiguration other)
+  public AllegroPodConfiguration(IAllegroPodConfiguration other)
   {
     super(other);
-  }
-  
-  /**
-   * Abstract builder for AllegroBaseConfiguration. If there are sub-classes of this type then their builders sub-class this builder.
-   *
-   * @param <B> The concrete type of the builder, used for fluent methods.
-   * @param <T> The concrete type of the built object.
-   */
-  public static abstract class AbstractAllegroBaseConfigurationBuilder<B extends AbstractAllegroBaseConfigurationBuilder<B,T>, T extends IAllegroBaseConfigurationEntity> extends AbstractAllegroBaseConfigurationEntityBuilder<B,T>
-  {
-    protected AbstractAllegroBaseConfigurationBuilder(Class<B> type)
-    {
-      super(type);
-    }
-    
-    protected AbstractAllegroBaseConfigurationBuilder(Class<B> type, IAllegroBaseConfigurationEntity initial)
-    {
-      super(type, initial);
-    }
-
-    public B withDefaultConnectionSettings(IConnectionSettings connectionSettings)
-    {
-      return withApiConnectionSettings(connectionSettings);
-    }
-  }
-  
-  @Override
-  public IConnectionSettings getDefaultConnectionSettings()
-  {
-    return getApiConnectionSettings();
   }
   
   @Override
@@ -131,9 +100,44 @@ public class AllegroBaseConfiguration extends AllegroBaseConfigurationEntity imp
 
   protected void redactJsonObject(MutableJsonObject jsonObject)
   {
-    if(getApiConnectionSettings() != null)
+    if(getDefaultConnectionSettings() != null)
     {
-        jsonObject.addIfNotNull("apiConnectionSettings", getApiConnectionSettings().getRedacted());
+      jsonObject.addIfNotNull("defaultConnectionSettings", getDefaultConnectionSettings().getRedacted());
+    }
+    
+    if(getPodConnectionSettings() != null)
+    {
+      jsonObject.addIfNotNull("podConnectionSettings", getPodConnectionSettings().getRedacted());
+    }
+    
+    if(getKeyManagerConnectionSettings() != null)
+    {
+      jsonObject.addIfNotNull("keyManagerConnectionSettings", getKeyManagerConnectionSettings().getRedacted());
+    }
+    
+    if(getCertSessionAuthConnectionSettings() != null)
+    {
+      jsonObject.addIfNotNull("certSessionAuthConnectionSettings", getCertSessionAuthConnectionSettings().getRedacted());
+    }
+    
+    if(getCertKeyAuthConnectionSettings() != null)
+    {
+      jsonObject.addIfNotNull("certKeyAuthConnectionSettings", getCertKeyAuthConnectionSettings().getRedacted());
+    }
+    
+    if(getAuthCertFilePassword() != null)
+    {
+      jsonObject.addIfNotNull("authCertFilePassword", ConnectionSettings.REDACTED);
+    }
+    
+    if(getAuthCertPrivateKey() != null)
+    {
+      jsonObject.addIfNotNull("authCertPrivateKey", ConnectionSettings.REDACTED);
+    }
+    
+    if(getRsaPemCredential() != null)
+    {
+      jsonObject.addIfNotNull("rsaPemCredential", ConnectionSettings.REDACTED);
     }
   }
 }
