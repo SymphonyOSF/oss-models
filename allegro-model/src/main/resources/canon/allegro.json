@@ -116,7 +116,7 @@
       
       
       
-      "AllegroStorageConfiguration": {
+      "#AllegroStorageConfiguration": {
         "type": "object",
         "facade": true,
         "builderFacade": false,
@@ -129,7 +129,7 @@
           }
         }
       },
-      "AllegroMongoDbConfiguration": {
+      "#AllegroMongoDbConfiguration": {
         "type": "object",
         "extends": "#/components/schemas/AllegroStorageConfiguration",
         "facade": true,
@@ -149,7 +149,7 @@
           }
         }
       },
-      "AllegroObjectStoreConfiguration": {
+      "#AllegroObjectStoreConfiguration": {
         "type": "object",
         "extends": "#/components/schemas/AllegroStorageConfiguration",
         "facade": true,
@@ -186,6 +186,9 @@
         "facade": true,
         "builderFacade": false,
         "properties": {
+          "cipherSuiteId": {
+            "$ref": "https://models.oss.symphony.com/crypto.json#/components/schemas/CipherSuiteId"
+          },
           "userName": {
             "type": "string"
           },

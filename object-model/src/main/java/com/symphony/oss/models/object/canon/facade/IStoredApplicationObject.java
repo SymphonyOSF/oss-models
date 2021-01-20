@@ -28,7 +28,6 @@ package com.symphony.oss.models.object.canon.facade;
 import javax.annotation.concurrent.Immutable;
 
 import com.symphony.oss.models.object.canon.IAbstractStoredApplicationObject;
-import com.symphony.oss.models.object.canon.IEncryptedApplicationPayloadAndHeader;
 import com.symphony.oss.models.object.canon.IStoredApplicationObjectEntity;
 
 /**
@@ -39,7 +38,7 @@ import com.symphony.oss.models.object.canon.IStoredApplicationObjectEntity;
  */
 @Immutable
 public interface IStoredApplicationObject
-  extends IAbstractStoredApplicationObject, IStoredApplicationObjectEntity, IEncryptedApplicationPayloadAndHeader
+  extends IAbstractStoredApplicationObject, IStoredApplicationObjectEntity, IStoredApplicationRecord
 {
 }
 /*----------------------------------------------------------------------------------------------------
