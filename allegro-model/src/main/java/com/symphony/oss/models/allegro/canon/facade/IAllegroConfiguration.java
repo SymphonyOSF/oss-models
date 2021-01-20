@@ -35,16 +35,8 @@ import com.symphony.oss.models.allegro.canon.IAllegroConfigurationEntity;
  */
 @Immutable
 public interface IAllegroConfiguration
-  extends IAllegroBaseConfiguration, IAllegroConfigurationEntity
+  extends IAllegroBaseConfiguration, IAllegroConfigurationEntity, IAllegroPodConfiguration
 {
-  /**
-   * Return a copy of this object with any passwords redacted.
-   * 
-   * The returned object can safely be logged.
-   * 
-   * @return a copy of this object with any passwords redacted.
-   */
-  IAllegroConfiguration getRedacted();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl
