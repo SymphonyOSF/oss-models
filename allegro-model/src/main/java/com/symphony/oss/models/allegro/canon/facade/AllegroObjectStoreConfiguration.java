@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2021-01-22 16:30:26 GMT
+ *  At                  2021-01-25 13:32:39 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,26 +27,33 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.canon.runtime.IModelRegistry;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
+
 import com.symphony.oss.commons.dom.json.ImmutableJsonObject;
 import com.symphony.oss.commons.dom.json.MutableJsonObject;
-import com.symphony.oss.models.allegro.canon.AllegroConfigurationEntity;
+
+import com.symphony.oss.canon.runtime.IEntity;
+import com.symphony.oss.canon.runtime.IModelRegistry;
+
+
+import com.symphony.oss.models.allegro.canon.AllegroObjectStoreConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.IAllegroObjectStoreConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.AllegroModel;
 
 /**
- * Facade for Object ObjectSchema(AllegroConfiguration)
- * Generated from ObjectSchema(AllegroConfiguration) at #/components/schemas/AllegroConfiguration
+ * Facade for Object ObjectSchema(AllegroObjectStoreConfiguration)
+ * Generated from ObjectSchema(AllegroObjectStoreConfiguration) at #/components/schemas/AllegroObjectStoreConfiguration
  */
 @Immutable
-public class AllegroConfiguration extends AllegroConfigurationEntity implements IAllegroConfiguration
+@SuppressWarnings("unused")
+public class AllegroObjectStoreConfiguration extends AllegroObjectStoreConfigurationEntity implements IAllegroObjectStoreConfiguration
 {
-  private ImmutableJsonObject redacted_;
-  
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public AllegroConfiguration(AbstractAllegroConfigurationBuilder<?,?> builder)
+  public AllegroObjectStoreConfiguration(AbstractAllegroObjectStoreConfigurationBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -57,7 +64,7 @@ public class AllegroConfiguration extends AllegroConfigurationEntity implements 
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public AllegroObjectStoreConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -68,7 +75,7 @@ public class AllegroConfiguration extends AllegroConfigurationEntity implements 
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public AllegroObjectStoreConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -78,66 +85,27 @@ public class AllegroConfiguration extends AllegroConfigurationEntity implements 
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public AllegroConfiguration(IAllegroConfiguration other)
+  public AllegroObjectStoreConfiguration(IAllegroObjectStoreConfiguration other)
   {
     super(other);
   }
   
-  @Override
-  public synchronized ImmutableJsonObject getRedacted()
+  /**
+   * Abstract builder for AllegroObjectStoreConfiguration. If there are sub-classes of this type then their builders sub-class this builder.
+   *
+   * @param <B> The concrete type of the builder, used for fluent methods.
+   * @param <T> The concrete type of the built object.
+   */
+  public static abstract class AbstractAllegroObjectStoreConfigurationBuilder<B extends AbstractAllegroObjectStoreConfigurationBuilder<B,T>, T extends IAllegroObjectStoreConfigurationEntity> extends AbstractAllegroObjectStoreConfigurationEntityBuilder<B,T>
   {
-    if(redacted_ == null)
+    protected AbstractAllegroObjectStoreConfigurationBuilder(Class<B> type)
     {
-      MutableJsonObject jsonObject = getJsonObject().mutify();
-      
-      redactJsonObject(jsonObject);
-      
-      redacted_ = jsonObject.immutify();
+      super(type);
     }
     
-    return redacted_;
-  }
-
-  protected void redactJsonObject(MutableJsonObject jsonObject)
-  {
-    if(getDefaultConnectionSettings() != null)
+    protected AbstractAllegroObjectStoreConfigurationBuilder(Class<B> type, IAllegroObjectStoreConfigurationEntity initial)
     {
-      jsonObject.addIfNotNull("defaultConnectionSettings", getDefaultConnectionSettings().getRedacted());
-    }
-    
-    if(getPodConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("podConnectionSettings", getPodConnectionSettings().getRedacted());
-    }
-    
-    if(getKeyManagerConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("keyManagerConnectionSettings", getKeyManagerConnectionSettings().getRedacted());
-    }
-    
-    if(getCertSessionAuthConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("certSessionAuthConnectionSettings", getCertSessionAuthConnectionSettings().getRedacted());
-    }
-    
-    if(getCertKeyAuthConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("certKeyAuthConnectionSettings", getCertKeyAuthConnectionSettings().getRedacted());
-    }
-    
-    if(getAuthCertFilePassword() != null)
-    {
-      jsonObject.addIfNotNull("authCertFilePassword", ConnectionSettings.REDACTED);
-    }
-    
-    if(getAuthCertPrivateKey() != null)
-    {
-      jsonObject.addIfNotNull("authCertPrivateKey", ConnectionSettings.REDACTED);
-    }
-    
-    if(getRsaPemCredential() != null)
-    {
-      jsonObject.addIfNotNull("rsaPemCredential", ConnectionSettings.REDACTED);
+      super(type, initial);
     }
   }
 }

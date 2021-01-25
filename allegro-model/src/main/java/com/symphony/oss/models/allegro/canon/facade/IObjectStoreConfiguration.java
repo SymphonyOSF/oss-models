@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2021-01-15 13:51:09 GMT
+ *  At                  2021-01-22 15:10:43 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,25 +27,16 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.commons.dom.json.ImmutableJsonObject;
-import com.symphony.oss.models.allegro.canon.IAllegroPodConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.IObjectStoreConfigurationEntity;
 
 /**
- * Facade for Object ObjectSchema(AllegroPodConfiguration)
- * Generated from ObjectSchema(AllegroPodConfiguration) at #/components/schemas/AllegroPodConfiguration
+ * Facade for Object ObjectSchema(ObjectStoreConfiguration)
+ * Generated from ObjectSchema(ObjectStoreConfiguration) at #/components/schemas/ObjectStoreConfiguration
  */
 @Immutable
-public interface IAllegroPodConfiguration
-  extends IAllegroPodConfigurationEntity
+public interface IObjectStoreConfiguration
+  extends IBaseObjectStoreConfiguration, IObjectStoreConfigurationEntity
 {
-  /**
-   * Return a copy of this object's configuration with any passwords or credentials redacted.
-   * 
-   * The returned object can safely be logged.
-   * 
-   * @return a copy of this object's configuration with any passwords or credentials redacted.
-   */
-  ImmutableJsonObject getRedacted();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl

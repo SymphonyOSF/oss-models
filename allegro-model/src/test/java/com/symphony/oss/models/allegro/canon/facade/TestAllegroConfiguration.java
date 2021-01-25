@@ -82,10 +82,9 @@ public class TestAllegroConfiguration
   {
     IAllegroConfiguration config = new AllegroConfiguration.Builder()
       .withPodUrl("https://pod.url")
-      .withApiUrl("https://object.store.url")
       .withUserName("serviceAccountUserName")
       .withRsaPemCredentialFile("RsaPemCredentialFile")
-      .withApiConnectionSettings(new ConnectionSettings.Builder()
+      .withPodConnectionSettings(new ConnectionSettings.Builder()
           .withSslTrustStrategy(SslTrustStrategy.TRUST_ALL_CERTS)
           .build())
       .build();
@@ -93,7 +92,7 @@ public class TestAllegroConfiguration
     assertEquals("{\n" + 
         "  \"_type\":\"com.symphony.s2.model.allegro.AllegroConfiguration\",\n" + 
         "  \"_version\":\"1.0\",\n" + 
-        "  \"apiConnectionSettings\":{\n" + 
+        "  \"podConnectionSettings\":{\n" + 
         "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
         "    \"_version\":\"1.0\",\n" + 
         "    \"maxHttpConnections\":200,\n" + 
@@ -101,7 +100,6 @@ public class TestAllegroConfiguration
         "    \"trustedCertResources\":[],\n" + 
         "    \"trustedCerts\":[]\n" + 
         "  },\n" + 
-        "  \"apiUrl\":\"https://object.store.url\",\n" + 
         "  \"podUrl\":\"https://pod.url\",\n" + 
         "  \"rsaPemCredentialFile\":\"RsaPemCredentialFile\",\n" + 
         "  \"userName\":\"serviceAccountUserName\"\n" + 
@@ -110,12 +108,30 @@ public class TestAllegroConfiguration
     
     config = new AllegroConfiguration.Builder()
         .withPodUrl("https://pod.url")
-        .withApiUrl("https://object.store.url")
         .withUserName("serviceAccountUserName")
         .withAuthCertFile("AuthCertFile")
         .withAuthCertFilePassword("SUPER SECRET CERT PASSWORD")
-        .withApiConnectionSettings(new ConnectionSettings.Builder()
-            .withSslTrustStrategy(SslTrustStrategy.TRUST_ALL_CERTS)
+        .withDefaultConnectionSettings(new ConnectionSettings.Builder()
+            .withProxyUrl("https://proxy.url")
+            .withProxyUsername("proxyUserame")
+            .withProxyPassword("SUPER SECRET PROXY PASSWORD")
+            .build())
+        .withPodConnectionSettings(new ConnectionSettings.Builder()
+            .withProxyUrl("https://proxy.url")
+            .withProxyUsername("proxyUserame")
+            .withProxyPassword("SUPER SECRET PROXY PASSWORD")
+            .build())
+        .withKeyManagerConnectionSettings(new ConnectionSettings.Builder()
+            .withProxyUrl("https://proxy.url")
+            .withProxyUsername("proxyUserame")
+            .withProxyPassword("SUPER SECRET PROXY PASSWORD")
+            .build())
+        .withCertSessionAuthConnectionSettings(new ConnectionSettings.Builder()
+            .withProxyUrl("https://proxy.url")
+            .withProxyUsername("proxyUserame")
+            .withProxyPassword("SUPER SECRET PROXY PASSWORD")
+            .build())
+        .withCertKeyAuthConnectionSettings(new ConnectionSettings.Builder()
             .withProxyUrl("https://proxy.url")
             .withProxyUsername("proxyUserame")
             .withProxyPassword("SUPER SECRET PROXY PASSWORD")
@@ -125,20 +141,58 @@ public class TestAllegroConfiguration
       assertEquals("{\n" + 
           "  \"_type\":\"com.symphony.s2.model.allegro.AllegroConfiguration\",\n" + 
           "  \"_version\":\"1.0\",\n" + 
-          "  \"apiConnectionSettings\":{\n" + 
+          "  \"authCertFile\":\"AuthCertFile\",\n" + 
+          "  \"authCertFilePassword\":\"**REDACTED**\",\n" + 
+          "  \"certKeyAuthConnectionSettings\":{\n" + 
           "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
           "    \"_version\":\"1.0\",\n" + 
           "    \"maxHttpConnections\":200,\n" + 
           "    \"proxyPassword\":\"**REDACTED**\",\n" + 
           "    \"proxyUrl\":\"https://proxy.url\",\n" + 
           "    \"proxyUsername\":\"proxyUserame\",\n" + 
-          "    \"sslTrustStrategy\":\"TRUST_ALL_CERTS\",\n" + 
           "    \"trustedCertResources\":[],\n" + 
           "    \"trustedCerts\":[]\n" + 
           "  },\n" + 
-          "  \"apiUrl\":\"https://object.store.url\",\n" + 
-          "  \"authCertFile\":\"AuthCertFile\",\n" + 
-          "  \"authCertFilePassword\":\"**REDACTED**\",\n" + 
+          "  \"certSessionAuthConnectionSettings\":{\n" + 
+          "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
+          "    \"_version\":\"1.0\",\n" + 
+          "    \"maxHttpConnections\":200,\n" + 
+          "    \"proxyPassword\":\"**REDACTED**\",\n" + 
+          "    \"proxyUrl\":\"https://proxy.url\",\n" + 
+          "    \"proxyUsername\":\"proxyUserame\",\n" + 
+          "    \"trustedCertResources\":[],\n" + 
+          "    \"trustedCerts\":[]\n" + 
+          "  },\n" + 
+          "  \"defaultConnectionSettings\":{\n" + 
+          "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
+          "    \"_version\":\"1.0\",\n" + 
+          "    \"maxHttpConnections\":200,\n" + 
+          "    \"proxyPassword\":\"**REDACTED**\",\n" + 
+          "    \"proxyUrl\":\"https://proxy.url\",\n" + 
+          "    \"proxyUsername\":\"proxyUserame\",\n" + 
+          "    \"trustedCertResources\":[],\n" + 
+          "    \"trustedCerts\":[]\n" + 
+          "  },\n" + 
+          "  \"keyManagerConnectionSettings\":{\n" + 
+          "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
+          "    \"_version\":\"1.0\",\n" + 
+          "    \"maxHttpConnections\":200,\n" + 
+          "    \"proxyPassword\":\"**REDACTED**\",\n" + 
+          "    \"proxyUrl\":\"https://proxy.url\",\n" + 
+          "    \"proxyUsername\":\"proxyUserame\",\n" + 
+          "    \"trustedCertResources\":[],\n" + 
+          "    \"trustedCerts\":[]\n" + 
+          "  },\n" + 
+          "  \"podConnectionSettings\":{\n" + 
+          "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
+          "    \"_version\":\"1.0\",\n" + 
+          "    \"maxHttpConnections\":200,\n" + 
+          "    \"proxyPassword\":\"**REDACTED**\",\n" + 
+          "    \"proxyUrl\":\"https://proxy.url\",\n" + 
+          "    \"proxyUsername\":\"proxyUserame\",\n" + 
+          "    \"trustedCertResources\":[],\n" + 
+          "    \"trustedCerts\":[]\n" + 
+          "  },\n" + 
           "  \"podUrl\":\"https://pod.url\",\n" + 
           "  \"userName\":\"serviceAccountUserName\"\n" + 
           "}\n",  config.getRedacted().toString());
@@ -152,10 +206,9 @@ public class TestAllegroConfiguration
       
       config = new AllegroConfiguration.Builder()
           .withPodUrl("https://pod.url")
-          .withApiUrl("https://object.store.url")
           .withUserName("serviceAccountUserName")
           .withRsaPemCredential(CipherSuiteUtils.privateKeyToPem(newCredential.getPrivateKey()))
-          .withApiConnectionSettings(new ConnectionSettings.Builder()
+          .withPodConnectionSettings(new ConnectionSettings.Builder()
               .withSslTrustStrategy(SslTrustStrategy.TRUST_ALL_CERTS)
               .withProxyUrl("https://proxy.url")
               .withProxyUsername("proxyUserame")
@@ -167,11 +220,10 @@ public class TestAllegroConfiguration
 
       config = new AllegroConfiguration.Builder()
           .withPodUrl("https://pod.url")
-          .withApiUrl("https://object.store.url")
           .withUserName("serviceAccountUserName")
           .withAuthCert(SELF_SIGNED_TEST_CERT)
           .withAuthCertPrivateKey(SELF_SIGNED_TEST_CERT_PRIVATE_KEY)
-          .withApiConnectionSettings(new ConnectionSettings.Builder()
+          .withPodConnectionSettings(new ConnectionSettings.Builder()
               .withSslTrustStrategy(SslTrustStrategy.TRUST_ALL_CERTS)
               .withProxyUrl("https://proxy.url")
               .withProxyUsername("proxyUserame")

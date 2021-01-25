@@ -29,7 +29,7 @@ import com.symphony.oss.models.core.canon.facade.UserId;
 import com.symphony.s2.authc.canon.facade.NewPrincipalCredential;
 
 @SuppressWarnings("javadoc")
-public class TestAllegroMultiTenantConfiguration
+public class TestObjectStoreConfiguration
 {
   private static String SELF_SIGNED_TEST_CERT_PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n" + 
     "MIIEpAIBAAKCAQEAuGvWtnUpqWu/O+05c1eoO04rZQif6kpFkLcsO+vn4tvXeCY8\n" + 
@@ -59,11 +59,10 @@ public class TestAllegroMultiTenantConfiguration
     "iUJvoZ97ztVYhsA9DcDv4ssGyhTmQmYWEU5J5AdYjHTqaMfsw8XSJw==\n" + 
     "-----END RSA PRIVATE KEY-----";
   
-  @SuppressWarnings("deprecation")
   @Test
   public void testRedact()
   {
-    IAllegroMultiTenantConfiguration config = new AllegroMultiTenantConfiguration.Builder()
+    IObjectStoreConfiguration config = new ObjectStoreConfiguration.Builder()
       .withApiUrl("https://object.store.url")
       .withPrincipalCredentialFile("~/mtCredentialFile")
       .withApiConnectionSettings(new ConnectionSettings.Builder()
@@ -72,7 +71,7 @@ public class TestAllegroMultiTenantConfiguration
       .build();
     
     assertEquals("{\n" + 
-        "  \"_type\":\"com.symphony.s2.model.allegro.AllegroMultiTenantConfiguration\",\n" + 
+        "  \"_type\":\"com.symphony.s2.model.allegro.ObjectStoreConfiguration\",\n" + 
         "  \"_version\":\"1.0\",\n" + 
         "  \"apiConnectionSettings\":{\n" + 
         "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
@@ -87,7 +86,7 @@ public class TestAllegroMultiTenantConfiguration
         "}\n",  config.getRedacted().toString());
     
     
-    config = new AllegroMultiTenantConfiguration.Builder()
+    config = new ObjectStoreConfiguration.Builder()
         .withApiUrl("https://object.store.url")
         .withPrincipalCredentialFile("~/mtCredentialFile")
         .withApiConnectionSettings(new ConnectionSettings.Builder()
@@ -99,7 +98,7 @@ public class TestAllegroMultiTenantConfiguration
         .build();
           
       assertEquals("{\n" + 
-          "  \"_type\":\"com.symphony.s2.model.allegro.AllegroMultiTenantConfiguration\",\n" + 
+          "  \"_type\":\"com.symphony.s2.model.allegro.ObjectStoreConfiguration\",\n" + 
           "  \"_version\":\"1.0\",\n" + 
           "  \"apiConnectionSettings\":{\n" + 
           "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 
@@ -123,7 +122,7 @@ public class TestAllegroMultiTenantConfiguration
           .withUserId(podAndUserId)
           .build();
       
-      config = new AllegroMultiTenantConfiguration.Builder()
+      config = new ObjectStoreConfiguration.Builder()
           .withApiUrl("https://object.store.url")
           .withPrincipalCredential(newCredential)
           .withApiConnectionSettings(new ConnectionSettings.Builder()
@@ -136,7 +135,7 @@ public class TestAllegroMultiTenantConfiguration
         
       assertEquals("**REDACTED**",  config.getRedacted().getObject("principalCredential").getRequiredString("encodedPrivateKey"));
       
-      config = new AllegroMultiTenantConfiguration.Builder()
+      config = new ObjectStoreConfiguration.Builder()
           .withApiUrl("https://object.store.url")
           .withRsaPemCredential(SELF_SIGNED_TEST_CERT_PRIVATE_KEY)
           .withKeyId("KeyID")
@@ -150,7 +149,7 @@ public class TestAllegroMultiTenantConfiguration
           .build();
       
       assertEquals("{\n" + 
-          "  \"_type\":\"com.symphony.s2.model.allegro.AllegroMultiTenantConfiguration\",\n" + 
+          "  \"_type\":\"com.symphony.s2.model.allegro.ObjectStoreConfiguration\",\n" + 
           "  \"_version\":\"1.0\",\n" + 
           "  \"apiConnectionSettings\":{\n" + 
           "    \"_type\":\"com.symphony.s2.model.allegro.ConnectionSettings\",\n" + 

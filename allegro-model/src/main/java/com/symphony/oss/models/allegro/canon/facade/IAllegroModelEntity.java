@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Symphony Communication Services, LLC.
+ * Copyright 2021 Symphony Communication Services, LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Model/I_ModelEntity.java.ftl
  *		Template version	   1.0
- *  At                  2019-03-05 06:43:34 GMT
+ *  At                  2021-01-22 16:29:07 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -29,7 +29,7 @@ package com.symphony.oss.models.allegro.canon.facade;
 import com.symphony.oss.canon.runtime.IEntity;
 
 /**
- * Base interface for allegro model entities.
+ * Base interface for Allegro model entities.
  */
 public interface IAllegroModelEntity extends IEntity
 {

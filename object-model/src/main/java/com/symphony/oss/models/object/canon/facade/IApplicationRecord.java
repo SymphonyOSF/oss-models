@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Symphony Communication Services, LLC.
+ * Copyright 2021 Symphony Communication Services, LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,40 +19,26 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/I_.java.ftl
  *		Template version	   1.0
- *  At                  2020-06-23 13:24:02 BST
+ *  At                  2021-01-21 13:40:39 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
-package com.symphony.oss.models.allegro.canon.facade;
+package com.symphony.oss.models.object.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.commons.dom.json.ImmutableJsonObject;
-import com.symphony.oss.models.allegro.canon.IAllegroBaseConfigurationEntity;
+import com.symphony.oss.models.object.canon.IApplicationRecordEntity;
 
 /**
- * Facade for Object ObjectSchema(AllegroBaseConfiguration)
- * Generated from ObjectSchema(AllegroBaseConfiguration) at #/components/schemas/AllegroBaseConfiguration
+ * Facade for Object ObjectSchema(ApplicationRecord)
+ *
+ * A stored application object in an external database.
+ * Generated from ObjectSchema(ApplicationRecord) at #/components/schemas/ApplicationRecord
  */
 @Immutable
-public interface IAllegroBaseConfiguration
-  extends IAllegroBaseConfigurationEntity
+public interface IApplicationRecord
+  extends IApplicationRecordEntity
 {
-  /**
-   * Return the connection settings to be used on all connections which do not specify specific settings.
-   * 
-   * @return the connection settings to be used on all connections which do not specify specific settings.
-   */
-  IConnectionSettings getDefaultConnectionSettings();
-
-  /**
-   * Return a copy of this object's configuration with any passwords or credentials redacted.
-   * 
-   * The returned object can safely be logged.
-   * 
-   * @return a copy of this object's configuration with any passwords or credentials redacted.
-   */
-  ImmutableJsonObject getRedacted();
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl

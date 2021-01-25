@@ -19,7 +19,7 @@
  *           artifactId canon-template-java
  *		Template name		   proforma/java/Object/_.java.ftl
  *		Template version	   1.0
- *  At                  2021-01-15 13:51:09 GMT
+ *  At                  2021-01-22 15:10:43 GMT
  *----------------------------------------------------------------------------------------------------
  */
 
@@ -27,26 +27,33 @@ package com.symphony.oss.models.allegro.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
-import com.symphony.oss.canon.runtime.IModelRegistry;
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
+
 import com.symphony.oss.commons.dom.json.ImmutableJsonObject;
 import com.symphony.oss.commons.dom.json.MutableJsonObject;
-import com.symphony.oss.models.allegro.canon.AllegroPodConfigurationEntity;
+
+import com.symphony.oss.canon.runtime.IEntity;
+import com.symphony.oss.canon.runtime.IModelRegistry;
+
+import com.symphony.oss.commons.immutable.ImmutableByteArray;
+
+import com.symphony.oss.models.allegro.canon.ObjectStoreConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.IObjectStoreConfigurationEntity;
+import com.symphony.oss.models.allegro.canon.AllegroModel;
 
 /**
- * Facade for Object ObjectSchema(AllegroPodConfiguration)
- * Generated from ObjectSchema(AllegroPodConfiguration) at #/components/schemas/AllegroPodConfiguration
+ * Facade for Object ObjectSchema(ObjectStoreConfiguration)
+ * Generated from ObjectSchema(ObjectStoreConfiguration) at #/components/schemas/ObjectStoreConfiguration
  */
 @Immutable
-public class AllegroPodConfiguration extends AllegroPodConfigurationEntity implements IAllegroPodConfiguration
+public class ObjectStoreConfiguration extends ObjectStoreConfigurationEntity implements IObjectStoreConfiguration
 {
-  private ImmutableJsonObject redacted_;
-  
   /**
    * Constructor from builder.
    * 
    * @param builder A mutable builder containing all values.
    */
-  public AllegroPodConfiguration(AbstractAllegroPodConfigurationBuilder<?,?> builder)
+  public ObjectStoreConfiguration(AbstractObjectStoreConfigurationBuilder<?,?> builder)
   {
     super(builder);
   }
@@ -57,7 +64,7 @@ public class AllegroPodConfiguration extends AllegroPodConfigurationEntity imple
    * @param jsonObject An immutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroPodConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
+  public ObjectStoreConfiguration(ImmutableJsonObject jsonObject, IModelRegistry modelRegistry)
   {
     super(jsonObject, modelRegistry);
   }
@@ -68,7 +75,7 @@ public class AllegroPodConfiguration extends AllegroPodConfigurationEntity imple
    * @param mutableJsonObject A mutable JSON object containing the serialized form of the object.
    * @param modelRegistry A model registry to use to deserialize any nested objects.
    */
-  public AllegroPodConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
+  public ObjectStoreConfiguration(MutableJsonObject mutableJsonObject, IModelRegistry modelRegistry)
   {
     super(mutableJsonObject, modelRegistry);
   }
@@ -78,61 +85,38 @@ public class AllegroPodConfiguration extends AllegroPodConfigurationEntity imple
    * 
    * @param other Another instance from which all attributes are to be copied.
    */
-  public AllegroPodConfiguration(IAllegroPodConfiguration other)
+  public ObjectStoreConfiguration(IObjectStoreConfiguration other)
   {
     super(other);
   }
   
-  @Override
-  public synchronized ImmutableJsonObject getRedacted()
+  /**
+   * Abstract builder for ObjectStoreConfiguration. If there are sub-classes of this type then their builders sub-class this builder.
+   *
+   * @param <B> The concrete type of the builder, used for fluent methods.
+   * @param <T> The concrete type of the built object.
+   */
+  public static abstract class AbstractObjectStoreConfigurationBuilder<B extends AbstractObjectStoreConfigurationBuilder<B,T>, T extends IObjectStoreConfigurationEntity> extends AbstractObjectStoreConfigurationEntityBuilder<B,T>
   {
-    if(redacted_ == null)
+    protected AbstractObjectStoreConfigurationBuilder(Class<B> type)
     {
-      MutableJsonObject jsonObject = getJsonObject().mutify();
-      
-      redactJsonObject(jsonObject);
-      
-      redacted_ = jsonObject.immutify();
+      super(type);
     }
     
-    return redacted_;
+    protected AbstractObjectStoreConfigurationBuilder(Class<B> type, IObjectStoreConfigurationEntity initial)
+    {
+      super(type, initial);
+    }
   }
-
+  
+  @Override
   protected void redactJsonObject(MutableJsonObject jsonObject)
   {
-    if(getDefaultConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("defaultConnectionSettings", getDefaultConnectionSettings().getRedacted());
-    }
+    super.redactJsonObject(jsonObject);
     
-    if(getPodConnectionSettings() != null)
+    if(getPrincipalCredential() != null)
     {
-      jsonObject.addIfNotNull("podConnectionSettings", getPodConnectionSettings().getRedacted());
-    }
-    
-    if(getKeyManagerConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("keyManagerConnectionSettings", getKeyManagerConnectionSettings().getRedacted());
-    }
-    
-    if(getCertSessionAuthConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("certSessionAuthConnectionSettings", getCertSessionAuthConnectionSettings().getRedacted());
-    }
-    
-    if(getCertKeyAuthConnectionSettings() != null)
-    {
-      jsonObject.addIfNotNull("certKeyAuthConnectionSettings", getCertKeyAuthConnectionSettings().getRedacted());
-    }
-    
-    if(getAuthCertFilePassword() != null)
-    {
-      jsonObject.addIfNotNull("authCertFilePassword", ConnectionSettings.REDACTED);
-    }
-    
-    if(getAuthCertPrivateKey() != null)
-    {
-      jsonObject.addIfNotNull("authCertPrivateKey", ConnectionSettings.REDACTED);
+      jsonObject.addIfNotNull("principalCredential", getPrincipalCredential().getRedacted());
     }
     
     if(getRsaPemCredential() != null)

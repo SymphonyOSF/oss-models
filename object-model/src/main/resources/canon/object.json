@@ -698,6 +698,20 @@
           }
         }
       },
+      "ApplicationRecord": {
+        "type": "object",
+        "facade": true,
+        "builderFacade": true,
+        "description": "A stored application object in an external database.",
+        "properties": {
+          "header": {
+            "$ref": "#/components/schemas/ApplicationObjectHeader"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/ApplicationObjectPayload"
+          }
+        }
+      },
       "StoredApplicationRecord": {
         "type": "object",
         "extends": "https://models.oss.symphony.com/core.json#/components/schemas/ApplicationPayload",
