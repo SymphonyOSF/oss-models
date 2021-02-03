@@ -181,7 +181,7 @@
           }
         }
       },
-      "AllegroPodConfiguration": {
+      "Allegro2Configuration": {
         "type": "object",
         "facade": true,
         "builderFacade": false,
@@ -236,8 +236,6 @@
           }
         }
       },
-      
-      
       "AllegroBaseConfiguration": {
         "type": "object",
         "facade": true,
