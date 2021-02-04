@@ -38,7 +38,7 @@ import com.symphony.oss.models.object.canon.IStoredApplicationObjectEntity;
  */
 @Immutable
 public interface IStoredApplicationObject
-  extends IAbstractStoredApplicationObject, IStoredApplicationObjectEntity, IStoredApplicationRecord
+  extends IAbstractStoredApplicationObject, IStoredApplicationObjectEntity
 {
 }
 /*----------------------------------------------------------------------------------------------------
