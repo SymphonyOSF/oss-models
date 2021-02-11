@@ -36,11 +36,8 @@ import com.symphony.oss.models.allegro.canon.IAllegroMultiTenantConfigurationEnt
 /**
  * Facade for Object ObjectSchema(AllegroMultiTenantConfiguration)
  * Generated from ObjectSchema(AllegroMultiTenantConfiguration) at #/components/schemas/AllegroMultiTenantConfiguration
- * 
- * @deprecated Use AllegroObjectStoreConfiguration
  */
 @Immutable
-@Deprecated
 public class AllegroMultiTenantConfiguration extends AllegroMultiTenantConfigurationEntity implements IAllegroMultiTenantConfiguration
 {
   /**
