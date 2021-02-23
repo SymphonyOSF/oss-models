@@ -102,6 +102,39 @@ public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends
     {
       sortKeyPrefix = sortKeyPrefixValue;
     }
+    
+    String                    sortKeyPrefixMaxInclusiveValue = context.getParameterAsString("sortKeyPrefixMaxInclusive", ParameterLocation.Query, false);
+    String                    sortKeyPrefixMaxInclusive = null; 
+    
+    if(sortKeyPrefixMaxInclusiveValue != null)
+    {
+      sortKeyPrefixMaxInclusive = sortKeyPrefixMaxInclusiveValue;
+    }
+
+    String                    sortKeyPrefixMinExclusiveValue = context.getParameterAsString("sortKeyPrefixMinExclusive", ParameterLocation.Query, false);
+    String                    sortKeyPrefixMinExclusive = null; 
+    
+    if(sortKeyPrefixMinExclusiveValue != null)
+    {
+      sortKeyPrefixMinExclusive = sortKeyPrefixMinExclusiveValue;
+    }
+
+    String                    sortKeyPrefixMaxExclusiveValue = context.getParameterAsString("sortKeyPrefixMaxExclusive", ParameterLocation.Query, false);
+    String                    sortKeyPrefixMaxExclusive = null; 
+    
+    if(sortKeyPrefixMaxExclusiveValue != null)
+    {
+      sortKeyPrefixMaxExclusive = sortKeyPrefixMaxExclusiveValue;
+    }
+
+    String                    sortKeyPrefixMinInclusiveValue = context.getParameterAsString("sortKeyPrefixMinInclusive", ParameterLocation.Query, false);
+    String                    sortKeyPrefixMinInclusive = null; 
+    
+    if(sortKeyPrefixMinInclusiveValue != null)
+    {
+      sortKeyPrefixMinInclusive = sortKeyPrefixMinInclusiveValue;
+    }
+
 
 
     Integer                   limitValue = context.getParameterAsInteger("limit", ParameterLocation.Query, false);
@@ -156,6 +189,10 @@ public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends
             auth,
             context.getTrace(),
             sortKeyPrefix,
+            sortKeyPrefixMinExclusive,
+            sortKeyPrefixMinInclusive,
+            sortKeyPrefixMaxExclusive,
+            sortKeyPrefixMaxInclusive,
             limit,
             scanForwards,
             partitionHash,
