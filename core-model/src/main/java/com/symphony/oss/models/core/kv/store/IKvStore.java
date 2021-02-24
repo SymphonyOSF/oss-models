@@ -174,10 +174,6 @@ public interface IKvStore
    * @return Pagination tokens to allow a continuation query.
    */
   <T extends IKvItem> IKvPagination fetch(IKvPartitionKeyProvider partitionKey, boolean scanForwards, Integer limit, String after, 
-      String sortKeyPrefix,     
-      @Nullable String sortKeyPrefixMinExclusive,
-      @Nullable String sortKeyPrefixMinInclusive,
-      @Nullable String sortKeyPrefixMaxExclusive, 
-      @Nullable String sortKeyPrefixMaxInclusive,
+      String sortKeyPrefix, @Nullable String sortKeyMin, @Nullable String sortKeyMax, 
       Class<T> type, @Nullable Map<String, Object> filterAttributes, Consumer<T> consumer, ITraceContext trace);
 }

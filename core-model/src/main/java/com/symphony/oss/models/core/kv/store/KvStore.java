@@ -132,10 +132,7 @@ public class KvStore implements IKvStore
 
   @Override
   public <T extends IKvItem> IKvPagination fetch(IKvPartitionKeyProvider partitionKey, boolean scanForwards, Integer limit, String after, String sortKeyPrefix,  
-      @Nullable String sortKeyPrefixMinExclusive,
-      @Nullable String sortKeyPrefixMinInclusive,
-      @Nullable String sortKeyPrefixMaxExclusive, 
-      @Nullable String sortKeyPrefixMaxInclusive,
+      @Nullable String sortKeyMin, @Nullable String sortKeyMax,
       Class<T> type, Map<String, Object> filterAttributes, Consumer<T> consumer, ITraceContext trace)
   {
     Consumer<String> stringConsumer = new Consumer<String>()
@@ -148,10 +145,8 @@ public class KvStore implements IKvStore
     };
     
     return kvTable_.fetchPartitionObjects(partitionKey, scanForwards, limit, after, sortKeyPrefix,
-        sortKeyPrefixMinExclusive,
-        sortKeyPrefixMinInclusive,
-        sortKeyPrefixMaxExclusive, 
-        sortKeyPrefixMaxInclusive, 
+        sortKeyMin,
+        sortKeyMax, 
         filterAttributes, stringConsumer, trace);
   }
 

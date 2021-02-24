@@ -103,38 +103,22 @@ public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends
       sortKeyPrefix = sortKeyPrefixValue;
     }
     
-    String                    sortKeyPrefixMaxInclusiveValue = context.getParameterAsString("sortKeyPrefixMaxInclusive", ParameterLocation.Query, false);
-    String                    sortKeyPrefixMaxInclusive = null; 
+    String                    sortKeyMinValue = context.getParameterAsString("sortKeyMin", ParameterLocation.Query, false);
+    String                    sortKeyMin = null; 
     
-    if(sortKeyPrefixMaxInclusiveValue != null)
+    if(sortKeyMinValue != null)
     {
-      sortKeyPrefixMaxInclusive = sortKeyPrefixMaxInclusiveValue;
+      sortKeyMin = sortKeyMinValue;
     }
 
-    String                    sortKeyPrefixMinExclusiveValue = context.getParameterAsString("sortKeyPrefixMinExclusive", ParameterLocation.Query, false);
-    String                    sortKeyPrefixMinExclusive = null; 
-    
-    if(sortKeyPrefixMinExclusiveValue != null)
-    {
-      sortKeyPrefixMinExclusive = sortKeyPrefixMinExclusiveValue;
-    }
 
-    String                    sortKeyPrefixMaxExclusiveValue = context.getParameterAsString("sortKeyPrefixMaxExclusive", ParameterLocation.Query, false);
-    String                    sortKeyPrefixMaxExclusive = null; 
+    String                    sortKeyMaxValue = context.getParameterAsString("sortKeyMax", ParameterLocation.Query, false);
+    String                    sortKeyMax = null; 
     
-    if(sortKeyPrefixMaxExclusiveValue != null)
+    if(sortKeyMaxValue != null)
     {
-      sortKeyPrefixMaxExclusive = sortKeyPrefixMaxExclusiveValue;
+      sortKeyMax = sortKeyMaxValue;
     }
-
-    String                    sortKeyPrefixMinInclusiveValue = context.getParameterAsString("sortKeyPrefixMinInclusive", ParameterLocation.Query, false);
-    String                    sortKeyPrefixMinInclusive = null; 
-    
-    if(sortKeyPrefixMinInclusiveValue != null)
-    {
-      sortKeyPrefixMinInclusive = sortKeyPrefixMinInclusiveValue;
-    }
-
 
 
     Integer                   limitValue = context.getParameterAsInteger("limit", ParameterLocation.Query, false);
@@ -189,10 +173,8 @@ public abstract class StreamingPartitionsPartitionHashPagePathHandler<T> extends
             auth,
             context.getTrace(),
             sortKeyPrefix,
-            sortKeyPrefixMinExclusive,
-            sortKeyPrefixMinInclusive,
-            sortKeyPrefixMaxExclusive,
-            sortKeyPrefixMaxInclusive,
+            sortKeyMin,
+            sortKeyMax,
             limit,
             scanForwards,
             partitionHash,
