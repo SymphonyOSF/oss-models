@@ -508,33 +508,17 @@
             "type": "string"
           }
         },
-        "sortKeyPrefixMinExclusive": {
+        "sortKeyMin": {
           "in": "query",
-          "description": "Prefix for the minimum exclusive sort key of returned objects",
+          "description": "The minimum exclusive sort key of returned objects",
           "required": false,
           "schema": {
             "type": "string"
           }
         },
-        "sortKeyPrefixMinInclusive": {
+        "sortKeyMax": {
           "in": "query",
-          "description": "Prefix for the minimum inclusive sort key of returned objects",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        "sortKeyPrefixMaxExclusive": {
-          "in": "query",
-          "description": "Prefix for the maximum exclusive sort key of returned objects",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        "sortKeyPrefixMaxInclusive": {
-          "in": "query",
-          "description": "Prefix for the maximum inclusive sort key of returned objects",
+          "description": "The maximum inclusive sort key of returned objects",
           "required": false,
           "schema": {
             "type": "string"
