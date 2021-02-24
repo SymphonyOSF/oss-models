@@ -166,6 +166,8 @@ public interface IKvStore
    * @param limit             An optional limit to the number of objects retrieved.
    * @param after             An optional page cursor to continue a previous query.
    * @param sortKeyPrefix     An optional sort key prefix.
+   * @param sortKeyMin        An optional sort key min.
+   * @param sortKeyMax        An optional sort key max.  
    * @param type              The type of the object to be returned.
    * @param filterAttributes  Optional attribute values to filter results. 
    * @param consumer          A consumer to receive the retrieved objects.
