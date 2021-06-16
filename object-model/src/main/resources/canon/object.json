@@ -965,6 +965,9 @@
           "partitionHash": {
             "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/Hash"
           },
+          "userId": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PodAndUserId"
+          },
           "queueName": {
             "type": "string"
           },
@@ -1027,6 +1030,9 @@
             "items": {
               "$ref": "#/components/schemas/PartitionSelection"
             }
+          },
+          "subscribeMessages": {
+            "type": "boolean"
           },
           "userPermissions": {
             "type": "array",
