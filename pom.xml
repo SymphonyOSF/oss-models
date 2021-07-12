@@ -22,7 +22,7 @@
   <parent>
 		<groupId>com.symphony.oss</groupId>
 		<artifactId>oss-parent-pom</artifactId>
-		<version>0.4.9-SNAPSHOT</version><!-- oss-parent-pom -->
+		<version>0.4.9</version><!-- oss-parent-pom -->
   </parent>
 
   <groupId>com.symphony.oss.models</groupId>
@@ -68,8 +68,8 @@
     <maven.compiler.target>1.8</maven.compiler.target>  
 
     <oss.commons.version>0.3.0</oss.commons.version>
-    <oss.canon.version>0.4.2-SNAPSHOT</oss.canon.version>
-    <oss.fugue.version>0.3.2-SNAPSHOT</oss.fugue.version>
+    <oss.canon.version>0.4.2</oss.canon.version>
+    <oss.fugue.version>0.3.2</oss.fugue.version>
     <messageml.version>0.9.73</messageml.version>
     <canon.template.groupid>com.symphony.oss.canon</canon.template.groupid>
     <canon.template.java>canon-template-java</canon.template.java>
