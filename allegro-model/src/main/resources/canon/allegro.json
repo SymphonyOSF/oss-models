@@ -14,6 +14,29 @@
 		"javaGenPackage": "com.symphony.oss.models.allegro.canon",
 		"javaFacadePackage": "com.symphony.oss.models.allegro.canon.facade"
 	},
+  "methods": {
+    "/allegroBot": {
+      "post": {
+        "summary": "Invoke an allegrobot",
+        "operationId": "invokeBot",
+        "tags": [
+          "objects"
+        ],
+        "payload": {
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/AllegroBotRequest"
+          }
+        },
+        "response": {
+          "required": false,
+          "schema": {
+            "$ref": "#/components/schemas/AllegroBotResponse"
+          }
+        }
+      }
+    }
+  },
 	"components": {
 		"schemas": {
       "EntityJson": {
@@ -107,6 +130,49 @@
         "properties": {
           "maestroMessage": {
             "$ref": "https://models.oss.symphony.com/chat.json#/components/schemas/MaestroMessage"
+          }
+        }
+      },
+      "AllegroBotRequest": {
+        "type": "object",
+        "properties": {
+          "podId": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PodId"
+          },
+          "userId": {
+            "$ref": "https://models.oss.symphony.com/core.json#/components/schemas/PodAndUserId"
+          },
+          "messages": {
+            "type": "array",
+            "x-canon-cardinality": "LIST",
+            "items": {
+              "$ref": "#/components/schemas/AbstractReceivedChatMessage"
+            }
+          }
+        }
+      },
+      "AllegroBotResponse": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "x-canon-cardinality": "LIST",
+            "items": {
+              "$ref": "#/components/schemas/ChatMessage"
+            }
+          }
+        }
+      },
+      "AllegroBotCredential": {
+        "type": "object",
+        "facade": true,
+        "builderFacade": false,
+        "properties": {
+          "encodedPrivateKey": {
+            "$ref": "https://models.oss.symphony.com/crypto.json#/components/schemas/PemPrivateKey"
+          },
+          "encodedPublicKey": {
+            "$ref": "https://models.oss.symphony.com/crypto.json#/components/schemas/PemPublicKey"
           }
         }
       },
