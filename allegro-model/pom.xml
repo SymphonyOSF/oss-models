@@ -48,10 +48,16 @@
       <artifactId>freemarker</artifactId>
       <version>2.3.31</version>
     </dependency>
+    <!--  messageml depends on a vulnerable version of this -->
+      <dependency>
+        <groupId>org.mozilla</groupId>
+        <artifactId>rhino</artifactId>
+        <version>1.7.13</version>
+      </dependency>
     <dependency>
       <groupId>org.symphonyoss.symphony</groupId>
       <artifactId>messageml</artifactId>
-      <version>0.9.67</version>
+      <version>${messageml.version}</version>
     </dependency>
     
     <dependency>
