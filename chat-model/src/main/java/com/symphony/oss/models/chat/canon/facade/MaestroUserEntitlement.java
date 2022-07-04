@@ -93,6 +93,12 @@ public class MaestroUserEntitlement extends MaestroUserEntitlementEntity impleme
   {
     return getUserEntitlementMap().hasEntitlement(entitlementId);
   }
+
+  @Override
+  public boolean hasEntitlement(String entitlementId, Object value)
+  {
+    return getUserEntitlementMap().hasEntitlement(entitlementId, value);
+  }
   
 }
 /*----------------------------------------------------------------------------------------------------

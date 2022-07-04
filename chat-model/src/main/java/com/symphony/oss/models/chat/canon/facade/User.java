@@ -27,6 +27,7 @@ package com.symphony.oss.models.chat.canon.facade;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.annotation.concurrent.Immutable;
 
@@ -46,7 +47,7 @@ import com.symphony.oss.models.chat.canon.UserEntity;
 @SuppressWarnings("unused")
 public class User extends UserEntity implements IUser
 {
-  private Map<String, Boolean>  entitlementMap_ = null;
+  private Map<String, Object>  entitlementMap_ = null;
   
   /**
    * Constructor from builder.
@@ -90,7 +91,7 @@ public class User extends UserEntity implements IUser
     super(other);
   }
   
-  private synchronized Map<String, Boolean> getEntitlementMap()
+  private synchronized Map<String, Object> getEntitlementMap()
   {
     if(entitlementMap_ == null)
     {
@@ -108,9 +109,15 @@ public class User extends UserEntity implements IUser
   @Override
   public boolean hasEntitlement(String entitlementId)
   {
-    Boolean result = getEntitlementMap().get(entitlementId);
-    
-    return Boolean.TRUE == result;
+    return hasEntitlement(entitlementId, Boolean.TRUE);
+  }
+
+  @Override
+  public boolean hasEntitlement(String entitlementId, Object value)
+  {
+    Object result = getEntitlementMap().get(entitlementId);
+
+    return Objects.equals(result, value);
   }
   
 //  /**

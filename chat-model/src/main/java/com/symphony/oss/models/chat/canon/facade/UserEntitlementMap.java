@@ -27,6 +27,9 @@ package com.symphony.oss.models.chat.canon.facade;
 
 import javax.annotation.concurrent.Immutable;
 
+import com.symphony.oss.commons.type.provider.IIntegerProvider;
+import com.symphony.oss.commons.type.provider.ILongProvider;
+import com.symphony.oss.commons.type.provider.IStringProvider;
 import com.symphony.oss.models.chat.canon.UserEntitlementMapEntity;
 import com.symphony.oss.models.chat.canon.IUserEntitlementMapEntity;
 import com.symphony.oss.canon.runtime.IEntity;
@@ -37,6 +40,8 @@ import com.symphony.oss.commons.dom.json.MutableJsonObject;
 import com.symphony.oss.commons.immutable.ImmutableByteArray;
 import com.symphony.oss.commons.type.provider.IBooleanProvider;
 import com.symphony.oss.models.chat.canon.ChatModel;
+
+import java.util.Objects;
 
 /**
  * Facade for Object ObjectSchema(UserEntitlementMap)
@@ -93,11 +98,19 @@ public class UserEntitlementMap extends UserEntitlementMapEntity implements IUse
   @Override
   public boolean hasEntitlement(String entitlementId)
   {
+    return hasEntitlement(entitlementId, Boolean.TRUE);
+  }
+
+  @Override
+  public boolean hasEntitlement(String entitlementId, Object value)
+  {
     IImmutableJsonDomNode node = getJsonObject().get(entitlementId);
-    
-    if(node instanceof IBooleanProvider)
-      return ((IBooleanProvider) node).asBoolean();
-    
+
+    if (node instanceof IBooleanProvider && value instanceof Boolean)
+      return Objects.equals(((IBooleanProvider) node).asBoolean(), value);
+    else if (node instanceof IStringProvider && value instanceof String)
+      return Objects.equals(((IStringProvider) node).asString(), value);
+
     return false;
   }
   

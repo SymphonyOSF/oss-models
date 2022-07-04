@@ -40,13 +40,27 @@ public interface IMaestroUserEntitlement
   extends IMaestroUserEntitlementEntity
 {
   /**
-   * Check to see if the user has the given entitlement ID.
-   * 
-   * @param entitlementId The string entitlement ID of an entitlement.
-   * 
-   * @return True if the given entitlement ID is present and true, otherwise false.
+   * Return true iff this user entitlements has the given boolean entitlement set.
+   *
+   * If an unknown entitlementId is given this method returns false.
+   *
+   * @param entitlementId The ID of an entitlement.
+   *
+   * @return true iff this user has the given boolean entitlement set.
    */
   boolean hasEntitlement(String entitlementId);
+
+  /**
+   * Return true iff this user entitlements has the given entitlement set to given expected value.
+   *
+   * If an unknown entitlementId is given this method returns false.
+   *
+   * @param entitlementId The ID of an entitlement.
+   * @param value The expected value of the entitlement.
+   *
+   * @return true iff this user has the given entitlement set to the expected value.
+   */
+  boolean hasEntitlement(String entitlementId, Object value);
 }
 /*----------------------------------------------------------------------------------------------------
  * End of template proforma/java/Object/I_.java.ftl

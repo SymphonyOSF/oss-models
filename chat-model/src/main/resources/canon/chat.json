@@ -475,6 +475,10 @@
           }
         }
       },
+      "EntitlementValue": {
+        "description": "An entitlement value",
+        "properties": {}
+      },
       "Entitlement": {
         "description": "An entitlement as seen in SocialMessage.",
         "type": "object",
@@ -487,7 +491,7 @@
             "type": "string"
           },
           "value": {
-            "type": "boolean"
+            "$ref": "#/components/schemas/EntitlementValue"
           }
         }
       },

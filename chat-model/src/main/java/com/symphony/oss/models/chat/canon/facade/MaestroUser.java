@@ -95,6 +95,12 @@ public class MaestroUser extends MaestroUserEntity implements IMaestroUser
   {
     return getEntitlement().hasEntitlement(entitlementId);
   }
+
+  @Override
+  public boolean hasEntitlement(String entitlementId, Object value)
+  {
+    return getEntitlement().hasEntitlement(entitlementId, value);
+  }
   
 }
 /*----------------------------------------------------------------------------------------------------
