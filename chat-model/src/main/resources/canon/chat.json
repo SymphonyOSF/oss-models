@@ -270,6 +270,13 @@
           },
           "idle": {
             "type": "boolean"
+          },
+          "category": {
+            "type": "string"
+          },
+          "resetAt": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
